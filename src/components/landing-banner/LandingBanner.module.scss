@@ -1,0 +1,72 @@
+@import "src/styles/variables.module";
+
+.landing-banner {
+  border: 1px solid black;
+  background-color: $primary-main-color;
+  border-radius: 45px;
+  overflow: hidden;
+  margin: $spacing-m;
+  padding: $spacing-m $spacing-xxl;
+  box-sizing: border-box;
+  position: relative;
+  align-items: center;
+
+  .header {
+    font-weight: 900;
+    font-size: $xxl-font;
+    text-transform: uppercase;
+    padding: $spacing-l 0;
+    border-bottom: 2px solid $highlight-color;
+  }
+
+  &:hover {
+    .content {
+      .image-container {
+        filter: none;
+      }
+
+      .slogan {
+        b {
+          color: $secondary-main-color;
+        }
+      }
+    }
+  }
+
+  .content {
+    margin: $spacing-xxl 0;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: $spacing-xl;
+
+    @media (min-width: $md) {
+      grid-template-columns: 7fr 5fr;
+    }
+
+    .image-container {
+      filter: saturate(0);
+      transition: filter 0.3s;
+      overflow: hidden;
+      border-radius: 30px;
+      position: relative;
+
+      img {
+        object-fit: cover;
+      }
+    }
+
+    .slogan {
+      width: 90%;
+      font-size: $xxxl-font;
+      text-transform: uppercase;
+      line-height: calc($xxxl-font * 0.9);
+      font-weight: 900;
+
+      b {
+        transition: color 0.3s;
+        font-weight: inherit;
+      }
+    }
+  }
+}

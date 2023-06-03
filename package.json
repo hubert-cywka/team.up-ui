@@ -1,5 +1,5 @@
 {
-  "name": "wordsy",
+  "name": "booksy.",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -24,10 +24,10 @@
     "postcss": "8.4.24",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "tailwindcss": "3.3.2",
     "typescript": "5.0.4"
   },
   "devDependencies": {
-    "eslint-config-prettier": "^8.8.0"
+    "eslint-config-prettier": "^8.8.0",
+    "sass": "^1.62.1"
   }
 }
