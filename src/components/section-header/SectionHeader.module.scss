@@ -1,0 +1,18 @@
+@import "src/styles/variables.module";
+
+.section-header {
+  color: $primary-main-color;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-m;
+  font-weight: 700;
+  margin-top: $spacing-xl;
+  width: 100%;
+  justify-content: center;
+  font-size: $logo-font;
+  text-transform: uppercase;
+
+  :nth-child(2) {
+    color: $primary-dark-color;
+  }
+}

@@ -1,0 +1,48 @@
+@import "src/styles/variables.module";
+
+.page-navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-xl $spacing-xxl;
+  margin: $spacing-m;
+  box-sizing: border-box;
+  background: $primary-main-color;
+  width: calc(100% - 2 * #{$spacing-m});
+  border-radius: 100px;
+  z-index: $index-top;
+  position: sticky;
+  top: 0;
+  transition: transform 0.3s;
+  box-shadow: 0px 8px 5px 3px rgba($background-color, 0.3);
+
+  &.collapsed {
+    transform: translateY(-150%);
+  }
+
+  .logo {
+    word-break: break-all;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: $logo-font;
+  }
+
+  .tabs-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-xl;
+
+    .tab {
+      color: $text-color;
+      text-decoration: none;
+      font-weight: bold;
+      transition: border-bottom-color 0.2s;
+      border-bottom: 5px solid transparent;
+
+      &:hover {
+        border-bottom-color: $secondary-light-color;
+      }
+    }
+  }
+}
