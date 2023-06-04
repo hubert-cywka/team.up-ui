@@ -1,0 +1,47 @@
+@import "src/styles/variables.module";
+@import "src/styles/mixins.module";
+
+.heart-monitor {
+  background-color: $background-main-color;
+  width: 300px;
+  height: 70px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $primary-main-color;
+  gap: $spacing-m;
+  padding: 0 $spacing-l;
+  box-sizing: border-box;
+
+  .heartbeat-icon {
+    height: $l-font;
+  }
+
+  .heartbeat-rate {
+    text-align: right;
+    width: 75px;
+    font-size: $m-font;
+    font-weight: 900;
+  }
+
+  .chart-container {
+    padding: $spacing-s;
+    box-sizing: border-box;
+    height: 80%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: $spacing-s;
+
+    .dash {
+      border-radius: 50px;
+      flex-grow: 1;
+      min-height: 10%;
+      width: 100%;
+      background-color: $primary-main-color;
+      transition: height 0.5s;
+    }
+  }
+}

@@ -6,7 +6,10 @@ const Home = () => {
   return (
     <div>
       <LandingBanner />
-      <SectionHeader text="How does this work?" />
+      <SectionHeader
+        header="How does this work?"
+        subheader="4 steps is all it takes. Third one is even optional. So... why won't you try it?"
+      />
       <HowTo />
     </div>
   );

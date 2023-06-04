@@ -1,22 +1,21 @@
 @import "src/styles/variables.module";
+@import "src/styles/mixins.module";
 
 .landing-banner {
-  border: 1px solid black;
   background-color: $primary-main-color;
   border-radius: 45px;
   overflow: hidden;
   margin: $spacing-m;
-  padding: $spacing-m $spacing-xxl;
+  padding: $spacing-m $spacing-xxl $spacing-xl;
   box-sizing: border-box;
   position: relative;
   align-items: center;
 
   .header {
-    font-weight: 900;
-    font-size: $xxl-font;
-    text-transform: uppercase;
+    opacity: 0.5;
+    @include header-text($xxl-font);
     padding: $spacing-l 0;
-    border-bottom: 2px solid $highlight-color;
+    border-bottom: 2px solid $primary-dark-color;
   }
 
   &:hover {
@@ -34,7 +33,7 @@
   }
 
   .content {
-    margin: $spacing-xxl 0;
+    margin: $spacing-xxl 0 $spacing-xl 0;
     box-sizing: border-box;
     display: grid;
     grid-template-columns: 7fr 5fr;
@@ -53,15 +52,11 @@
     }
 
     .slogan {
+      @include header-text($xxxl-font);
       width: 90%;
-      text-transform: uppercase;
-      line-height: calc($xxxl-font * 0.9);
-      font-weight: 900;
-      font-size: $xxxl-font;
 
       @media (max-width: $md) {
         font-size: $logo-font;
-        line-height: calc($logo-font * 0.9);
       }
 
       b {

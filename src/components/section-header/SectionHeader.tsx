@@ -1,17 +1,21 @@
 import styles from './SectionHeader.module.scss';
 
 interface SectionHeaderProps {
-  text: string;
+  header: string;
+  subheader?: string;
 }
 
-const SectionHeader = ({ text }: SectionHeaderProps) => {
-  const words = text.split(' ');
+const SectionHeader = ({ header, subheader }: SectionHeaderProps) => {
+  const words = header.split(' ');
 
   return (
     <div className={styles['section-header']}>
-      {words.map((word, index) => (
-        <div key={index}>{word}</div>
-      ))}
+      <div className={styles['header']}>
+        {words.map((word, index) => (
+          <div key={index}>{word}</div>
+        ))}
+      </div>
+      {subheader && <div className={styles['subheader']}>{subheader}</div>}
     </div>
   );
 };

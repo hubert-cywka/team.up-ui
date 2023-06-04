@@ -1,0 +1,6 @@
+@mixin header-text($font-size) {
+  line-height: 90%;
+  font-weight: 900;
+  font-size: $font-size;
+  text-transform: uppercase;
+}
