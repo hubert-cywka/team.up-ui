@@ -9,6 +9,6 @@ export const BASKETBALL_DARK_IMG: ImageData = {
 };
 
 export const FOOTBALL_DARK_IMG: ImageData = {
-  src: '/football-dark.jpg',
+  src: '/football-dark.webp',
   alt: 'Lamp shining on pitch full of football players'
 };

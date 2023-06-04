@@ -1,19 +1,29 @@
 @import "src/styles/variables.module";
+@import "src/styles/mixins.module";
 
 .section-header {
   color: $primary-main-color;
-  display: flex;
-  flex-wrap: wrap;
-  gap: $spacing-m;
-  font-weight: 700;
+  padding: 0 $spacing-l;
   margin-top: $spacing-xxxl;
   margin-bottom: $spacing-m;
+  box-sizing: border-box;
   width: 100%;
-  justify-content: center;
-  font-size: $logo-font;
-  text-transform: uppercase;
 
-  :nth-child(2) {
-    color: $primary-dark-color;
+  .header {
+    @include header-text($logo-font);
+    justify-content: center;
+    gap: $spacing-m;
+    display: flex;
+    flex-wrap: wrap;
+
+    :nth-child(2) {
+      color: $primary-dark-color;
+    }
+  }
+
+  .subheader {
+    margin-top: $spacing-l;
+    text-align: center;
+    font-size: $m-font;
   }
 }
