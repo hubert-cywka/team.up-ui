@@ -37,12 +37,8 @@
     margin: $spacing-xxl 0;
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 7fr 5fr;
     grid-column-gap: $spacing-xl;
-
-    @media (min-width: $md) {
-      grid-template-columns: 7fr 5fr;
-    }
 
     .image-container {
       filter: saturate(0);
@@ -58,10 +54,15 @@
 
     .slogan {
       width: 90%;
-      font-size: $xxxl-font;
       text-transform: uppercase;
       line-height: calc($xxxl-font * 0.9);
       font-weight: 900;
+      font-size: $xxxl-font;
+
+      @media (max-width: $md) {
+        font-size: $logo-font;
+        line-height: calc($logo-font * 0.9);
+      }
 
       b {
         transition: color 0.3s;

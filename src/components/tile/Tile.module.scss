@@ -1,0 +1,38 @@
+@import "src/styles/variables.module";
+
+.tile-container {
+  background-color: $background-light-color;
+  border-radius: 30px;
+  color: $text-secondary;
+  padding: $spacing-xl $spacing-xl $spacing-xl 20%;
+  box-sizing: border-box;
+  text-align: right;
+
+  &:hover {
+    .header, .icon-container {
+      color: $secondary-light-color;
+      opacity: 1;
+    }
+  }
+
+  .header {
+    font-size: $xxl-font;
+    font-weight: 900;
+    margin-top: $spacing-m;
+  }
+
+  .description {
+    box-sizing: border-box;
+    font-size: $s-font;
+    margin-top: $spacing-s;
+  }
+
+  .icon-container {
+    font-size: $xxxl-font;
+    opacity: 0.5;
+  }
+
+  .icon-container, .header {
+    transition: color 0.3s, opacity 0.3s;
+  }
+}

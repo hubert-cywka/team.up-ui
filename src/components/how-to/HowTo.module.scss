@@ -1,0 +1,12 @@
+@import "src/styles/variables.module";
+
+.how-to-container {
+  padding: $spacing-m;
+  display: grid;
+  grid-gap: $spacing-xl;
+  grid-template-columns: repeat(4, 1fr);
+
+  @media (max-width: $md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

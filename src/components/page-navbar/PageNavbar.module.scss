@@ -2,9 +2,9 @@
 
 .page-navbar {
   display: flex;
+  gap: $spacing-m;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
   padding: $spacing-xl $spacing-xxl;
   margin: $spacing-m;
   box-sizing: border-box;
@@ -15,7 +15,7 @@
   position: sticky;
   top: 0;
   transition: transform 0.3s;
-  box-shadow: 0px 8px 5px 3px rgba($background-color, 0.3);
+  box-shadow: 0px 8px 5px 3px rgba($background-main-color, 0.3);
 
   &.collapsed {
     transform: translateY(-150%);
@@ -26,15 +26,21 @@
     text-transform: uppercase;
     font-weight: 900;
     font-size: $logo-font;
+
+    @media (max-width: $md) {
+      display: none;
+    }
   }
 
   .tabs-container {
+    flex-grow: 1;
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;
     gap: $spacing-xl;
 
     .tab {
-      color: $text-color;
+      color: $text-primary;
       text-decoration: none;
       font-weight: bold;
       transition: border-bottom-color 0.2s;
