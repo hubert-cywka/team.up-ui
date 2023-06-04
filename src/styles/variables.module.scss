@@ -2,13 +2,16 @@ $primary-main-color: #eee;
 $primary-light-color: #fff;
 $primary-dark-color: #d3d3d3;
 
-$background-color: #171717;
+$background-light-color: #272727;
+$background-main-color: #171717;
+$background-dark-color: #0c0c0c;
 
 $secondary-main-color: #ff4400;
 $secondary-light-color: #ff9541;
 $secondary-dark-color: #ff7300;
 
-$text-color: #171717;
+$text-primary: #171717;
+$text-secondary: #eee;
 $highlight-color: #888;
 
 $success-main-color: #2ec4b6;
@@ -42,6 +45,7 @@ $spacing-m: 10px;
 $spacing-l: 15px;
 $spacing-xl: 25px;
 $spacing-xxl: 40px;
+$spacing-xxxl: 70px;
 
 $index-top: 1000;
 
