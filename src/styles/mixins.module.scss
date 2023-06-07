@@ -1,6 +1,20 @@
+@import "variables.module";
+
 @mixin header-text($font-size) {
   line-height: 90%;
   font-weight: 900;
   font-size: $font-size;
   text-transform: uppercase;
+}
+
+@mixin dynamic-width {
+  width: 100%;
+
+  @media (min-width: $sm) {
+    width: 80%;
+  }
+
+  @media (min-width: $md) {
+    width: 70%;
+  }
 }

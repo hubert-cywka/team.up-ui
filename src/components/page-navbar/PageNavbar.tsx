@@ -30,8 +30,8 @@ const PageNavbar = () => {
       <div className={styles['logo']}>Team.Up</div>
       <div className={styles['tabs-container']}>
         {buildHeaderTab('HOME', RouteConstants.HOME)}
-        {buildHeaderTab('ACTIVITIES', RouteConstants.HOME)}
-        {buildHeaderTab('ABOUT', RouteConstants.HOME)}
+        {buildHeaderTab('ACTIVITIES', RouteConstants.ACTIVITIES)}
+        {buildHeaderTab('ABOUT', RouteConstants.ABOUT)}
       </div>
     </div>
   );

@@ -3,7 +3,7 @@
 
 .landing-banner {
   background-color: $primary-main-color;
-  border-radius: 45px;
+  border-radius: $radius-xxl;
   overflow: hidden;
   margin: $spacing-m;
   padding: $spacing-m $spacing-xxl $spacing-xl;
@@ -43,7 +43,7 @@
       filter: saturate(0);
       transition: filter 0.3s;
       overflow: hidden;
-      border-radius: 30px;
+      border-radius: $radius-xxl;
       position: relative;
 
       img {

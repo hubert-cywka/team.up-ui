@@ -1,4 +1,5 @@
 @import "src/styles/variables.module";
+@import "src/styles/mixins.module";
 
 .page-navbar {
   display: flex;
@@ -6,16 +7,18 @@
   flex-wrap: wrap;
   align-items: center;
   padding: $spacing-xl $spacing-xxl;
-  margin: $spacing-m;
+  margin: $spacing-m auto;
   box-sizing: border-box;
   background: $primary-main-color;
-  width: calc(100% - 2 * #{$spacing-m});
-  border-radius: 100px;
+  border-radius: $radius-xxl;
   z-index: $index-top;
   position: sticky;
   top: 0;
   transition: transform 0.3s;
   box-shadow: 0 8px 5px 3px rgba($background-main-color, 0.1);
+
+  @include dynamic-width;
+  width: calc(100% - 2 * #{$spacing-m});
 
   &.collapsed {
     transform: translateY(-150%);
