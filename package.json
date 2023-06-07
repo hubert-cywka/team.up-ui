@@ -27,7 +27,9 @@
     "postcss": "8.4.24",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "5.0.4"
+    "react-hook-form": "^7.44.3",
+    "typescript": "5.0.4",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "eslint-config-prettier": "^8.8.0",
