@@ -8,15 +8,17 @@ import Footer from '@/components/footer/Footer';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Layout>
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <Layout>
         <div className="content-container">
           <PageNavbar />
-          <Component {...pageProps} />
+          <div className="content">
+            <Component {...pageProps} />
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </ThemeProvider>
-    </Layout>
+      </Layout>
+    </ThemeProvider>
   );
 }
 

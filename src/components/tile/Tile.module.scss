@@ -3,7 +3,7 @@
 
 .tile-container {
   background-color: $background-light-color;
-  border-radius: 30px;
+  border-radius: $radius-xxl;
   color: $text-secondary;
   padding: $spacing-xxl $spacing-xl $spacing-xxl 20%;
   box-sizing: border-box;
@@ -18,7 +18,7 @@
     aspect-ratio: 1;
     position: absolute;
     transform: translateY(-25%) translateX(-25%);
-    border-radius: 100%;
+    border-radius: $round;
     background-color: $background-main-color;
     top: 0;
     left: 0;

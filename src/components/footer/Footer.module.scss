@@ -6,6 +6,8 @@
   background-color: $background-light-color;
   padding: $spacing-xxl;
   color: $text-secondary;
+  box-sizing: border-box;
+  width: 100%;
 
   .author {
     font-weight: 900;
