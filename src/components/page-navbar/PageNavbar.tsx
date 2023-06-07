@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { RouteConstants } from '@/constants/RouteConstants';
 import { useEffect, useState } from 'react';
 import { useScrollDirection } from '@/hooks/useScrollPosition';
+import AccountMenu from '@/components/account-menu/AccountMenu';
 
 const PageNavbar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -33,6 +34,7 @@ const PageNavbar = () => {
         {buildHeaderTab('ACTIVITIES', RouteConstants.ACTIVITIES)}
         {buildHeaderTab('ABOUT', RouteConstants.ABOUT)}
       </div>
+      <AccountMenu />
     </div>
   );
 };
