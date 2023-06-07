@@ -1,0 +1,39 @@
+@import "src/styles/variables.module";
+
+.sign-in-form-container {
+  background-color: $primary-light-color;
+  padding: $spacing-xxl $spacing-xxl $spacing-l;
+  border-radius: $radius-xl;
+  width: 90%;
+  box-sizing: border-box;
+  max-width: 400px;
+
+  .sign-in-form {
+    display: flex;
+    gap: $spacing-m;
+    flex-direction: column;
+    align-items: center;
+
+    .input {
+      width: 100%;
+      background-color: $primary-main-color;
+      padding: $spacing-m $spacing-l;
+      border-radius: $radius-s;
+      border: thin solid $primary-dark-color;
+
+      .input-icon {
+        margin-right: $spacing-l;
+      }
+    }
+
+    .navigation-link {
+      margin-bottom: $spacing-m;
+      color: $text-primary;
+      font-size: $s-font;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
