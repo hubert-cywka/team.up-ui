@@ -1,0 +1,10 @@
+@import "src/styles/variables.module";
+@import "src/styles/mixins.module";
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include dynamic-width;
+}

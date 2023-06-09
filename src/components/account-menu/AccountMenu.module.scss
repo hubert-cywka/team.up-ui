@@ -1,9 +1,9 @@
 @import "src/styles/variables.module";
 
-.account-menu-container {
+.accountMenuContainer {
   position: relative;
 
-  .account-menu-button {
+  .accountMenuButton {
     width: $m-font;
     cursor: pointer;
 
@@ -12,7 +12,7 @@
     }
   }
 
-  .account-menu {
+  .accountMenu {
     position: absolute;
     top: calc(100% + #{$spacing-s});
     left: 50%;
@@ -24,7 +24,7 @@
     box-shadow: $light-shadow;
     overflow: hidden;
 
-    .account-menu-item {
+    .accountMenuItem {
       white-space: nowrap;
       padding: $spacing-m $spacing-xl;
       cursor: pointer;

@@ -1,0 +1,26 @@
+@import "src/styles/variables.module";
+
+.inputContainer {
+  position: relative;
+  width: 100%;
+
+  .icon {
+    position: absolute;
+    left: $spacing-l;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .input {
+    width: 100%;
+    background-color: $primary-main-color;
+    padding: $spacing-l $spacing-xl;
+    border-radius: $radius-s;
+    border: thin solid $primary-dark-color;
+    box-sizing: border-box;
+
+    &:not(:only-child) {
+      padding-left: calc(#{$spacing-l} * 2 + #{$spacing-m})
+    }
+  }
+}

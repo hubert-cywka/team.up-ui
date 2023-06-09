@@ -1,7 +1,7 @@
 @import "src/styles/variables.module";
 @import "src/styles/mixins.module";
 
-.landing-banner {
+.landingBanner {
   background-color: $primary-main-color;
   border-radius: $radius-xxl;
   overflow: hidden;
@@ -39,7 +39,7 @@
     grid-template-columns: 7fr 5fr;
     grid-column-gap: $spacing-xl;
 
-    .image-container {
+    .imageContainer {
       filter: saturate(0);
       transition: filter 0.3s;
       overflow: hidden;

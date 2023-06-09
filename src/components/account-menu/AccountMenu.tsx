@@ -4,17 +4,18 @@ import styles from './AccountMenu.module.scss';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
-import { ClickAwayListener } from '@mui/material';
-import { useRouter } from 'next/router';
-import { RouteConstants } from '@/constants/RouteConstants';
+import { useRouter } from 'next/navigation';
+import { RouteConstants } from 'constants/RouteConstants';
+import { useOuterClick } from '../../utility/hooks/useOuterClick';
 
 const AccountMenu = () => {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
+  const ref = useOuterClick(() => setIsMenuVisible(false));
   const router = useRouter();
 
   const buildMenuItem = (name: string, onClick: () => void) => {
     return (
-      <div className={styles['account-menu-item']} onClick={onClick}>
+      <div className={styles.accountMenuItem} onClick={onClick}>
         {name}
       </div>
     );
@@ -25,19 +26,17 @@ const AccountMenu = () => {
   };
 
   return (
-    <div className={styles['account-menu-container']}>
+    <div className={styles.accountMenuContainer}>
       <FontAwesomeIcon
-        className={styles['account-menu-button']}
+        className={styles.accountMenuButton}
         icon={faUser}
         onClick={() => setIsMenuVisible(true)}
       />
       {isMenuVisible && (
-        <ClickAwayListener onClickAway={() => setIsMenuVisible(false)}>
-          <div className={styles['account-menu']}>
-            {buildMenuItem('Sign in', () => navigateTo(RouteConstants.SIGNIN))}
-            {buildMenuItem('Sign up', () => navigateTo(RouteConstants.SIGNUP))}
-          </div>
-        </ClickAwayListener>
+        <div className={styles.accountMenu} ref={ref}>
+          {buildMenuItem('Sign in', () => navigateTo(RouteConstants.SIGNIN))}
+          {buildMenuItem('Sign up', () => navigateTo(RouteConstants.SIGNUP))}
+        </div>
       )}
     </div>
   );

@@ -1,25 +1,19 @@
-import '../styles/globals.scss';
-import { ThemeProvider } from '@mui/material';
-import { theme } from '@/utility/Theme';
 import { AppProps } from 'next/app';
-import PageNavbar from '@/components/page-navbar/PageNavbar';
-import Layout from '@/pages/layout';
-import Footer from '@/components/footer/Footer';
+import Head from 'next/head';
+import 'styles/globals.scss';
 
-function MyApp({ Component, pageProps }: AppProps) {
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+config.autoAddCss = false;
+
+export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={theme}>
-      <Layout>
-        <div className="content-container">
-          <PageNavbar />
-          <div className="content">
-            <Component {...pageProps} />
-          </div>
-          <Footer />
-        </div>
-      </Layout>
-    </ThemeProvider>
+    <>
+      <Head>
+        <title>Team.Up</title>
+        <link href="/favicon.svg" rel="icon" type="image/svg" />
+      </Head>
+      <Component {...pageProps} />
+    </>
   );
 }
-
-export default MyApp;
