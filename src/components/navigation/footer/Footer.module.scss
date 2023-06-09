@@ -1,0 +1,21 @@
+@import "src/styles/variables.module";
+@import "src/styles/mixins.module";
+
+.footerContainer {
+  margin-top: $spacing-xxl;
+  background-color: $background-light-color;
+  padding: $spacing-xxl;
+  color: $text-secondary;
+  box-sizing: border-box;
+  width: 100%;
+
+  .author {
+    font-weight: 900;
+    opacity: 0.5;
+    color: inherit;
+
+    :not(&:hover) {
+      text-decoration: none;
+    }
+  }
+}

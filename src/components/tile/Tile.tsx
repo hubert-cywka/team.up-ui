@@ -11,11 +11,11 @@ export interface TileProps {
 
 const Tile = ({ header, text, icon, step }: TileProps) => {
   return (
-    <div className={styles['tile-container']}>
-      <FontAwesomeIcon className={styles['icon']} icon={icon} />
-      <div className={styles['header']}>{header}</div>
-      <div className={styles['description']}>{text}</div>
-      {step !== undefined && <div className={styles['step']}>{step}</div>}
+    <div className={styles.tileContainer}>
+      <FontAwesomeIcon className={styles.icon} icon={icon} />
+      <div className={styles.header}>{header}</div>
+      <div className={styles.description}>{text}</div>
+      {step !== undefined && <div className={styles.step}>{step}</div>}
     </div>
   );
 };

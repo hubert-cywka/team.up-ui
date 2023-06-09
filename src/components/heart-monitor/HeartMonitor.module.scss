@@ -1,7 +1,7 @@
 @import "src/styles/variables.module";
 @import "src/styles/mixins.module";
 
-.heart-monitor {
+.heartMonitor {
   background-color: $background-main-color;
   width: 300px;
   height: 70px;
@@ -14,18 +14,18 @@
   padding: 0 $spacing-l;
   box-sizing: border-box;
 
-  .heartbeat-icon {
+  .heartbeatIcon {
     height: $l-font;
   }
 
-  .heartbeat-rate {
+  .heartbeatRate {
     text-align: right;
     width: 75px;
     font-size: $m-font;
     font-weight: 900;
   }
 
-  .chart-container {
+  .chartContainer {
     padding: $spacing-s;
     box-sizing: border-box;
     height: 80%;

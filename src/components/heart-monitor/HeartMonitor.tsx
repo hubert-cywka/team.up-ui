@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { ReactJSXElement } from '@emotion/react/types/jsx-namespace';
 import { useEffect, useRef, useState } from 'react';
-import { getRandomIntegerInRange } from '@/utility/NumberUtils';
+import { getRandomIntegerInRange } from 'utility/utility/NumberUtils';
 
 const MIN_RATE = 105;
 const MAX_RATE = 160;
@@ -38,7 +38,7 @@ const HeartMonitor = () => {
       dashes.push(
         <div
           key={dashesCreated}
-          className={styles['dash']}
+          className={styles.dash}
           style={{
             height: `${getRandomIntegerInRange(
               MIN_GRAPH_HEIGHT + rateBonus,
@@ -52,10 +52,10 @@ const HeartMonitor = () => {
   };
 
   return (
-    <div className={styles['heart-monitor']}>
-      <FontAwesomeIcon icon={faHeart} className={styles['heartbeat-icon']} />
-      <div className={styles['heartbeat-rate']}>{rate} BPM</div>
-      <div className={styles['chart-container']}>{buildChart(DASHES_COUNT)}</div>
+    <div className={styles.heartMonitor}>
+      <FontAwesomeIcon icon={faHeart} className={styles.heartbeatIcon} />
+      <div className={styles.heartbeatRate}>{rate} BPM</div>
+      <div className={styles.chartContainer}>{buildChart(DASHES_COUNT)}</div>
     </div>
   );
 };

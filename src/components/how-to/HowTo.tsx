@@ -1,9 +1,11 @@
 import styles from './HowTo.module.scss';
-import Tile, { TileProps } from '@/components/tile/Tile';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { faPeopleGroup } from '@fortawesome/free-solid-svg-icons';
-import { faCalendar } from '@fortawesome/free-solid-svg-icons';
-import { faBasketball } from '@fortawesome/free-solid-svg-icons';
+import Tile, { TileProps } from 'components/tile/Tile';
+import {
+  faPeopleGroup,
+  faCalendar,
+  faBasketball,
+  faMagnifyingGlass
+} from '@fortawesome/free-solid-svg-icons';
 
 const TilesContent: TileProps[] = [
   {
@@ -30,7 +32,7 @@ const TilesContent: TileProps[] = [
 
 const HowTo = () => {
   return (
-    <div className={styles['how-to-container']}>
+    <div className={styles.howToContainer}>
       {TilesContent.map((tile, index) => (
         <Tile key={index} header={tile.header} text={tile.text} icon={tile.icon} step={index + 1} />
       ))}
