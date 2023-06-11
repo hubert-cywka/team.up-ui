@@ -25,6 +25,7 @@ import {
   PasswordValidation,
   UsernameValidation
 } from '../../../constants/UserConstants';
+import { signUpUser } from '../../../services/AuthService';
 
 type SignUpInputs = {
   name: string;
@@ -54,11 +55,18 @@ const SignUpForm = () => {
   });
 
   const handleSignUp = () => {
-    console.log(getValues('name'));
-    console.log(getValues('password'));
-    console.log(getValues('confirmPassword'));
-    console.log(getValues('email'));
-    console.log(getValues('birthday'));
+    signUpUser({
+      email: getValues('email'),
+      password: getValues('password'),
+      name: getValues('name'),
+      birthdate: getValues('birthday')
+    })
+      .then(() => {
+        console.log('success');  // TODO handle it correctly
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   const buildInput = (

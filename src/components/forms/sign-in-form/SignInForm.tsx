@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { RouteConstants } from 'constants/RouteConstants';
 import SectionHeader from 'primitives/section-header/SectionHeader';
 import Input from '../../../primitives/input/Input';
+import { signInUser } from '../../../services/AuthService';
 
 type SignInInputs = {
   email: string;
@@ -16,10 +17,16 @@ type SignInInputs = {
 };
 
 const SignInForm = () => {
-  const { register, handleSubmit } = useForm<SignInInputs>();
+  const { register, handleSubmit, getValues } = useForm<SignInInputs>();
 
   const handleSignIn = () => {
-    console.log('signed in');
+    signInUser({ email: getValues('email'), password: getValues('password') })
+      .then(() => {
+        console.log('success'); // TODO handle it correctly
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   return (

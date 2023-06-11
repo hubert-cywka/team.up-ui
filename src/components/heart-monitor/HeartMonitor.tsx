@@ -3,8 +3,7 @@
 import styles from './HeartMonitor.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { ReactJSXElement } from '@emotion/react/types/jsx-namespace';
-import { useEffect, useRef, useState } from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 import { getRandomIntegerInRange } from 'utility/utility/NumberUtils';
 
 const MIN_RATE = 105;
@@ -32,7 +31,7 @@ const HeartMonitor = () => {
   }, [rate]);
 
   const buildChart = (count: number) => {
-    const dashes: ReactJSXElement[] = [];
+    const dashes: ReactNode[] = [];
     const rateBonus = ((rate - MIN_RATE) / (MAX_RATE - MIN_RATE)) * GRAPH_HEIGHT_DIFF;
     for (let dashesCreated = 0; dashesCreated < count; dashesCreated++) {
       dashes.push(
