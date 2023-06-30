@@ -1,3 +1,5 @@
+import { MIN_AGE } from '../config/AppConfig';
+
 export class PasswordValidation {
   static MIN_LENGTH = 8;
   static MAX_LENGTH = 50;
@@ -27,5 +29,5 @@ export class EmailValidation {
 
 export class BirthdayValidation {
   static IS_REQUIRED = 'Birthday date is required.';
-  static INFO = `You need to be at least 12 years old.`;
+  static INFO = `You need to be at least ${MIN_AGE} years old.`;
 }

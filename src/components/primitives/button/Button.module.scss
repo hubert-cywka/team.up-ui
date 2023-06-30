@@ -1,0 +1,32 @@
+@import "../../../styles/variables.module";
+
+.button {
+  display: flex;
+  gap: $spacing-s;
+  border-radius: $radius-s;
+  padding: $spacing-m $spacing-l;
+  font-weight: 900;
+  text-transform: uppercase;
+  width: fit-content;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s;
+
+  &.main {
+    background-color: $primary-main-color;
+    color: $text-primary;
+
+    &:hover {
+      background-color: $primary-dark-color;
+    }
+  }
+
+  &.secondary {
+    background-color: $background-main-color;
+    color: $text-secondary;
+
+    &:hover {
+      background-color: $background-light-color;
+    }
+  }
+}

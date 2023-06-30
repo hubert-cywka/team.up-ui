@@ -1,0 +1,43 @@
+@import "../../../../styles/variables.module";
+
+.accountMenuContainer {
+  position: relative;
+
+  .accountMenuButton {
+    width: $m-font;
+    padding: $spacing-m;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .accountMenu {
+    position: absolute;
+    top: calc(100% + #{$spacing-s});
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $primary-dark-color;
+    border-radius: $radius-s;
+    display: flex;
+    flex-direction: column;
+    box-shadow: $light-shadow;
+    overflow: hidden;
+
+    .accountMenuItem {
+      color: $text-primary;
+      white-space: nowrap;
+      padding: $spacing-m $spacing-xl;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $primary-main-color;
+      }
+
+      &:not(:last-child) {
+        border-bottom: thin solid $primary-main-color;
+      }
+    }
+  }
+}

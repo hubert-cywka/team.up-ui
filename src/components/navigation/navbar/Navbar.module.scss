@@ -1,0 +1,60 @@
+@import "src/styles/variables.module";
+@import "src/styles/mixins.module";
+
+.pageNavbar {
+  display: flex;
+  gap: $spacing-m;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: $spacing-xl $spacing-xxl;
+  margin: $spacing-m auto;
+  box-sizing: border-box;
+  background: $primary-main-color;
+  border-radius: $radius-xxl;
+  z-index: $index-top;
+  position: sticky;
+  top: 0;
+  transition: transform 0.3s;
+  box-shadow: $light-shadow;
+
+  @include dynamic-width;
+  width: calc(100% - 2 * #{$spacing-m});
+
+  &.collapsed {
+    transform: translateY(-200%);
+  }
+
+  .logo {
+    word-break: break-all;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: $logo-font;
+    cursor: pointer;
+    color: $text-primary;
+
+    @media (max-width: $md) {
+      display: none;
+    }
+  }
+
+  .tabsContainer {
+    flex-grow: 1;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-xl;
+
+    .tab {
+      color: $text-primary;
+      text-decoration: none;
+      font-weight: bold;
+      transition: border-bottom-color 0.2s;
+      border-bottom: 5px solid transparent;
+      padding: $spacing-m;
+
+      &:hover {
+        border-bottom-color: $secondary-light-color;
+      }
+    }
+  }
+}

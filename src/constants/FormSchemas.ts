@@ -5,6 +5,7 @@ import {
   PasswordValidation,
   UsernameValidation
 } from 'constants/UserConstants';
+import { MIN_AGE } from '../config/AppConfig';
 
 export const getConfirmPasswordValidationSchema = (passwordFieldName: string) =>
   yup
@@ -29,5 +30,10 @@ export const getUsernameValidationSchema = () =>
 export const getEmailValidationSchema = () =>
   yup.string().required(EmailValidation.IS_REQUIRED).email(EmailValidation.WRONG_FORMAT);
 
+const getMinDate = () => {
+  const today = new Date();
+  return new Date(today.getFullYear() - MIN_AGE, today.getMonth(), today.getDay());
+};
+
 export const getBirthdayValidationSchema = () =>
-  yup.string().required(BirthdayValidation.IS_REQUIRED);
+  yup.date().required(BirthdayValidation.IS_REQUIRED).max(getMinDate(), BirthdayValidation.INFO);
