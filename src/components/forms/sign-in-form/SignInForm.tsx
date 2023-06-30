@@ -2,13 +2,13 @@
 
 import styles from '../AuthForm.module.scss';
 import { useForm } from 'react-hook-form';
-import Button from 'primitives/button/Button';
+import Button from 'components/primitives/button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faAt } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 import { RouteConstants } from 'constants/RouteConstants';
-import SectionHeader from 'primitives/section-header/SectionHeader';
-import Input from '../../../primitives/input/Input';
+import SectionHeader from 'components/primitives/section-header/SectionHeader';
+import Input from '../../primitives/input/Input';
 import { signInUser } from '../../../services/AuthService';
 
 type SignInInputs = {

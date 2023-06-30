@@ -1,6 +1,6 @@
-import LandingBanner from 'components/landing-banner/LandingBanner';
-import SectionHeader from 'primitives/section-header/SectionHeader';
-import HowTo from 'components/how-to/HowTo';
+import LandingBanner from 'components/content/landing-banner/LandingBanner';
+import SectionHeader from 'components/primitives/section-header/SectionHeader';
+import HowTo from 'components/content/how-to/HowTo';
 import MainLayout from '../layouts/main/MainLayout';
 
 const Home = () => {

@@ -1,0 +1,54 @@
+@import "../../../styles/variables.module";
+@import "../../../styles/mixins.module";
+
+.tileContainer {
+  background-color: $background-light-color;
+  border-radius: $radius-xxl;
+  color: $text-secondary;
+  padding: $spacing-xxl $spacing-xl $spacing-xxl 20%;
+  box-sizing: border-box;
+  text-align: right;
+  position: relative;
+
+  .step {
+    @include header-text($xxl-font);
+    height: $xxl-font;
+    padding: $spacing-l;
+    text-align: center;
+    aspect-ratio: 1;
+    position: absolute;
+    transform: translateY(-25%) translateX(-25%);
+    border-radius: $round;
+    background-color: $background-main-color;
+    top: 0;
+    left: 0;
+  }
+
+  &:hover {
+    .header, .icon {
+      color: $secondary-main-color;
+      opacity: 1;
+    }
+  }
+
+  .header {
+    @include header-text($xxl-font);
+    margin-top: $spacing-m;
+  }
+
+  .description {
+    box-sizing: border-box;
+    font-size: $s-font;
+    margin-top: $spacing-s;
+  }
+
+  .icon {
+    opacity: 0.25;
+    margin-left: auto;
+    height: $xxxl-font;
+  }
+
+  .icon, .header {
+    transition: color 0.3s, opacity 0.3s;
+  }
+}

@@ -4,12 +4,12 @@ import styles from '../AuthForm.module.scss';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
-import Button from 'primitives/button/Button';
+import Button from 'components/primitives/button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faAt, faUser, faCakeCandles, faKey } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 import { RouteConstants } from 'constants/RouteConstants';
-import SectionHeader from 'primitives/section-header/SectionHeader';
+import SectionHeader from 'components/primitives/section-header/SectionHeader';
 import {
   getBirthdayValidationSchema,
   getConfirmPasswordValidationSchema,
@@ -17,7 +17,7 @@ import {
   getPasswordValidationSchema,
   getUsernameValidationSchema
 } from 'constants/FormSchemas';
-import Input from '../../../primitives/input/Input';
+import Input from '../../primitives/input/Input';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
   BirthdayValidation,
@@ -26,6 +26,7 @@ import {
   UsernameValidation
 } from '../../../constants/UserConstants';
 import { signUpUser } from '../../../services/AuthService';
+import classNames from 'classnames';
 
 type SignUpInputs = {
   name: string;
@@ -62,7 +63,7 @@ const SignUpForm = () => {
       birthdate: getValues('birthday')
     })
       .then(() => {
-        console.log('success');  // TODO handle it correctly
+        console.log('success'); // TODO handle it correctly
       })
       .catch((e) => {
         console.log(e);
@@ -79,16 +80,16 @@ const SignUpForm = () => {
   ) => {
     return (
       <div className={styles.inputContainer}>
-        <div className={styles.inputName}>{name}</div>
+        <span className={styles.inputName}>{name}</span>
         <Input
           type={type}
           icon={<FontAwesomeIcon className={styles.inputIcon} icon={icon} />}
           className={styles.input}
           {...register(field)}
         />
-        <div className={`${styles.inputMessage} ${error ? styles['error'] : ''}`}>
+        <p className={classNames(styles.inputMessage, { [styles.error]: !!error })}>
           {error ? error : info}
-        </div>
+        </p>
       </div>
     );
   };
@@ -150,11 +151,11 @@ const SignUpForm = () => {
           {`I already have an account.`}
         </Link>
 
-        <div className={styles.buttonsContainer}>
+        <section className={styles.buttonsContainer}>
           <Button type="submit" variant="secondary">
             Create account
           </Button>
-        </div>
+        </section>
       </form>
     </div>
   );

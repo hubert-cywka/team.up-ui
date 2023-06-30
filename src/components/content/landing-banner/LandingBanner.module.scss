@@ -1,0 +1,68 @@
+@import "../../../styles/variables.module";
+@import "../../../styles/mixins.module";
+
+.landingBanner {
+  background-color: $primary-main-color;
+  border-radius: $radius-xxl;
+  overflow: hidden;
+  margin: $spacing-m;
+  padding: $spacing-m $spacing-xxl $spacing-xl;
+  box-sizing: border-box;
+  position: relative;
+  align-items: center;
+
+  .header {
+    opacity: 0.5;
+    @include header-text($xxl-font);
+    padding: $spacing-l 0;
+    border-bottom: 2px solid $primary-dark-color;
+  }
+
+  &:hover {
+    .content {
+      .image-container {
+        filter: none;
+      }
+
+      .slogan {
+        b {
+          color: $secondary-main-color;
+        }
+      }
+    }
+  }
+
+  .content {
+    margin: $spacing-xxl 0 $spacing-xl 0;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    grid-column-gap: $spacing-xl;
+
+    .imageContainer {
+      filter: saturate(0);
+      transition: filter 0.3s;
+      overflow: hidden;
+      border-radius: $radius-xxl;
+      position: relative;
+
+      img {
+        object-fit: cover;
+      }
+    }
+
+    .slogan {
+      @include header-text($xxxl-font);
+      width: 90%;
+
+      @media (max-width: $md) {
+        font-size: $logo-font;
+      }
+
+      b {
+        transition: color 0.3s;
+        font-weight: inherit;
+      }
+    }
+  }
+}
