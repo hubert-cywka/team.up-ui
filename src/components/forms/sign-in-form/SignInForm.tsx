@@ -6,7 +6,7 @@ import Button from 'components/primitives/button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faAt } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
-import { RouteConstants } from 'constants/RouteConstants';
+import { Route } from 'constants/Route';
 import SectionHeader from 'components/primitives/section-header/SectionHeader';
 import Input from '../../primitives/input/Input';
 import { SignInRequest } from '../../../services/AuthService';
@@ -46,7 +46,7 @@ const SignInForm = ({ onSignIn }: SignInFormProps) => {
           placeholder="Password"
         />
         <Link
-          href={RouteConstants.SIGNUP}
+          href={Route.SIGNUP}
           className={styles.navigationLink}>{`I don't have account yet.`}</Link>
         <Button type="submit" variant="secondary">
           Sign in

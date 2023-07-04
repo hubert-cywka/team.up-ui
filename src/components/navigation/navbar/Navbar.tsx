@@ -2,7 +2,7 @@
 
 import styles from './Navbar.module.scss';
 import Link from 'next/link';
-import { RouteConstants } from 'constants/RouteConstants';
+import { Route } from 'constants/Route';
 import { useScrollDirection } from 'shared/hooks/useScrollPosition';
 import AccountMenu from 'components/navigation/navbar/account-menu/AccountMenu';
 import classNames from 'classnames';
@@ -23,13 +23,13 @@ const Navbar = () => {
 
   return (
     <header className={classNames(styles.pageNavbar, { [styles.collapsed]: isCollapsed })}>
-      <Link href={RouteConstants.HOME} className={styles.logo}>
+      <Link href={Route.HOME} className={styles.logo}>
         Team.Up
       </Link>
       <nav className={styles.tabsContainer}>
-        {buildNavbarTab('HOME', RouteConstants.HOME)}
-        {buildNavbarTab('ACTIVITIES', RouteConstants.ACTIVITIES)}
-        {buildNavbarTab('ABOUT', RouteConstants.ABOUT)}
+        {buildNavbarTab('HOME', Route.HOME)}
+        {buildNavbarTab('ACTIVITIES', Route.ACTIVITIES)}
+        {buildNavbarTab('ABOUT', Route.ABOUT)}
       </nav>
       <AccountMenu />
     </header>

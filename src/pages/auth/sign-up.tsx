@@ -1,14 +1,15 @@
 import SignUpForm from 'components/forms/sign-up-form/SignUpForm';
-import MainLayout from '../../layouts/main/MainLayout';
-import { SignUpRequest } from '../../services/AuthService';
-import { useSignUp } from '../../shared/hooks/mutation/useSignUp';
+import MainLayout from 'layouts/main/MainLayout';
+import { SignUpRequest } from 'services/AuthService';
+import { useSignUp } from 'shared/hooks/mutation/useSignUp';
 import { AxiosError } from 'axios';
 import { useState } from 'react';
-import Builder from '../../shared/utility/Builder';
-import Alert from '../../components/primitives/alert/Alert';
-import StatusMessage from '../../components/content/error-message/StatusMessage';
+import Builder from 'shared/utility/Builder';
+import Alert from 'components/primitives/alert/Alert';
+import StatusMessage from 'components/content/error-message/StatusMessage';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from 'next/router';
+import { Route } from 'constants/Route';
 
 const SignIn = () => {
   const { mutateAsync: signUp, status } = useSignUp();
@@ -46,7 +47,7 @@ const SignIn = () => {
             header="Success!"
             message="We are happy that you joined us! Now you have your own account, so click button below and sign in!"
             buttonText="Sign in"
-            onButtonClick={() => router.push('/auth/sign-in')}
+            onButtonClick={() => router.push(Route.SIGNIN)}
             icon={faHeart}
           />
         )
