@@ -1,12 +1,12 @@
 @import "../../../styles/variables.module";
 @import "../../../styles/mixins.module";
 
-.errorMessage {
+.statusMessage {
   background-color: $background-light-color;
   padding: $spacing-xxl;
   box-sizing: border-box;
+  border-radius: $radius-s;
   margin: $spacing-m;
-  border-radius: $radius-l;
   color: $text-secondary;
   position: relative;
   overflow: hidden;
@@ -17,9 +17,27 @@
   width: fit-content;
   max-width: 500px;
   text-align: center;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
 
   .header {
     @include header-text($xxl-font);
+  }
+
+  &.success {
+    border-bottom-color: $success-dark-color;
+  }
+
+  &.error {
+    border-bottom-color: $error-dark-color;
+  }
+
+  &.info {
+    border-bottom-color: $info-dark-color;
+  }
+
+  &.warning {
+    border-bottom-color: $warning-dark-color;
   }
 
   .icon {
@@ -29,9 +47,12 @@
     top: 50%;
     transform: translateY(-50%) translateX(30%);
     opacity: 0.15;
+    z-index: 1;
   }
 
   .goBackButton {
     margin-top: $spacing-xl;
+    position: relative;
+    z-index: 10;
   }
 }

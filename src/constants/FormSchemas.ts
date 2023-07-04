@@ -36,4 +36,9 @@ const getMinDate = () => {
 };
 
 export const getBirthdayValidationSchema = () =>
-  yup.date().required(BirthdayValidation.IS_REQUIRED).max(getMinDate(), BirthdayValidation.INFO);
+  yup
+    .date()
+    .max(getMinDate(), BirthdayValidation.INFO)
+    .required(BirthdayValidation.IS_REQUIRED)
+    .nullable()
+    .typeError(BirthdayValidation.IS_REQUIRED);
