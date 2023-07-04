@@ -25,7 +25,7 @@ import {
   PasswordValidation,
   UsernameValidation
 } from '../../../constants/UserConstants';
-import { signUpUser } from '../../../services/AuthService';
+import { SignUpRequest } from '../../../services/AuthService';
 import classNames from 'classnames';
 
 type SignUpInputs = {
@@ -36,7 +36,11 @@ type SignUpInputs = {
   birthday: string;
 };
 
-const SignUpForm = () => {
+interface SignUpFormProps {
+  onSignUp: (request: SignUpRequest) => void; // eslint-disable-line no-unused-vars
+}
+
+const SignUpForm = ({ onSignUp }: SignUpFormProps) => {
   const signUpValidationSchema = yup.object({
     name: getUsernameValidationSchema(),
     email: getEmailValidationSchema(),
@@ -54,21 +58,6 @@ const SignUpForm = () => {
     mode: 'onChange',
     resolver: yupResolver(signUpValidationSchema)
   });
-
-  const handleSignUp = () => {
-    signUpUser({
-      email: getValues('email'),
-      password: getValues('password'),
-      name: getValues('name'),
-      birthdate: getValues('birthday')
-    })
-      .then(() => {
-        console.log('success'); // TODO handle it correctly
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  };
 
   const buildInput = (
     field: 'name' | 'email' | 'password' | 'confirmPassword' | 'birthday',
@@ -101,7 +90,16 @@ const SignUpForm = () => {
         subheader="We are happy that you decided to join our growing community!"
         variant="inside"
       />
-      <form className={styles.authForm} onSubmit={handleSubmit(handleSignUp)}>
+      <form
+        className={styles.authForm}
+        onSubmit={handleSubmit(() =>
+          onSignUp({
+            email: getValues('email'),
+            password: getValues('password'),
+            name: getValues('name'),
+            birthdate: getValues('birthday')
+          })
+        )}>
         {buildInput(
           'name',
           'text',

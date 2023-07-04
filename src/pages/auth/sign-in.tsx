@@ -1,7 +1,7 @@
 import SignInForm from 'components/forms/sign-in-form/SignInForm';
 import MainLayout from '../../layouts/main/MainLayout';
 import { SignInRequest } from '../../services/AuthService';
-import { useSignIn } from '../../shared/hooks/useSignIn';
+import { useSignIn } from '../../shared/hooks/mutation/useSignIn';
 import Builder from '../../shared/utility/Builder';
 import Alert from '../../components/primitives/alert/Alert';
 import { useState } from 'react';

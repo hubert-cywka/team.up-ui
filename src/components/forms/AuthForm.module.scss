@@ -23,6 +23,9 @@
 
     .inputContainer {
       width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-s;
 
       .inputName {
         font-size: $s-font;
