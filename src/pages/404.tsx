@@ -1,8 +1,8 @@
-import ErrorMessage from 'components/containers/error-message/ErrorMessage';
+import ErrorMessage from 'components/content/error-message/ErrorMessage';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import MainLayout from '../layouts/main/MainLayout';
 
-const Home = () => {
+const NotFoundPage = () => {
   return (
     <MainLayout>
       <ErrorMessage
@@ -14,4 +14,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default NotFoundPage;

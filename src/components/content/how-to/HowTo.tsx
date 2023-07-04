@@ -1,5 +1,5 @@
 import styles from './HowTo.module.scss';
-import Tile, { TileProps } from 'components/containers/tile/Tile';
+import Tile, { TileProps } from 'components/content/tile/Tile';
 import {
   faPeopleGroup,
   faCalendar,
