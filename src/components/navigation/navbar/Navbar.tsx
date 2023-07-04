@@ -13,7 +13,7 @@ const Navbar = () => {
   const scrollDirection = useScrollDirection(SCROLL_THRESHOLD);
   const isCollapsed = scrollDirection === 'down';
 
-  const buildHeaderTab = (name: string, route: string) => {
+  const buildNavbarTab = (name: string, route: string) => {
     return (
       <Link href={route} className={styles.tab}>
         {name}
@@ -27,9 +27,9 @@ const Navbar = () => {
         Team.Up
       </Link>
       <nav className={styles.tabsContainer}>
-        {buildHeaderTab('HOME', RouteConstants.HOME)}
-        {buildHeaderTab('ACTIVITIES', RouteConstants.ACTIVITIES)}
-        {buildHeaderTab('ABOUT', RouteConstants.ABOUT)}
+        {buildNavbarTab('HOME', RouteConstants.HOME)}
+        {buildNavbarTab('ACTIVITIES', RouteConstants.ACTIVITIES)}
+        {buildNavbarTab('ABOUT', RouteConstants.ABOUT)}
       </nav>
       <AccountMenu />
     </header>

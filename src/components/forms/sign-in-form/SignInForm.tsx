@@ -9,24 +9,22 @@ import Link from 'next/link';
 import { RouteConstants } from 'constants/RouteConstants';
 import SectionHeader from 'components/primitives/section-header/SectionHeader';
 import Input from '../../primitives/input/Input';
-import { signInUser } from '../../../services/AuthService';
+import { SignInRequest } from '../../../services/AuthService';
 
 type SignInInputs = {
   email: string;
   password: string;
 };
 
-const SignInForm = () => {
+interface SignInFormProps {
+  onSignIn: (request: SignInRequest) => void; // eslint-disable-line no-unused-vars
+}
+
+const SignInForm = ({ onSignIn }: SignInFormProps) => {
   const { register, handleSubmit, getValues } = useForm<SignInInputs>();
 
   const handleSignIn = () => {
-    signInUser({ email: getValues('email'), password: getValues('password') })
-      .then(() => {
-        console.log('success'); // TODO handle it correctly
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    onSignIn({ email: getValues('email'), password: getValues('password') });
   };
 
   return (
