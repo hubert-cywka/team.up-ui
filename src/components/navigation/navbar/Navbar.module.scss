@@ -16,6 +16,7 @@
   top: 0;
   transition: transform 0.3s;
   box-shadow: $light-shadow;
+  justify-content: center;
 
   @include dynamic-width;
   width: calc(100% - 2 * #{$spacing-m});
@@ -48,6 +49,7 @@
       color: $text-primary;
       text-decoration: none;
       font-weight: bold;
+      font-size: $s-font;
       transition: border-bottom-color 0.2s;
       border-bottom: 5px solid transparent;
       padding: $spacing-m;

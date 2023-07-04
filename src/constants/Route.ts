@@ -1,4 +1,4 @@
-export module RouteConstants {
+export module Route {
   export const HOME = '/';
   export const ACTIVITIES = '/activities';
   export const ABOUT = '/about';
