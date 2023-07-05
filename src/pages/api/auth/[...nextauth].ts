@@ -1,9 +1,9 @@
-import NextAuth from 'next-auth';
+import NextAuth, { AuthOptions } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
-import { signInUser, signOutUser } from '../../../services/AuthService';
-import { Route } from '../../../constants/Route';
+import { signInUser, signOutUser } from 'services/AuthService';
+import { Route } from 'constants/Route';
 
-export default NextAuth({
+export const authOptions: AuthOptions = {
   providers: [
     Credentials({
       name: 'Credentials',
@@ -36,6 +36,7 @@ export default NextAuth({
 
     session({ session, token }) {
       if (token && session.user) {
+        session.user.image = null;
         session.user.role = token.role;
       }
       return session;
@@ -50,4 +51,6 @@ export default NextAuth({
       await signOutUser();
     }
   }
-});
+};
+
+export default NextAuth(authOptions);
