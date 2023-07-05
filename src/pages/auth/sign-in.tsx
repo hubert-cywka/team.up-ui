@@ -7,6 +7,10 @@ import Alert from '../../components/primitives/alert/Alert';
 import { useState } from 'react';
 import { Route } from '../../constants/Route';
 import { useRouter } from 'next/router';
+import { GetServerSideProps } from 'next';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '../api/auth/[...nextauth]';
+import { checkIfShouldRedirect } from '../../shared/utility/RouteUtils';
 
 const SignIn = () => {
   const router = useRouter();
@@ -59,3 +63,22 @@ const SignIn = () => {
 };
 
 export default SignIn;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const serverSession = await getServerSession(context.req, context.res, authOptions);
+
+  if (serverSession && checkIfShouldRedirect('authenticated', serverSession.user)) {
+    return {
+      redirect: {
+        destination: Route.HOME,
+        permanent: false
+      }
+    };
+  }
+
+  return {
+    props: {
+      session: serverSession
+    }
+  };
+};

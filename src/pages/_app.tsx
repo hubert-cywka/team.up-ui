@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>Team.Up</title>
         <link href="/favicon.svg" rel="icon" type="image/svg" />
       </Head>
-      <SessionProvider session={pageProps.session}>
+      <SessionProvider session={pageProps.session} basePath="/api/auth">
         <QueryClientProvider client={AppQueryClient}>
           <Component {...pageProps} />
         </QueryClientProvider>

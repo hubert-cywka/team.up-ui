@@ -10,11 +10,15 @@ import StatusMessage from 'components/content/error-message/StatusMessage';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from 'next/router';
 import { Route } from 'constants/Route';
+import { checkIfShouldRedirect } from '../../shared/utility/RouteUtils';
+import { GetServerSideProps } from 'next';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '../api/auth/[...nextauth]';
 
-const SignIn = () => {
+const SignUp = () => {
   const { mutateAsync: signUp, status } = useSignUp();
-  const router = useRouter();
   const [statusCode, setStatusCode] = useState(0);
+  const router = useRouter();
 
   const handleSignUp = async (request: SignUpRequest) => {
     try {
@@ -56,4 +60,23 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const serverSession = await getServerSession(context.req, context.res, authOptions);
+
+  if (serverSession && checkIfShouldRedirect('authenticated', serverSession.user)) {
+    return {
+      redirect: {
+        destination: Route.HOME,
+        permanent: false
+      }
+    };
+  }
+
+  return {
+    props: {
+      session: serverSession
+    }
+  };
+};

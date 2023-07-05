@@ -33,7 +33,7 @@ type SignUpInputs = {
   email: string;
   password: string;
   confirmPassword: string;
-  birthday: string;
+  birthday: Date | null;
 };
 
 interface SignUpFormProps {
@@ -97,7 +97,7 @@ const SignUpForm = ({ onSignUp }: SignUpFormProps) => {
             email: getValues('email'),
             password: getValues('password'),
             name: getValues('name'),
-            birthdate: getValues('birthday')
+            birthdate: getValues('birthday')?.toString() ?? ''
           })
         )}>
         {buildInput(
