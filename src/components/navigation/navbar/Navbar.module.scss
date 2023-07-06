@@ -2,21 +2,21 @@
 @import "src/styles/mixins.module";
 
 .pageNavbar {
-  display: flex;
-  gap: $spacing-m;
-  flex-wrap: wrap;
-  align-items: center;
-  padding: $spacing-xl $spacing-xxl;
-  margin: $spacing-m auto;
-  box-sizing: border-box;
-  background: $primary-main-color;
-  border-radius: $radius-xxl;
-  z-index: $index-top;
   position: sticky;
   top: 0;
-  transition: transform 0.3s;
-  box-shadow: $light-shadow;
+  z-index: $index-top;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
+  gap: $spacing-m;
+  padding: $spacing-xl $spacing-xxl;
+  margin: $spacing-m auto;
+  background: $primary-main-color;
+  box-shadow: $light-shadow;
+  border-radius: $radius-xxl;
+  transition: transform 0.3s;
+  box-sizing: border-box;
 
   @include dynamic-width;
   width: calc(100% - 2 * #{$spacing-m});
@@ -26,12 +26,12 @@
   }
 
   .logo {
+    color: $text-primary;
     word-break: break-all;
     text-transform: uppercase;
-    font-weight: 900;
     font-size: $logo-font;
+    font-weight: 900;
     cursor: pointer;
-    color: $text-primary;
   }
 
   .toggleNavigationVisibilityButton {
@@ -43,22 +43,22 @@
   }
 
   .tabsContainer {
-    justify-content: center;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: $spacing-xl;
 
     @media (max-width: $lg) {
-      flex-direction: column;
       position: absolute;
       left: 0;
       top: calc(100% + #{$spacing-m});
-      background: $primary-main-color;
-      border-radius: $radius-m;
-      padding: $spacing-m $spacing-l;
-      box-sizing: border-box;
       width: 100%;
+      flex-direction: column;
+      background: $primary-main-color;
+      padding: $spacing-m $spacing-l;
+      border-radius: $radius-m;
       box-shadow: $light-shadow;
+      box-sizing: border-box;
 
       &.hidden {
         transform: translateY(-500px);
@@ -67,14 +67,14 @@
 
     .tab {
       color: $text-primary;
-      font-size: $s-font;
-      text-decoration: none;
-      font-weight: bold;
-      transition: border-bottom-color 0.2s;
-      border-bottom: 5px solid transparent;
       padding: $spacing-m;
+      font-size: $s-font;
+      font-weight: bold;
+      text-decoration: none;
       text-transform: uppercase;
+      border-bottom: 5px solid transparent;
       cursor: pointer;
+      transition: border-bottom-color 0.2s;
 
       &:hover {
         border-bottom-color: $secondary-light-color;

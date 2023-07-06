@@ -1,16 +1,16 @@
 import SignInForm from 'components/forms/sign-in-form/SignInForm';
 import MainLayout from 'layouts/main/MainLayout';
 import { signIn } from 'next-auth/react';
-import { SignInRequest } from '../../services/AuthService';
-import Builder from '../../shared/utility/Builder';
-import Alert from '../../components/primitives/alert/Alert';
+import { SignInRequest } from 'shared/interfaces/SignInRequest.interface';
+import Builder from 'shared/utility/Builder';
+import Alert from 'components/primitives/alert/Alert';
 import { useState } from 'react';
-import { Route } from '../../constants/Route';
+import { Route } from 'shared/constants/Route';
 import { useRouter } from 'next/router';
 import { GetServerSideProps } from 'next';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../api/auth/[...nextauth]';
-import { checkIfShouldRedirect } from '../../shared/utility/RouteUtils';
+import { checkIfShouldRedirect } from 'shared/utility/RouteUtils';
 
 const SignIn = () => {
   const router = useRouter();

@@ -1,26 +1,24 @@
-@import "../../../styles/variables.module";
-@import "../../../styles/mixins.module";
+@import "src/styles/variables.module";
+@import "src/styles/mixins.module";
 
 .landingBanner {
-  background-color: $primary-main-color;
-  border-radius: $radius-xxl;
-  overflow: hidden;
+  position: relative;
   margin: $spacing-m;
   padding: $spacing-m $spacing-xxl $spacing-xl;
+  background-color: $primary-main-color;
+  border-radius: $radius-xxl;
   box-sizing: border-box;
-  position: relative;
-  align-items: center;
 
   .header {
-    opacity: 0.5;
     @include header-text($xxl-font);
     padding: $spacing-l 0;
     border-bottom: 2px solid $primary-dark-color;
+    opacity: 0.5;
   }
 
   &:hover {
     .content {
-      .image-container {
+      .imageContainer {
         filter: none;
       }
 
@@ -33,18 +31,18 @@
   }
 
   .content {
-    margin: $spacing-xxl 0 $spacing-xl 0;
-    box-sizing: border-box;
     display: grid;
     grid-template-columns: 7fr 5fr;
     grid-column-gap: $spacing-xl;
+    margin: $spacing-xxl 0 $spacing-xl 0;
+    box-sizing: border-box;
 
     .imageContainer {
-      filter: saturate(0);
-      transition: filter 0.3s;
+      position: relative;
       overflow: hidden;
       border-radius: $radius-xxl;
-      position: relative;
+      filter: saturate(0);
+      transition: filter 0.3s;
 
       img {
         object-fit: cover;
@@ -60,8 +58,8 @@
       }
 
       b {
-        transition: color 0.3s;
         font-weight: inherit;
+        transition: color 0.3s;
       }
     }
   }

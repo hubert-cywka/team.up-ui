@@ -1,6 +1,6 @@
 import styles from './Footer.module.scss';
 import Link from 'next/link';
-import { PORTFOLIO_URL } from 'constants/URLConstants';
+import { PORTFOLIO_URL } from 'shared/constants/URLConstants';
 import { memo } from 'react';
 
 const Footer = () => {

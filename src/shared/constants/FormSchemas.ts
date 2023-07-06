@@ -4,7 +4,7 @@ import {
   EmailValidation,
   PasswordValidation,
   UsernameValidation
-} from 'constants/UserConstants';
+} from 'shared/constants/UserConstants';
 import { MIN_AGE } from '../config/AppConfig';
 
 export const getConfirmPasswordValidationSchema = (passwordFieldName: string) =>

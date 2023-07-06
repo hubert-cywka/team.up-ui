@@ -1,16 +1,16 @@
 import SignUpForm from 'components/forms/sign-up-form/SignUpForm';
 import MainLayout from 'layouts/main/MainLayout';
-import { SignUpRequest } from 'services/AuthService';
+import { SignUpRequest } from 'shared/interfaces/SignUpRequest.interface';
 import { useSignUp } from 'shared/hooks/mutation/useSignUp';
 import { AxiosError } from 'axios';
 import { useState } from 'react';
 import Builder from 'shared/utility/Builder';
 import Alert from 'components/primitives/alert/Alert';
-import StatusMessage from 'components/content/error-message/StatusMessage';
+import MessageBox from 'components/content/message-box/MessageBox';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from 'next/router';
-import { Route } from 'constants/Route';
-import { checkIfShouldRedirect } from '../../shared/utility/RouteUtils';
+import { Route } from 'shared/constants/Route';
+import { checkIfShouldRedirect } from 'shared/utility/RouteUtils';
 import { GetServerSideProps } from 'next';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../api/auth/[...nextauth]';
@@ -46,12 +46,12 @@ const SignUp = () => {
       {Builder.createResult(status)
         .onError(<Alert content={buildErrorMessage(statusCode)} variant="error" />)
         .onSuccess(
-          <StatusMessage
+          <MessageBox
             variant="success"
             header="Success!"
             message="We are happy that you joined us! Now you have your own account, so click button below and sign in!"
             buttonText="Sign in"
-            onButtonClick={() => router.push(Route.SIGNIN)}
+            onButtonClick={() => router.push(Route.SIGN_IN)}
             icon={faHeart}
           />
         )

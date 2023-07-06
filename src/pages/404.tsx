@@ -1,11 +1,11 @@
-import StatusMessage from 'components/content/error-message/StatusMessage';
+import MessageBox from 'components/content/message-box/MessageBox';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import MainLayout from '../layouts/main/MainLayout';
 
 const NotFoundPage = () => {
   return (
     <MainLayout>
-      <StatusMessage
+      <MessageBox
         icon={faXmark}
         header="Page not found!"
         message="This page does not exist, but it may be added in future. Click button below to go back."

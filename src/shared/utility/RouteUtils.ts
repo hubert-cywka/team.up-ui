@@ -1,4 +1,4 @@
-import { UserRole } from 'services/AuthService';
+import { UserRole } from 'shared/enums/UserRole.enum';
 import { User } from 'next-auth';
 
 type UserType = 'authenticated' | 'unauthenticated' | 'authenticated_user' | 'authenticated_admin';

@@ -1,34 +1,34 @@
-$primary-main-color: #eee;
-$primary-light-color: #fff;
-$primary-dark-color: #d3d3d3;
-
-$background-light-color: #272727;
-$background-main-color: #171717;
-$background-dark-color: #0c0c0c;
-
-$secondary-main-color: #ff4400;
-$secondary-light-color: #ff9541;
-$secondary-dark-color: #ff7300;
-
 $text-primary: #171717;
 $text-secondary: #eee;
 $highlight-color: #888;
 
+$primary-main-color: #eee;
+$primary-light-color: lighten($primary-main-color, 15%);
+$primary-dark-color: darken($primary-main-color, 15%);
+
+$background-main-color: #171717;
+$background-light-color: lighten($background-main-color, 10%);
+$background-dark-color: darken($background-main-color, 10%);
+
+$secondary-main-color: #ff4400;
+$secondary-light-color: lighten($secondary-main-color, 15%);
+$secondary-dark-color: darken($secondary-main-color, 15%);
+
 $success-main-color: #2ec4b6;
-$success-light-color: #50f1e2;
-$success-dark-color: #21aea1;
+$success-light-color: lighten($success-main-color, 15%);
+$success-dark-color: darken($success-main-color, 15%);
 
 $error-main-color: #e5383b;
-$error-light-color: #fd5b5e;
-$error-dark-color: #c82528;
+$error-light-color: lighten($error-main-color, 15%);
+$error-dark-color: darken($error-main-color, 15%);
 
 $warning-main-color: #ffc43d;
-$warning-light-color: #fbcd64;
-$warning-dark-color: #e1a417;
+$warning-light-color: lighten($warning-main-color, 15%);
+$warning-dark-color: lighten($warning-main-color, 15%);
 
 $info-main-color: #4361ee;
-$info-light-color: #607af6;
-$info-dark-color: #2645d3;
+$info-light-color: lighten($info-main-color, 15%);
+$info-dark-color: darken($info-main-color, 15%);
 
 $xxs-font: 0.625rem;
 $xs-font: 0.75rem;

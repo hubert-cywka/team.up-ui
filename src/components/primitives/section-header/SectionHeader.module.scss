@@ -1,11 +1,11 @@
-@import "../../../styles/variables.module";
-@import "../../../styles/mixins.module";
+@import "src/styles/variables.module";
+@import "src/styles/mixins.module";
 
 .sectionHeader {
+  width: 100%;
   padding: 0 $spacing-l;
   margin-bottom: $spacing-m;
   box-sizing: border-box;
-  width: 100%;
 
   &.outside {
     margin-top: $spacing-xxxl;
@@ -24,7 +24,7 @@
 
   .subheader {
     margin-top: $spacing-l;
-    text-align: center;
     font-size: $m-font;
+    text-align: center;
   }
 }

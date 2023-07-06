@@ -1,13 +1,13 @@
-@import "../../../styles/variables.module";
+@import "src/styles/variables.module";
 
 .button {
+  width: fit-content;
   display: flex;
   gap: $spacing-s;
-  border-radius: $radius-s;
   padding: $spacing-m $spacing-l;
   font-weight: 900;
+  border-radius: $radius-s;
   text-transform: uppercase;
-  width: fit-content;
   cursor: pointer;
   border: none;
   transition: background-color 0.2s;

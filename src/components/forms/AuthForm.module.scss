@@ -1,25 +1,25 @@
 @import "src/styles/variables.module";
 
 .authFormContainer {
-  background-color: $primary-light-color;
-  padding: $spacing-xxl $spacing-xxl $spacing-l;
-  border-radius: $radius-xl;
   width: 90%;
-  box-sizing: border-box;
   max-width: 500px;
+  padding: $spacing-xxl $spacing-xxl $spacing-l;
+  background-color: $primary-light-color;
+  border-radius: $radius-xl;
+  box-sizing: border-box;
 
   .buttonsContainer {
-    margin-top: $spacing-m;
-    display: flex;
     width: 100% ;
+    display: flex;
+    margin-top: $spacing-m;
     justify-content: space-around;
   }
 
   .authForm {
     display: flex;
-    gap: $spacing-m;
     flex-direction: column;
     align-items: center;
+    gap: $spacing-m;
 
     .inputContainer {
       width: 100%;
@@ -28,17 +28,17 @@
       gap: $spacing-s;
 
       .inputName {
-        font-size: $s-font;
-        margin-left: $spacing-s;
-        font-weight: 700;
         width: 100%;
+        margin-left: $spacing-s;
+        font-size: $s-font;
+        font-weight: 700;
       }
 
       .inputMessage {
-        text-align: justify;
-        font-size: $xs-font;
         margin-left: $spacing-s;
         margin-bottom: $spacing-l;
+        font-size: $xs-font;
+        text-align: justify;
         opacity: 0.75;
 
         &.error {
