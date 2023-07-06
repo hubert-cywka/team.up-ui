@@ -1,4 +1,4 @@
-@import "../../../styles/variables.module";
+@import "src/styles/variables.module";
 
 .inputContainer {
   position: relative;
@@ -13,8 +13,8 @@
 
   .input {
     width: 100%;
-    background-color: $primary-main-color;
     padding: $spacing-l $spacing-xl;
+    background-color: $primary-main-color;
     border-radius: $radius-s;
     border: thin solid $primary-dark-color;
     box-sizing: border-box;

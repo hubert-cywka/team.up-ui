@@ -1,10 +1,10 @@
 import MainLayout from 'layouts/main/MainLayout';
-import { Route } from '../../constants/Route';
+import { Route } from '../../shared/constants/Route';
 import { useRouter } from 'next/router';
 import { GetServerSideProps } from 'next';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../api/auth/[...nextauth]';
-import StatusMessage from '../../components/content/error-message/StatusMessage';
+import MessageBox from '../../components/content/message-box/MessageBox';
 import { faHandPointUp } from '@fortawesome/free-solid-svg-icons';
 import { useEffect } from 'react';
 import { signOut } from 'next-auth/react';
@@ -20,11 +20,11 @@ const SignOut = () => {
 
   return (
     <MainLayout>
-      <StatusMessage
+      <MessageBox
         icon={faHandPointUp}
         header="See you later!"
         message="You have been signed out. We hope that you come back soon!"
-        onButtonClick={() => router.push(Route.SIGNIN)}
+        onButtonClick={() => router.push(Route.SIGN_IN)}
         buttonText="Sign in"
         variant="success"
       />

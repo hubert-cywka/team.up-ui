@@ -1,7 +1,7 @@
 import NextAuth, { AuthOptions } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import { signInUser, signOutUser } from 'services/AuthService';
-import { Route } from 'constants/Route';
+import { Route } from 'shared/constants/Route';
 
 export const authOptions: AuthOptions = {
   providers: [
@@ -43,8 +43,8 @@ export const authOptions: AuthOptions = {
     }
   },
   pages: {
-    signIn: Route.SIGNIN,
-    signOut: Route.SIGNOUT
+    signIn: Route.SIGN_IN,
+    signOut: Route.SIGN_OUT
   },
 
   events: {

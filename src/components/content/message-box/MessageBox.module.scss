@@ -1,24 +1,24 @@
-@import "../../../styles/variables.module";
-@import "../../../styles/mixins.module";
+@import "src/styles/variables.module";
+@import "src/styles/mixins.module";
 
-.statusMessage {
-  background-color: $background-light-color;
-  padding: $spacing-xxl;
-  box-sizing: border-box;
-  border-radius: $radius-s;
-  margin: $spacing-m;
-  color: $text-secondary;
+.messageBox {
   position: relative;
   overflow: hidden;
+  width: fit-content;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: $spacing-m;
-  width: fit-content;
-  max-width: 500px;
-  text-align: center;
+  padding: $spacing-xxl;
+  margin: $spacing-m;
+  background-color: $background-light-color;
+  color: $text-secondary;
+  border-radius: $radius-s;
   border-bottom-width: 5px;
   border-bottom-style: solid;
+  text-align: center;
+  box-sizing: border-box;
 
   .header {
     @include header-text($xxl-font);
@@ -41,18 +41,18 @@
   }
 
   .icon {
-    font-size: 15rem;
     position: absolute;
     right: 0;
     top: 50%;
-    transform: translateY(-50%) translateX(30%);
-    opacity: 0.15;
     z-index: 1;
+    font-size: 15rem;
+    opacity: 0.15;
+    transform: translateY(-50%) translateX(30%);
   }
 
-  .goBackButton {
-    margin-top: $spacing-xl;
+  .button {
     position: relative;
     z-index: 10;
+    margin-top: $spacing-xl;
   }
 }

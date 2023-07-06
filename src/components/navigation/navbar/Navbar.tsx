@@ -2,7 +2,7 @@
 
 import styles from './Navbar.module.scss';
 import Link from 'next/link';
-import { Route } from 'constants/Route';
+import { Route } from 'shared/constants/Route';
 import { useScrollDirection } from 'shared/hooks/useScrollPosition';
 import classNames from 'classnames';
 import { ReactElement, useState } from 'react';
@@ -42,7 +42,7 @@ const Navbar = () => {
         {buildNavbarTab('ABOUT', Route.ABOUT)}
         {session.status === 'authenticated' && session.data.user ? (
           <>
-            {buildNavbarTab('SIGN OUT', Route.SIGNOUT)}
+            {buildNavbarTab('SIGN OUT', Route.SIGN_OUT)}
             {buildNavbarTab(
               <>
                 ACCOUNT <FontAwesomeIcon icon={faUser} />
@@ -52,8 +52,8 @@ const Navbar = () => {
           </>
         ) : (
           <>
-            {buildNavbarTab('LOGIN', Route.SIGNIN)}
-            {buildNavbarTab('REGISTER', Route.SIGNUP)}
+            {buildNavbarTab('LOGIN', Route.SIGN_IN)}
+            {buildNavbarTab('REGISTER', Route.SIGN_UP)}
           </>
         )}
       </nav>

@@ -1,27 +1,27 @@
-@import "../../../styles/variables.module";
-@import "../../../styles/mixins.module";
+@import "src/styles/variables.module";
+@import "src/styles/mixins.module";
 
 .tileContainer {
-  background-color: $background-light-color;
-  border-radius: $radius-xxl;
-  color: $text-secondary;
-  padding: $spacing-xxl $spacing-xl $spacing-xxl 20%;
-  box-sizing: border-box;
-  text-align: right;
   position: relative;
+  padding: $spacing-xxl $spacing-xl $spacing-xxl 20%;
+  background-color: $background-light-color;
+  color: $text-secondary;
+  border-radius: $radius-xxl;
+  text-align: right;
+  box-sizing: border-box;
 
   .step {
-    @include header-text($xxl-font);
-    height: $xxl-font;
-    padding: $spacing-l;
-    text-align: center;
-    aspect-ratio: 1;
     position: absolute;
-    transform: translateY(-25%) translateX(-25%);
-    border-radius: $round;
-    background-color: $background-main-color;
     top: 0;
     left: 0;
+    height: $xxl-font;
+    aspect-ratio: 1;
+    background-color: $background-main-color;
+    padding: $spacing-l;
+    transform: translateY(-25%) translateX(-25%);
+    border-radius: $round;
+    @include header-text($xxl-font);
+    text-align: center;
   }
 
   &:hover {
@@ -37,15 +37,15 @@
   }
 
   .description {
-    box-sizing: border-box;
     font-size: $s-font;
     margin-top: $spacing-s;
+    box-sizing: border-box;
   }
 
   .icon {
-    opacity: 0.25;
-    margin-left: auto;
     height: $xxxl-font;
+    margin-left: auto;
+    opacity: 0.25;
   }
 
   .icon, .header {

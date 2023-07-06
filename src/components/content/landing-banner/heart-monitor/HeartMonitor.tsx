@@ -6,27 +6,26 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { ReactNode, useEffect, useRef, useState } from 'react';
 import { getRandomIntegerInRange } from 'shared/utility/NumberUtils';
 
-const MIN_RATE = 105;
-const MAX_RATE = 160;
-const MAX_CHANGE = 10;
-const INTERVAL = 750;
-const MIN_GRAPH_HEIGHT = 30;
-const GRAPH_HEIGHT_DIFF = 20;
-const DASHES_MULTIPLIER = 0.075;
-const BASE_WIDTH = 80;
-
 const HeartMonitor = () => {
+  const MIN_RATE = 105;
+  const MAX_RATE = 160;
+  const MAX_CHANGE = 10;
+  const INTERVAL = 750;
+  const MIN_GRAPH_HEIGHT = 30;
+  const GRAPH_HEIGHT_DIFF = 20;
+  const DASHES_MULTIPLIER = 0.075;
+  const BASE_WIDTH = 80;
   const [rate, setRate] = useState(MIN_RATE);
   const intervalRef = useRef<typeof setInterval.prototype.return | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [dashesCount, setDashesCount] = useState(0);
 
   useEffect(() => {
-    const containerWidth = containerRef.current?.offsetWidth;
+    const containerWidth = containerRef.current?.clientWidth;
     if (containerWidth) {
       setDashesCount(Math.floor((containerWidth - BASE_WIDTH) * DASHES_MULTIPLIER));
     }
-  }, [rate]);
+  }, [containerRef.current?.clientWidth]);
 
   useEffect(() => {
     const minRate = Math.max(rate - MAX_CHANGE, MIN_RATE);
@@ -38,7 +37,7 @@ const HeartMonitor = () => {
     );
 
     return () => clearInterval(intervalRef.current);
-  }, [containerRef.current?.offsetWidth]);
+  }, [rate]);
 
   const buildChart = (count: number) => {
     const dashes: ReactNode[] = [];

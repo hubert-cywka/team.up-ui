@@ -2,10 +2,10 @@
 
 .alertContainer {
   padding: $spacing-m $spacing-l;
-  border-radius: $radius-s;
-  color: $text-secondary;
-  font-size: $s-font;
   margin: $spacing-m;
+  color: $text-secondary;
+  border-radius: $radius-s;
+  font-size: $s-font;
 
   &.success {
     background: $success-dark-color;

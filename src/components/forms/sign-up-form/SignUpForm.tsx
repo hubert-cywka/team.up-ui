@@ -8,7 +8,7 @@ import Button from 'components/primitives/button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faAt, faUser, faCakeCandles, faKey } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
-import { Route } from 'constants/Route';
+import { Route } from 'shared/constants/Route';
 import SectionHeader from 'components/primitives/section-header/SectionHeader';
 import {
   getBirthdayValidationSchema,
@@ -16,17 +16,17 @@ import {
   getEmailValidationSchema,
   getPasswordValidationSchema,
   getUsernameValidationSchema
-} from 'constants/FormSchemas';
-import Input from '../../primitives/input/Input';
+} from 'shared/constants/FormSchemas';
+import Input from 'components/primitives/input/Input';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
   BirthdayValidation,
   EmailValidation,
   PasswordValidation,
   UsernameValidation
-} from '../../../constants/UserConstants';
-import { SignUpRequest } from '../../../services/AuthService';
+} from 'shared/constants/UserConstants';
 import classNames from 'classnames';
+import { SignUpRequest } from '../../../shared/interfaces/SignUpRequest.interface';
 
 type SignUpInputs = {
   name: string;
@@ -145,7 +145,7 @@ const SignUpForm = ({ onSignUp }: SignUpFormProps) => {
           errors.birthday?.message
         )}
 
-        <Link href={Route.SIGNIN} className={styles.navigationLink}>
+        <Link href={Route.SIGN_IN} className={styles.navigationLink}>
           {`I already have an account.`}
         </Link>
 

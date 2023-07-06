@@ -1,5 +1,5 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import styles from './StatusMessage.module.scss';
+import styles from './MessageBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from 'components/primitives/button/Button';
 import { useRouter } from 'next/router';
@@ -14,7 +14,7 @@ interface StatusMessageProps {
   onButtonClick?: () => void;
 }
 
-const StatusMessage = ({
+const MessageBox = ({
   icon,
   header,
   message,
@@ -33,15 +33,15 @@ const StatusMessage = ({
   };
 
   return (
-    <div className={classNames(styles.statusMessage, styles[variant])}>
+    <div className={classNames(styles.messageBox, styles[variant])}>
       <FontAwesomeIcon className={styles.icon} icon={icon} />
       <h2 className={styles.header}>{header}</h2>
       <p>{message}</p>
-      <Button className={styles.goBackButton} onClick={handleButtonClick} variant="main">
+      <Button className={styles.button} onClick={handleButtonClick} variant="main">
         {buttonText}
       </Button>
     </div>
   );
 };
 
-export default StatusMessage;
+export default MessageBox;

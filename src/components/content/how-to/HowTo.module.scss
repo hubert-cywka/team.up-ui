@@ -1,10 +1,10 @@
-@import "../../../styles/variables.module";
+@import "src/styles/variables.module";
 
 .howToContainer {
-  padding: $spacing-m;
   display: grid;
   grid-gap: $spacing-xl;
   grid-template-columns: repeat(4, 1fr);
+  padding: $spacing-m;
 
   @media (max-width: $md) {
     grid-template-columns: repeat(2, 1fr);

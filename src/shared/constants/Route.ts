@@ -2,8 +2,11 @@ export module Route {
   export const HOME = '/';
   export const ACTIVITIES = '/activities';
   export const ABOUT = '/about';
-  export const SIGNIN = '/auth/sign-in';
-  export const SIGNUP = '/auth/sign-up';
-  export const SIGNOUT = '/auth/sign-out';
+
+  const AUTH = '/auth';
+  export const SIGN_IN = `${AUTH}/sign-in`;
+  export const SIGN_UP = `${AUTH}/sign-up`;
+  export const SIGN_OUT = `${AUTH}/sign-out`;
+
   export const ACCOUNT = '/account';
 }
