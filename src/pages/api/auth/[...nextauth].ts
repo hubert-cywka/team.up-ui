@@ -43,7 +43,8 @@ export const authOptions: AuthOptions = {
     }
   },
   pages: {
-    signIn: Route.SIGNIN
+    signIn: Route.SIGNIN,
+    signOut: Route.SIGNOUT
   },
 
   events: {

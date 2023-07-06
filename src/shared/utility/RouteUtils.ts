@@ -3,7 +3,7 @@ import { User } from 'next-auth';
 
 type UserType = 'authenticated' | 'unauthenticated' | 'authenticated_user' | 'authenticated_admin';
 
-export const checkIfShouldRedirect = (prevent: UserType, user: User) => {
+export const checkIfShouldRedirect = (prevent: UserType, user?: User) => {
   switch (prevent) {
     case 'authenticated':
       return !!user;
@@ -12,9 +12,9 @@ export const checkIfShouldRedirect = (prevent: UserType, user: User) => {
       return !user;
 
     case 'authenticated_user':
-      return !!user && user.role === UserRole.USER;
+      return !!user && user?.role === UserRole.USER;
 
     case 'authenticated_admin':
-      return !!user && user.role === UserRole.ADMIN;
+      return !!user && user?.role === UserRole.ADMIN;
   }
 };
