@@ -16,13 +16,13 @@
   top: 0;
   transition: transform 0.3s;
   box-shadow: $light-shadow;
-  justify-content: center;
+  justify-content: space-between;
 
   @include dynamic-width;
   width: calc(100% - 2 * #{$spacing-m});
 
   &.collapsed {
-    transform: translateY(-200%);
+    transform: translateY(-500%);
   }
 
   .logo {
@@ -32,27 +32,49 @@
     font-size: $logo-font;
     cursor: pointer;
     color: $text-primary;
+  }
 
-    @media (max-width: $md) {
-      display: none;
+  .toggleNavigationVisibilityButton {
+    display: none;
+
+    @media (max-width: $lg) {
+      display: block;
     }
   }
 
   .tabsContainer {
-    flex-grow: 1;
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
     gap: $spacing-xl;
 
+    @media (max-width: $lg) {
+      flex-direction: column;
+      position: absolute;
+      left: 0;
+      top: calc(100% + #{$spacing-m});
+      background: $primary-main-color;
+      border-radius: $radius-m;
+      padding: $spacing-m $spacing-l;
+      box-sizing: border-box;
+      width: 100%;
+      box-shadow: $light-shadow;
+
+      &.hidden {
+        transform: translateY(-500px);
+      }
+    }
+
     .tab {
       color: $text-primary;
+      font-size: $s-font;
       text-decoration: none;
       font-weight: bold;
-      font-size: $s-font;
       transition: border-bottom-color 0.2s;
       border-bottom: 5px solid transparent;
       padding: $spacing-m;
+      text-transform: uppercase;
+      cursor: pointer;
 
       &:hover {
         border-bottom-color: $secondary-light-color;
