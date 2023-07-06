@@ -3,15 +3,15 @@
 
 .heartMonitor {
   background-color: $background-main-color;
-  width: 300px;
+  width: 100%;
   height: 70px;
-  border-radius: $radius-s;
+  border-radius: $radius-xxl;
   display: flex;
   justify-content: center;
   align-items: center;
   color: $primary-main-color;
   gap: $spacing-m;
-  padding: 0 $spacing-l;
+  padding: 0 $spacing-xl;
   box-sizing: border-box;
 
   .heartbeatIcon {
@@ -39,7 +39,6 @@
       border-radius: $radius-xxl;
       flex-grow: 1;
       min-height: 10%;
-      width: 100%;
       background-color: $primary-main-color;
       transition: height 0.5s;
     }

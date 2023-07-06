@@ -12,11 +12,21 @@ const MAX_CHANGE = 10;
 const INTERVAL = 750;
 const MIN_GRAPH_HEIGHT = 30;
 const GRAPH_HEIGHT_DIFF = 20;
-const DASHES_COUNT = 15;
+const DASHES_MULTIPLIER = 0.075;
+const BASE_WIDTH = 80;
 
 const HeartMonitor = () => {
   const [rate, setRate] = useState(MIN_RATE);
   const intervalRef = useRef<typeof setInterval.prototype.return | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [dashesCount, setDashesCount] = useState(0);
+
+  useEffect(() => {
+    const containerWidth = containerRef.current?.offsetWidth;
+    if (containerWidth) {
+      setDashesCount(Math.floor((containerWidth - BASE_WIDTH) * DASHES_MULTIPLIER));
+    }
+  }, [rate]);
 
   useEffect(() => {
     const minRate = Math.max(rate - MAX_CHANGE, MIN_RATE);
@@ -28,7 +38,7 @@ const HeartMonitor = () => {
     );
 
     return () => clearInterval(intervalRef.current);
-  }, [rate]);
+  }, [containerRef.current?.offsetWidth]);
 
   const buildChart = (count: number) => {
     const dashes: ReactNode[] = [];
@@ -51,10 +61,10 @@ const HeartMonitor = () => {
   };
 
   return (
-    <div className={styles.heartMonitor}>
+    <div ref={containerRef} className={styles.heartMonitor}>
       <FontAwesomeIcon icon={faHeart} className={styles.heartbeatIcon} />
       <span className={styles.heartbeatRate}>{rate} BPM</span>
-      <span className={styles.chartContainer}>{buildChart(DASHES_COUNT)}</span>
+      <span className={styles.chartContainer}>{buildChart(dashesCount)}</span>
     </div>
   );
 };

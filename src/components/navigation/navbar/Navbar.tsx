@@ -4,34 +4,74 @@ import styles from './Navbar.module.scss';
 import Link from 'next/link';
 import { Route } from 'constants/Route';
 import { useScrollDirection } from 'shared/hooks/useScrollPosition';
-import AccountMenu from 'components/navigation/navbar/account-menu/AccountMenu';
 import classNames from 'classnames';
+import { ReactElement, useState } from 'react';
+import Button from '../../primitives/button/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faClose, faUser } from '@fortawesome/free-solid-svg-icons';
+import { useSession } from 'next-auth/react';
 
 const SCROLL_THRESHOLD = 25;
 
 const Navbar = () => {
   const scrollDirection = useScrollDirection(SCROLL_THRESHOLD);
-  const isCollapsed = scrollDirection === 'down';
+  const isHidden = scrollDirection === 'down';
+  const [areNavigationTabsHidden, setAreNavigationTabsHidden] = useState(true);
+  const session = useSession();
 
-  const buildNavbarTab = (name: string, route: string) => {
+  const buildNavbarTab = (tabContent: string | ReactElement, route: string) => {
     return (
       <Link href={route} className={styles.tab}>
-        {name}
+        {tabContent}
       </Link>
     );
   };
 
-  return (
-    <header className={classNames(styles.pageNavbar, { [styles.collapsed]: isCollapsed })}>
-      <Link href={Route.HOME} className={styles.logo}>
-        Team.Up
-      </Link>
-      <nav className={styles.tabsContainer}>
+  const toggleNavigationVisibility = () => {
+    setAreNavigationTabsHidden((prev) => !prev);
+  };
+
+  const buildNavbar = () => {
+    return (
+      <nav
+        className={classNames(styles.tabsContainer, {
+          [styles.hidden]: areNavigationTabsHidden && !isHidden
+        })}>
         {buildNavbarTab('HOME', Route.HOME)}
         {buildNavbarTab('ACTIVITIES', Route.ACTIVITIES)}
         {buildNavbarTab('ABOUT', Route.ABOUT)}
+        {session.status === 'authenticated' && session.data.user ? (
+          <>
+            {buildNavbarTab('SIGN OUT', Route.SIGNOUT)}
+            {buildNavbarTab(
+              <>
+                ACCOUNT <FontAwesomeIcon icon={faUser} />
+              </>,
+              Route.ACCOUNT
+            )}
+          </>
+        ) : (
+          <>
+            {buildNavbarTab('LOGIN', Route.SIGNIN)}
+            {buildNavbarTab('REGISTER', Route.SIGNUP)}
+          </>
+        )}
       </nav>
-      <AccountMenu />
+    );
+  };
+
+  return (
+    <header className={classNames(styles.pageNavbar, { [styles.collapsed]: isHidden })}>
+      <Link href={Route.HOME} className={styles.logo}>
+        Team.Up
+      </Link>
+      {buildNavbar()}
+      <Button
+        className={styles.toggleNavigationVisibilityButton}
+        variant="secondary"
+        onClick={toggleNavigationVisibility}>
+        <FontAwesomeIcon icon={areNavigationTabsHidden && !isHidden ? faBars : faClose} />
+      </Button>
     </header>
   );
 };
