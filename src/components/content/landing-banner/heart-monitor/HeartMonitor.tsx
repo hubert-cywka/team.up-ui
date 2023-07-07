@@ -13,8 +13,8 @@ const HeartMonitor = () => {
   const INTERVAL = 750;
   const MIN_GRAPH_HEIGHT = 30;
   const GRAPH_HEIGHT_DIFF = 20;
-  const DASHES_MULTIPLIER = 0.075;
-  const BASE_WIDTH = 80;
+  const DASHES_MULTIPLIER = 0.1;
+  const BASE_WIDTH = 180;
   const [rate, setRate] = useState(MIN_RATE);
   const intervalRef = useRef<typeof setInterval.prototype.return | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
