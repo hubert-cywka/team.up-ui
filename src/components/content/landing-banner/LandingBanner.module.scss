@@ -2,6 +2,8 @@
 @import "src/styles/mixins.module";
 
 .landingBanner {
+  max-width: 100%;
+  overflow: hidden;
   position: relative;
   margin: $spacing-m;
   padding: $spacing-m $spacing-xxl $spacing-xl;
@@ -40,7 +42,7 @@
     .imageContainer {
       position: relative;
       overflow: hidden;
-      border-radius: $radius-xxl;
+      border-radius: $radius-m;
       filter: saturate(0);
       transition: filter 0.3s;
 

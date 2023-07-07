@@ -35,7 +35,7 @@ const Navbar = () => {
     return (
       <nav
         className={classNames(styles.tabsContainer, {
-          [styles.hidden]: areNavigationTabsHidden && !isHidden
+          [styles.hidden]: areNavigationTabsHidden || isHidden
         })}>
         {buildNavbarTab('HOME', Route.HOME)}
         {buildNavbarTab('ACTIVITIES', Route.ACTIVITIES)}
