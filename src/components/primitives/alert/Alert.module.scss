@@ -1,25 +1,26 @@
 @import "src/styles/variables.module";
 
 .alertContainer {
+  width: fit-content;
   padding: $spacing-m $spacing-l;
-  margin: $spacing-m;
+  margin: $spacing-m auto;
   color: $text-secondary;
   border-radius: $radius-s;
   font-size: $s-font;
 
   &.success {
-    background: $success-dark-color;
+    background: $success-main-color;
   }
 
   &.error {
-    background: $error-dark-color;
+    background: $error-main-color;
   }
 
   &.info {
-    background: $info-dark-color;
+    background: $info-main-color;
   }
 
   &.warning {
-    background: $warning-dark-color;
+    background: $warning-main-color;
   }
 }

@@ -1,0 +1,50 @@
+@import "src/styles/variables.module";
+@import "src/styles/mixins.module";
+
+.sportsListContainer {
+  width: 95%;
+  padding: $spacing-m $spacing-l;
+  background-color: $primary-main-color;
+  border-radius: $radius-s;
+  box-sizing: border-box;
+
+  .headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: $spacing-s 0 $spacing-l;
+
+    .header {
+      @include header-text($xl-font);
+
+      @media (max-width: $xs) {
+        display: none;
+      }
+    }
+
+    .modeTabsContainer {
+      display: flex;
+      justify-content: center;
+      gap: $spacing-xl;
+      margin-left: auto;
+
+      @media (max-width: $xs) {
+        gap: $spacing-m;
+      }
+
+      .highlighted {
+        border-bottom: 2px solid black;
+      }
+    }
+  }
+
+  .sportsList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $spacing-m;
+    margin: $spacing-m;
+    box-sizing: border-box;
+  }
+}
+

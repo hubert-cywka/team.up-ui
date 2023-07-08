@@ -1,7 +1,6 @@
 export module Route {
   export const HOME = '/';
   export const ACTIVITIES = '/activities';
-  export const ABOUT = '/about';
 
   const AUTH = '/auth';
   export const SIGN_IN = `${AUTH}/sign-in`;

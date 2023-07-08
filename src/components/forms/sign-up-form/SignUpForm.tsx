@@ -2,7 +2,6 @@
 
 import styles from '../AuthForm.module.scss';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import Button from 'components/primitives/button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,13 +9,7 @@ import { faLock, faAt, faUser, faCakeCandles, faKey } from '@fortawesome/free-so
 import Link from 'next/link';
 import { Route } from 'shared/constants/Route';
 import SectionHeader from 'components/primitives/section-header/SectionHeader';
-import {
-  getBirthdayValidationSchema,
-  getConfirmPasswordValidationSchema,
-  getEmailValidationSchema,
-  getPasswordValidationSchema,
-  getUsernameValidationSchema
-} from 'shared/constants/FormSchemas';
+import { signUpValidationSchema } from 'shared/constants/FormSchemas';
 import Input from 'components/primitives/input/Input';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -26,7 +19,7 @@ import {
   UsernameValidation
 } from 'shared/constants/UserConstants';
 import classNames from 'classnames';
-import { SignUpRequest } from '../../../shared/interfaces/SignUpRequest.interface';
+import { SignUpRequest } from 'shared/interfaces/SignUpRequest.interface';
 
 type SignUpInputs = {
   name: string;
@@ -41,14 +34,6 @@ interface SignUpFormProps {
 }
 
 const SignUpForm = ({ onSignUp }: SignUpFormProps) => {
-  const signUpValidationSchema = yup.object({
-    name: getUsernameValidationSchema(),
-    email: getEmailValidationSchema(),
-    password: getPasswordValidationSchema(),
-    confirmPassword: getConfirmPasswordValidationSchema('password'),
-    birthday: getBirthdayValidationSchema()
-  });
-
   const {
     register,
     handleSubmit,

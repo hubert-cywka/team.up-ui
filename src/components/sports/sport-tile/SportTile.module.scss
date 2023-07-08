@@ -1,0 +1,21 @@
+@import "src/styles/variables.module";
+
+.sportTile {
+  padding: $spacing-m $spacing-l;
+  background-color: $background-dark-color;
+  color: $text-secondary;
+  border-radius: $radius-xs;
+  font-size: $s-font;
+  font-weight: 750;
+  cursor: pointer;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+    background-color: $background-light-color;
+  }
+
+  &.highlighted {
+    opacity: 1;
+  }
+}
