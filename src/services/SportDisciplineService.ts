@@ -11,8 +11,8 @@ export const addSportDiscipline = async (request: CreateSportDisciplineRequest) 
   return data;
 };
 
-export const updateSportDiscipline = async (request: CreateSportDisciplineRequest, id: string) => {
-  const { data } = await apiClient.put<SportDiscipline>(`/sports/${id}`, request);
+export const updateSportDiscipline = async (newSport: SportDiscipline) => {
+  const { data } = await apiClient.put<SportDiscipline>(`/sports/${newSport._id}`, newSport);
   return data;
 };
 

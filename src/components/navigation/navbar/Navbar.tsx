@@ -39,7 +39,6 @@ const Navbar = () => {
         })}>
         {buildNavbarTab('HOME', Route.HOME)}
         {buildNavbarTab('ACTIVITIES', Route.ACTIVITIES)}
-        {buildNavbarTab('ABOUT', Route.ABOUT)}
         {session.status === 'authenticated' && session.data.user ? (
           <>
             {buildNavbarTab('SIGN OUT', Route.SIGN_OUT)}

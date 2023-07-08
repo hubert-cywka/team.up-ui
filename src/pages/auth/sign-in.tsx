@@ -1,71 +1,62 @@
 import SignInForm from 'components/forms/sign-in-form/SignInForm';
-import MainLayout from 'layouts/main/MainLayout';
 import { signIn } from 'next-auth/react';
 import { SignInRequest } from 'shared/interfaces/SignInRequest.interface';
-import Builder from 'shared/utility/Builder';
+import Builder, { BuilderStatus } from 'shared/utility/Builder';
 import Alert from 'components/primitives/alert/Alert';
 import { useState } from 'react';
 import { Route } from 'shared/constants/Route';
 import { useRouter } from 'next/router';
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps, NextApiRequest, NextApiResponse } from 'next';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../api/auth/[...nextauth]';
 import { checkIfShouldRedirect } from 'shared/utility/RouteUtils';
+import CenteredLayout from 'layouts/error/CenteredLayout';
 
 const SignIn = () => {
   const router = useRouter();
-  const [statusCode, setStatusCode] = useState(0);
+  const [status, setStatus] = useState<BuilderStatus>('idle');
 
   const handleSignIn = async (request: SignInRequest) => {
-    const res = await signIn('credentials', {
-      redirect: false,
-      email: request.email,
-      password: request.password
-    });
+    setStatus('loading');
+    try {
+      const res = await signIn('credentials', {
+        redirect: false,
+        email: request.email,
+        password: request.password
+      });
 
-    const errorStatusCode = res?.status ? res.status : 500;
-    setStatusCode(errorStatusCode);
-
-    if (res?.status === 200) {
-      await router.push(Route.HOME);
-    }
-  };
-
-  const buildErrorMessage = (errorStatusCode: number) => {
-    switch (errorStatusCode) {
-      case 401:
-        return 'User with this email and password was not found.';
-
-      default:
-        return 'Unexpected server error happened. Try again later.';
-    }
-  };
-
-  const mapCodeToStatus = (code: number) => {
-    if (code === 200) {
-      return 'success';
-    } else if (code >= 400) {
-      return 'error';
-    } else {
-      return 'idle';
+      if (res?.status === 200) {
+        setStatus('success');
+        await router.push(Route.HOME);
+      } else {
+        setStatus('error');
+      }
+    } catch (e) {
+      setStatus('error');
     }
   };
 
   return (
-    <MainLayout>
+    <CenteredLayout>
       <SignInForm onSignIn={handleSignIn} />
-      {Builder.createResult(mapCodeToStatus(statusCode))
-        .onError(<Alert content={buildErrorMessage(statusCode)} variant="error" />)
+      {Builder.createResult(status)
+        .onError(
+          <Alert content="User with this email and password was not found." variant="error" />
+        )
         .onSuccess(<Alert content="Success! You will be redirected soon." variant="success" />)
         .build()}
-    </MainLayout>
+    </CenteredLayout>
   );
 };
 
 export default SignIn;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const serverSession = await getServerSession(context.req, context.res, authOptions);
+  const serverSession = await getServerSession(
+    context.req,
+    context.res,
+    authOptions(context.req as NextApiRequest, context.res as NextApiResponse)
+  );
 
   if (serverSession && checkIfShouldRedirect('authenticated', serverSession.user)) {
     return {

@@ -2,8 +2,8 @@ import { ComponentProps, PropsWithChildren } from 'react';
 import styles from './Button.module.scss';
 import classNames from 'classnames';
 
-interface ButtonProps extends ComponentProps<'button'> {
-  variant: 'main' | 'success' | 'error' | 'secondary';
+export interface ButtonProps extends ComponentProps<'button'> {
+  variant: 'main' | 'success' | 'error' | 'secondary' | 'plain';
 }
 
 const Button = ({
