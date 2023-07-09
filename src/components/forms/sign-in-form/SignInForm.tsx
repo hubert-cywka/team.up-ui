@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { Route } from 'shared/constants/Route';
 import SectionHeader from 'components/primitives/section-header/SectionHeader';
 import Input from 'components/primitives/input/Input';
-import { SignInRequest } from '../../../shared/interfaces/SignInRequest.interface';
+import { SignInRequest } from 'shared/types/Auth';
 
 type SignInInputs = {
   email: string;

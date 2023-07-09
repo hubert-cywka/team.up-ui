@@ -1,11 +1,13 @@
-import { SportDiscipline } from 'shared/interfaces/SportDiscipline';
 import SportTile from 'components/sports/sport-tile/SportTile';
 import styles from './SportsList.module.scss';
 import { useState } from 'react';
-import Button from '../../primitives/button/Button';
+import Button from 'components/primitives/button/Button';
 import classNames from 'classnames';
 import { SportsListMode } from '../SportShared';
 import SportEditPanel from '../sport-edit-panel/SportEditPanel';
+import { useSession } from 'next-auth/react';
+import { SportDiscipline } from 'shared/types/Sport';
+import { UserRole } from 'shared/types/User.d';
 
 interface SportsListProps {
   sports: SportDiscipline[];
@@ -14,7 +16,7 @@ interface SportsListProps {
 const SportsList = ({ sports }: SportsListProps) => {
   const [selectedSports, setSelectedSports] = useState<SportDiscipline[]>([]);
   const [mode, setMode] = useState<SportsListMode>('browse');
-  const isAdmin = true;
+  const isAdmin = useSession().data?.user.role === UserRole.ADMIN;
 
   const clearSelectedSports = () => {
     setSelectedSports([]);
@@ -80,7 +82,7 @@ const SportsList = ({ sports }: SportsListProps) => {
   };
 
   return (
-    <div className={styles.sportsListContainer}>
+    <section className={styles.sportsListContainer}>
       <div className={styles.headerContainer}>
         <h3 className={styles.header}>Sports</h3>
         {buildModeSelector()}
@@ -95,7 +97,7 @@ const SportsList = ({ sports }: SportsListProps) => {
           onSuccess={clearSelectedSports}
         />
       )}
-    </div>
+    </section>
   );
 };
 

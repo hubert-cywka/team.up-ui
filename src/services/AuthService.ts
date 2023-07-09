@@ -1,7 +1,6 @@
 import { apiClient } from './ApiClient';
-import { SignInRequest } from 'shared/interfaces/SignInRequest.interface';
-import { SignUpRequest } from 'shared/interfaces/SignUpRequest.interface';
-import { UserDetails } from 'shared/interfaces/UserDetails.interface';
+import { SignInRequest, SignUpRequest } from 'shared/types/Auth';
+import { UserDetails } from 'shared/types/User';
 
 export const signInUser = async (userData: SignInRequest) => {
   const { data, headers } = await apiClient.post<UserDetails>(`/auth/login`, userData);
@@ -15,5 +14,10 @@ export const signUpUser = async (userData: SignUpRequest) => {
 
 export const signOutUser = async () => {
   const { data } = await apiClient.post(`/auth/logout`);
+  return data;
+};
+
+export const refreshToken = async () => {
+  const { data } = await apiClient.post(`/auth/refresh`);
   return data;
 };

@@ -3,7 +3,7 @@
 import styles from './Navbar.module.scss';
 import Link from 'next/link';
 import { Route } from 'shared/constants/Route';
-import { useScrollDirection } from 'shared/hooks/useScrollPosition';
+import { useScrollDirection } from 'shared/hooks/misc/useScrollPosition';
 import classNames from 'classnames';
 import { ReactElement, useState } from 'react';
 import Button from '../../primitives/button/Button';

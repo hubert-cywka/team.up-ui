@@ -30,7 +30,8 @@ export const authOptions = (req: NextApiRequest, res: NextApiResponse): AuthOpti
       })
     ],
     session: {
-      maxAge: 60 * 60,
+      maxAge: 60 * 60 * 24,
+      updateAge: 60 * 30,
       strategy: 'jwt'
     },
     callbacks: {

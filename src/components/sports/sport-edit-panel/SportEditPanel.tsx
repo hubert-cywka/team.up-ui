@@ -1,5 +1,4 @@
 import { SportsEditPanelMode } from '../SportShared';
-import { SportDiscipline } from 'shared/interfaces/SportDiscipline';
 import Alert from 'components/primitives/alert/Alert';
 import Button from 'components/primitives/button/Button';
 import { useDeleteSportDiscipline } from 'shared/hooks/sport/useDeleteSportDiscipline';
@@ -15,6 +14,7 @@ import classNames from 'classnames';
 import { SportNameValidation } from 'shared/constants/SportConstants';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { addOrEditSportDisciplineValidationSchema } from 'shared/constants/FormSchemas';
+import { CreateSportDisciplineRequest, SportDiscipline } from 'shared/types/Sport';
 
 interface SportEditPanelProps {
   mode: SportsEditPanelMode;
@@ -29,7 +29,7 @@ const SportEditPanel = ({ mode, sportToEdit, onSuccess }: SportEditPanelProps) =
     getValues,
     reset,
     formState: { errors }
-  } = useForm<Omit<SportDiscipline, '_id'>>({
+  } = useForm<CreateSportDisciplineRequest>({
     mode: 'onChange',
     resolver: yupResolver(addOrEditSportDisciplineValidationSchema)
   });

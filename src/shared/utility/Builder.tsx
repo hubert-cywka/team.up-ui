@@ -10,7 +10,10 @@ class Builder {
   error: ReactElement = (<></>);
   idle: ReactElement = (<></>);
   loading: ReactElement = (
-    <PulseLoader color="white" style={{ margin: 'auto', borderColor: 'white', padding: '10px' }} />
+    <PulseLoader
+      color="orange"
+      style={{ margin: 'auto', borderColor: 'orange', padding: '10px' }}
+    />
   );
 
   constructor(status: BuilderStatus) {

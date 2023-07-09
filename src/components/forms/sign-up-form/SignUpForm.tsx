@@ -19,7 +19,7 @@ import {
   UsernameValidation
 } from 'shared/constants/UserConstants';
 import classNames from 'classnames';
-import { SignUpRequest } from 'shared/interfaces/SignUpRequest.interface';
+import { SignUpRequest } from 'shared/types/Auth';
 
 type SignUpInputs = {
   name: string;

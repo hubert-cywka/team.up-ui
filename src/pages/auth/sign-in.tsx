@@ -1,6 +1,6 @@
 import SignInForm from 'components/forms/sign-in-form/SignInForm';
 import { signIn } from 'next-auth/react';
-import { SignInRequest } from 'shared/interfaces/SignInRequest.interface';
+import { SignInRequest } from 'shared/types/Auth';
 import Builder, { BuilderStatus } from 'shared/utility/Builder';
 import Alert from 'components/primitives/alert/Alert';
 import { useState } from 'react';
