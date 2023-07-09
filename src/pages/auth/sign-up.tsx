@@ -1,5 +1,5 @@
 import SignUpForm from 'components/forms/sign-up-form/SignUpForm';
-import { SignUpRequest } from 'shared/interfaces/SignUpRequest.interface';
+import { SignUpRequest } from 'shared/types/Auth';
 import { useSignUp } from 'shared/hooks/auth/useSignUp';
 import { AxiosError } from 'axios';
 import { useState } from 'react';
@@ -13,7 +13,7 @@ import CenteredLayout from 'layouts/error/CenteredLayout';
 import { GetServerSideProps, NextApiRequest, NextApiResponse } from 'next';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../api/auth/[...nextauth]';
-import { checkIfShouldRedirect } from '../../shared/utility/RouteUtils';
+import { checkIfShouldRedirect } from 'shared/utility/RouteUtils';
 
 const SignUp = () => {
   const { mutateAsync: signUp, status } = useSignUp();

@@ -1,13 +1,13 @@
-import { Route } from '../../shared/constants/Route';
+import { Route } from 'shared/constants/Route';
 import { useRouter } from 'next/router';
 import { GetServerSideProps, NextApiRequest, NextApiResponse } from 'next';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../api/auth/[...nextauth]';
-import MessageBox from '../../components/content/message-box/MessageBox';
+import MessageBox from 'components/content/message-box/MessageBox';
 import { faHandPointUp } from '@fortawesome/free-solid-svg-icons';
 import { useEffect } from 'react';
 import { signOut } from 'next-auth/react';
-import CenteredLayout from '../../layouts/error/CenteredLayout';
+import CenteredLayout from 'layouts/error/CenteredLayout';
 
 const SignOut = () => {
   const router = useRouter();
