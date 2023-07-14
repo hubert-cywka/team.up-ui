@@ -6,6 +6,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 export const authOptions = (req: NextApiRequest, res: NextApiResponse): AuthOptions => {
   return {
+    secret: process.env.NEXTAUTH_SECRET,
     providers: [
       Credentials({
         name: 'Credentials',
