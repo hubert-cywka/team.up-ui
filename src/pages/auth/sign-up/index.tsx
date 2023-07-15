@@ -10,10 +10,8 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from 'next/router';
 import { Route } from 'shared/constants/Route';
 import CenteredLayout from 'layouts/error/CenteredLayout';
-import { GetServerSideProps, NextApiRequest, NextApiResponse } from 'next';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '../api/auth/[...nextauth]';
-import { checkIfShouldRedirect } from 'shared/utility/RouteUtils';
+import { GetServerSideProps } from 'next';
+import withAuth from 'components/hoc/WithAuth';
 
 const SignUp = () => {
   const { mutateAsync: signUp, status } = useSignUp();
@@ -62,25 +60,5 @@ const SignUp = () => {
 
 export default SignUp;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const serverSession = await getServerSession(
-    context.req,
-    context.res,
-    authOptions(context.req as NextApiRequest, context.res as NextApiResponse)
-  );
-
-  if (serverSession && checkIfShouldRedirect('authenticated', serverSession.user)) {
-    return {
-      redirect: {
-        destination: Route.HOME,
-        permanent: false
-      }
-    };
-  }
-
-  return {
-    props: {
-      session: serverSession
-    }
-  };
-};
+export const getServerSideProps: GetServerSideProps = (context) =>
+  withAuth(context, 'authenticated');

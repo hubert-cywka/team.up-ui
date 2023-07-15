@@ -31,8 +31,12 @@ const Navbar = () => {
     setAreNavigationTabsHidden((prev) => !prev);
   };
 
-  const buildNavbar = () => {
-    return (
+  return (
+    <header className={classNames(styles.pageNavbar, { [styles.collapsed]: isHidden })}>
+      <Link href={Route.HOME} className={styles.logo}>
+        Team.Up
+      </Link>
+
       <nav
         className={classNames(styles.tabsContainer, {
           [styles.hidden]: areNavigationTabsHidden || isHidden
@@ -56,15 +60,7 @@ const Navbar = () => {
           </>
         )}
       </nav>
-    );
-  };
 
-  return (
-    <header className={classNames(styles.pageNavbar, { [styles.collapsed]: isHidden })}>
-      <Link href={Route.HOME} className={styles.logo}>
-        Team.Up
-      </Link>
-      {buildNavbar()}
       <Button
         className={styles.toggleNavigationVisibilityButton}
         variant="secondary"

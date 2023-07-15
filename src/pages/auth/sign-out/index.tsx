@@ -1,13 +1,12 @@
 import { Route } from 'shared/constants/Route';
 import { useRouter } from 'next/router';
-import { GetServerSideProps, NextApiRequest, NextApiResponse } from 'next';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '../api/auth/[...nextauth]';
+import { GetServerSideProps } from 'next';
 import MessageBox from 'components/content/message-box/MessageBox';
 import { faHandPointUp } from '@fortawesome/free-solid-svg-icons';
 import { useEffect } from 'react';
 import { signOut } from 'next-auth/react';
 import CenteredLayout from 'layouts/error/CenteredLayout';
+import withAuth from 'components/hoc/WithAuth';
 
 const SignOut = () => {
   const router = useRouter();
@@ -34,25 +33,5 @@ const SignOut = () => {
 
 export default SignOut;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const serverSession = await getServerSession(
-    context.req,
-    context.res,
-    authOptions(context.req as NextApiRequest, context.res as NextApiResponse)
-  );
-
-  if (!serverSession) {
-    return {
-      redirect: {
-        destination: Route.HOME,
-        permanent: false
-      }
-    };
-  }
-
-  return {
-    props: {
-      session: serverSession
-    }
-  };
-};
+export const getServerSideProps: GetServerSideProps = (context) =>
+  withAuth(context, 'unauthenticated');

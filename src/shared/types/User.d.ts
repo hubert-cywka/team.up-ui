@@ -10,3 +10,9 @@ export interface UserDetails {
   role: UserRole;
   image: string;
 }
+
+export type UserType =
+  | 'authenticated'
+  | 'unauthenticated'
+  | 'authenticated_user'
+  | 'authenticated_admin';

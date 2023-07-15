@@ -39,17 +39,6 @@ const SportsList = ({ sports }: SportsListProps) => {
     }
   };
 
-  const buildSportTiles = () => {
-    return sports.map((sport) => (
-      <SportTile
-        onClick={() => handleSelection(sport)}
-        highlighted={isSelected(sport)}
-        key={sport._id}
-        sport={sport}
-      />
-    ));
-  };
-
   const handleModeChange = (modeToSet: SportsListMode) => {
     if (modeToSet !== 'browse') {
       clearSelectedSports();
@@ -88,7 +77,16 @@ const SportsList = ({ sports }: SportsListProps) => {
         {buildModeSelector()}
       </div>
       <section className={styles.sportsList}>
-        {!sports.length ? 'No sport disciplines to show.' : buildSportTiles()}
+        {!sports.length
+          ? 'No sport disciplines to show.'
+          : sports.map((sport) => (
+              <SportTile
+                onClick={() => handleSelection(sport)}
+                highlighted={isSelected(sport)}
+                key={sport._id}
+                sport={sport}
+              />
+            ))}
       </section>
       {isAdmin && mode !== 'browse' && (
         <SportEditPanel
