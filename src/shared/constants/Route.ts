@@ -1,7 +1,7 @@
 export module Route {
   export const HOME = '/';
-  export const ACTIVITIES = '/activities';
-  export const ACTIVITIES_ADD = `${ACTIVITIES}/add`;
+  export const EVENTS = '/events';
+  export const EVENTS_ADD = `${EVENTS}/add`;
 
   const AUTH = '/auth';
   export const SIGN_IN = `${AUTH}/sign-in`;

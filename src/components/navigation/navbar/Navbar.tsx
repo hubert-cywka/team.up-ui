@@ -41,22 +41,22 @@ const Navbar = () => {
         className={classNames(styles.tabsContainer, {
           [styles.hidden]: areNavigationTabsHidden || isHidden
         })}>
-        {buildNavbarTab('HOME', Route.HOME)}
-        {buildNavbarTab('ACTIVITIES', Route.ACTIVITIES)}
+        {buildNavbarTab('Home', Route.HOME)}
+        {buildNavbarTab('Events', Route.EVENTS)}
         {session.status === 'authenticated' && session.data.user ? (
           <>
-            {buildNavbarTab('SIGN OUT', Route.SIGN_OUT)}
+            {buildNavbarTab('Sign out', Route.SIGN_OUT)}
             {buildNavbarTab(
               <>
-                ACCOUNT <FontAwesomeIcon icon={faUser} />
+                Account <FontAwesomeIcon icon={faUser} />
               </>,
               Route.ACCOUNT
             )}
           </>
         ) : (
           <>
-            {buildNavbarTab('LOGIN', Route.SIGN_IN)}
-            {buildNavbarTab('REGISTER', Route.SIGN_UP)}
+            {buildNavbarTab('Login', Route.SIGN_IN)}
+            {buildNavbarTab('Register', Route.SIGN_UP)}
           </>
         )}
       </nav>

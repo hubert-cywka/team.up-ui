@@ -1,7 +1,7 @@
 import styles from './LandingBanner.module.scss';
 import Image from 'next/image';
 import { FOOTBALL_DARK_IMG } from 'shared/constants/ImageConstants';
-import HeartMonitor from 'components/content/landing-banner/heart-monitor/HeartMonitor';
+import HeartMonitor from 'components/landing/heart-monitor/HeartMonitor';
 
 const LandingBanner = () => {
   return (

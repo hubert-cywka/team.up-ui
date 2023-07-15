@@ -1,6 +1,6 @@
 @import "src/styles/variables.module";
 
-.howToContainer {
+.tilesContainer {
   display: grid;
   grid-gap: $spacing-xl;
   grid-template-columns: repeat(4, 1fr);
