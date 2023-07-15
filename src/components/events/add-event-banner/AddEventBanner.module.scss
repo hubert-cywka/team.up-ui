@@ -1,0 +1,20 @@
+@import "src/styles/variables.module";
+@import "src/styles/mixins.module";
+
+.addEventBanner {
+  width: 95%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $spacing-m;
+  padding: $spacing-l $spacing-xxl;
+  background-color: $background-light-color;
+  color: $text-secondary;
+  border-radius: $radius-s;
+  border-bottom: 5px solid $success-main-color;
+  box-sizing: border-box;
+
+  .header {
+    font-weight: 700;
+  }
+}

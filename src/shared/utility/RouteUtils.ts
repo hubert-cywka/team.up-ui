@@ -1,7 +1,5 @@
-import { UserRole } from 'shared/types/User.d';
+import { UserRole, UserType } from 'shared/types/User.d';
 import { User } from 'next-auth';
-
-type UserType = 'authenticated' | 'unauthenticated' | 'authenticated_user' | 'authenticated_admin';
 
 export const checkIfShouldRedirect = (prevent: UserType, user?: User) => {
   switch (prevent) {
@@ -17,4 +15,8 @@ export const checkIfShouldRedirect = (prevent: UserType, user?: User) => {
     case 'authenticated_admin':
       return !!user && user?.role === UserRole.ADMIN;
   }
+};
+
+export const routeWithReferer = (route: string, referer: string) => {
+  return route.concat(`?referer=${referer}`);
 };

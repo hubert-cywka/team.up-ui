@@ -6,11 +6,9 @@ import Alert from 'components/primitives/alert/Alert';
 import { useState } from 'react';
 import { Route } from 'shared/constants/Route';
 import { useRouter } from 'next/router';
-import { GetServerSideProps, NextApiRequest, NextApiResponse } from 'next';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '../api/auth/[...nextauth]';
-import { checkIfShouldRedirect } from 'shared/utility/RouteUtils';
+import { GetServerSideProps } from 'next';
 import CenteredLayout from 'layouts/error/CenteredLayout';
+import withAuth from '../../../components/hoc/WithAuth';
 
 const SignIn = () => {
   const router = useRouter();
@@ -27,7 +25,7 @@ const SignIn = () => {
 
       if (res?.status === 200) {
         setStatus('success');
-        await router.push(Route.HOME);
+        await router.push(router.query.referer?.toString() ?? Route.HOME);
       } else {
         setStatus('error');
       }
@@ -51,25 +49,5 @@ const SignIn = () => {
 
 export default SignIn;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const serverSession = await getServerSession(
-    context.req,
-    context.res,
-    authOptions(context.req as NextApiRequest, context.res as NextApiResponse)
-  );
-
-  if (serverSession && checkIfShouldRedirect('authenticated', serverSession.user)) {
-    return {
-      redirect: {
-        destination: Route.HOME,
-        permanent: false
-      }
-    };
-  }
-
-  return {
-    props: {
-      session: serverSession
-    }
-  };
-};
+export const getServerSideProps: GetServerSideProps = (context) =>
+  withAuth(context, 'authenticated');
