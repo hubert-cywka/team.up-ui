@@ -5,7 +5,7 @@ import { AxiosError } from 'axios';
 import { useState } from 'react';
 import Builder from 'shared/utility/Builder';
 import Alert from 'components/primitives/alert/Alert';
-import MessageBox from 'components/content/message-box/MessageBox';
+import MessageBox from 'components/primitives/message-box/MessageBox';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from 'next/router';
 import { Route } from 'shared/constants/Route';

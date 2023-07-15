@@ -12,8 +12,8 @@ const AddEventBanner = () => {
     : 'Nothing interesting? Sign in and add your own event!';
   const buttonText = isAuthenticated ? 'Add your own event!' : 'Sign in!';
   const route = isAuthenticated
-    ? Route.ACTIVITIES_ADD
-    : routeWithReferer(Route.SIGN_IN, Route.ACTIVITIES_ADD);
+    ? Route.EVENTS_ADD
+    : routeWithReferer(Route.SIGN_IN, Route.EVENTS_ADD);
 
   return (
     <section className={styles.addEventBanner}>

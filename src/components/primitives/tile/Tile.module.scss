@@ -1,5 +1,5 @@
-@import "src/styles/variables.module";
-@import "src/styles/mixins.module";
+@import "../../../styles/variables.module";
+@import "../../../styles/mixins.module";
 
 .tileContainer {
   position: relative;
@@ -32,8 +32,12 @@
   }
 
   .header {
-    @include header-text($xxl-font);
+    @include header-text($xl-font);
     margin-top: $spacing-m;
+
+    @media (min-width: $lg) {
+      @include header-text($xxl-font);
+    }
   }
 
   .description {
