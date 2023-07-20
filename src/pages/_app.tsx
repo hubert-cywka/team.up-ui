@@ -5,9 +5,9 @@ import 'styles/globals.scss';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { QueryClientProvider } from 'react-query';
-import { AppQueryClient } from '../services/QueryClient';
+import { AppQueryClient } from 'services/QueryClient';
 import { SessionProvider } from 'next-auth/react';
-import GlobalLayout from '../layouts/GlobalLayout';
+import GlobalLayout from 'layouts/GlobalLayout';
 config.autoAddCss = false;
 
 export default function App({ Component, pageProps }: AppProps) {

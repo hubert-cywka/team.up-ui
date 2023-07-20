@@ -11,7 +11,7 @@ const Button = ({
   children,
   variant,
   className,
-  type
+  type = 'button'
 }: PropsWithChildren<ButtonProps>) => {
   return (
     <button

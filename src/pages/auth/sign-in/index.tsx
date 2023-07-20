@@ -1,4 +1,4 @@
-import SignInForm from 'components/forms/sign-in-form/SignInForm';
+import SignInForm from 'components/auth/sign-in-form/SignInForm';
 import { signIn } from 'next-auth/react';
 import { SignInRequest } from 'shared/types/Auth';
 import Builder, { BuilderStatus } from 'shared/utility/Builder';
@@ -8,7 +8,7 @@ import { Route } from 'shared/constants/Route';
 import { useRouter } from 'next/router';
 import { GetServerSideProps } from 'next';
 import CenteredLayout from 'layouts/error/CenteredLayout';
-import withAuth from '../../../components/hoc/WithAuth';
+import withAuth from '../../../components/hoc/with-auth/WithAuth';
 
 const SignIn = () => {
   const router = useRouter();
@@ -36,12 +36,12 @@ const SignIn = () => {
 
   return (
     <CenteredLayout>
-      <SignInForm onSignIn={handleSignIn} />
+      <SignInForm onSubmit={handleSignIn} />
       {Builder.createResult(status)
         .onError(
-          <Alert content="User with this email and password was not found." variant="error" />
+          <Alert message="User with this email and password was not found." variant="error" />
         )
-        .onSuccess(<Alert content="Success! You will be redirected soon." variant="success" />)
+        .onSuccess(<Alert message="Success! You will be redirected soon." variant="success" />)
         .build()}
     </CenteredLayout>
   );

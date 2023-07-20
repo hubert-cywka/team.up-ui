@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import { PulseLoader } from 'react-spinners';
+import Spinner from 'components/primitives/spinner/Spinner';
 
 export type BuilderStatus = 'success' | 'error' | 'loading' | 'idle';
 
@@ -9,12 +9,7 @@ class Builder {
   success: ReactElement = (<></>);
   error: ReactElement = (<></>);
   idle: ReactElement = (<></>);
-  loading: ReactElement = (
-    <PulseLoader
-      color="orange"
-      style={{ margin: 'auto', borderColor: 'orange', padding: '10px' }}
-    />
-  );
+  loading: ReactElement = (<Spinner />);
 
   constructor(status: BuilderStatus) {
     this._status = status;

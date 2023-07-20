@@ -31,7 +31,7 @@
   }
 
   &.success {
-    @include variant($text-secondary, $success-main-color, $success-dark-color);
+    @include variant($text-primary, $success-main-color, $success-dark-color);
   }
 
   &.error {
@@ -39,6 +39,8 @@
   }
 
   &.plain {
+    background: transparent;
+    color: $text-secondary;
     padding: $spacing-s;
     border-radius: 0;
     font-weight: 900;

@@ -1,0 +1,12 @@
+@import "../../../styles/variables.module";
+
+.tilesContainer {
+  display: grid;
+  grid-gap: $spacing-xl;
+  grid-template-columns: repeat(4, 1fr);
+  padding: $spacing-m;
+
+  @media (max-width: $md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

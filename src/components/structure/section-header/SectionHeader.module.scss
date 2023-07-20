@@ -1,0 +1,30 @@
+@import "../../../styles/variables.module";
+@import "../../../styles/mixins.module";
+
+.sectionHeader {
+  width: 100%;
+  padding: 0 $spacing-l;
+  margin-bottom: $spacing-m;
+  box-sizing: border-box;
+
+  &.outside {
+    margin-top: $spacing-xxxl;
+    color: $text-secondary;
+  }
+
+  &.inside {
+    margin-bottom: $spacing-xl;
+    color: $text-primary;
+  }
+
+  .header {
+    @include header-text($logo-font);
+    text-align: center;
+  }
+
+  .subheader {
+    margin-top: $spacing-l;
+    font-size: $m-font;
+    text-align: center;
+  }
+}

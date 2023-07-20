@@ -3,12 +3,12 @@ import classNames from 'classnames';
 import { ComponentProps } from 'react';
 
 interface AlertProps extends ComponentProps<'div'> {
-  content: string;
+  message: string;
   variant?: 'error' | 'info' | 'success' | 'warning';
 }
 
-const Alert = ({ content, variant = 'info', className }: AlertProps) => {
-  return <p className={classNames(styles.alertContainer, styles[variant], className)}>{content}</p>;
+const Alert = ({ message, variant = 'info', className }: AlertProps) => {
+  return <p className={classNames(styles.alertContainer, styles[variant], className)}>{message}</p>;
 };
 
 export default Alert;

@@ -2,18 +2,23 @@
 
 .inputContainer {
   position: relative;
-  width: 100%;
+  width: fit-content;
+
+  &.fullWidth {
+    width: 100%;
+  }
 
   .icon {
     position: absolute;
     left: $spacing-l;
     top: 50%;
     transform: translateY(-50%);
+    color: $text-primary;
   }
 
   .input {
     width: 100%;
-    padding: $spacing-l $spacing-xl;
+    padding: $spacing-l;
     background-color: $primary-main-color;
     border-radius: $radius-s;
     border: thin solid $primary-dark-color;
