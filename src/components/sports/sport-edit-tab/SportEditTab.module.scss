@@ -1,0 +1,40 @@
+@import "src/styles/variables.module";
+
+.sportEditTab {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: $spacing-l;
+  margin-top: $spacing-xl;
+
+  .inputRow {
+    width: 100%;
+    max-width: 400px;
+    margin: $spacing-m auto 0;
+
+    :last-child {
+      margin: 0 auto;
+    }
+
+    .inputMessage {
+      width: 80%;
+      text-align: center;
+      margin: $spacing-s auto $spacing-l;
+      font-size: $s-font;
+
+      &.error {
+        color: $error-main-color;
+      }
+    }
+  }
+
+  .info {
+    font-size: $s-font;
+    text-align: center;
+
+    b {
+      font-weight: 700;
+    }
+  }
+}

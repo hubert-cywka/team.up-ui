@@ -1,2 +1,2 @@
-export type SportsEditPanelMode = 'edit' | 'delete' | 'add';
-export type SportsListMode = SportsEditPanelMode | 'browse';
+export type SportsEditTabMode = 'edit' | 'delete' | 'add';
+export type SportsPanelMode = SportsEditTabMode | 'browse';

@@ -1,0 +1,14 @@
+@import "src/styles/variables.module";
+
+.iconButton {
+  background-color: transparent;
+  aspect-ratio: 1;
+  border-radius: $radius-xxl;
+  border: none;
+  cursor: pointer;
+  color: $text-primary;
+
+  .icon {
+    font-size: $xxl-font;
+  }
+}

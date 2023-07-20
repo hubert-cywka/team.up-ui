@@ -1,0 +1,24 @@
+@import "src/styles/variables.module";
+
+.inputLabel {
+  font-size: $s-font;
+  padding-left: $spacing-m;
+
+  &:not(:first-child) {
+    margin-top: $spacing-m;
+  }
+
+  :first-child {
+    font-weight: 750;
+    margin-right: $spacing-s;
+  }
+
+  .subtext {
+    opacity: 0.75;
+
+    &.error {
+      color: $error-main-color;
+      opacity: 1;
+    }
+  }
+}

@@ -1,17 +1,17 @@
-import SignUpForm from 'components/forms/sign-up-form/SignUpForm';
+import SignUpForm from 'components/auth/sign-up-form/SignUpForm';
 import { SignUpRequest } from 'shared/types/Auth';
 import { useSignUp } from 'shared/hooks/auth/useSignUp';
 import { AxiosError } from 'axios';
 import { useState } from 'react';
 import Builder from 'shared/utility/Builder';
 import Alert from 'components/primitives/alert/Alert';
-import MessageBox from 'components/primitives/message-box/MessageBox';
+import MessageBox from 'components/structure/message-box/MessageBox';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from 'next/router';
 import { Route } from 'shared/constants/Route';
 import CenteredLayout from 'layouts/error/CenteredLayout';
 import { GetServerSideProps } from 'next';
-import withAuth from 'components/hoc/WithAuth';
+import withAuth from 'components/hoc/with-auth/WithAuth';
 
 const SignUp = () => {
   const { mutateAsync: signUp, status } = useSignUp();
@@ -40,9 +40,9 @@ const SignUp = () => {
 
   return (
     <CenteredLayout>
-      {status !== 'success' && <SignUpForm onSignUp={handleSignUp} />}
+      {status !== 'success' && <SignUpForm onSubmit={handleSignUp} />}
       {Builder.createResult(status)
-        .onError(<Alert content={buildErrorMessage(statusCode)} variant="error" />)
+        .onError(<Alert message={buildErrorMessage(statusCode)} variant="error" />)
         .onSuccess(
           <MessageBox
             variant="success"

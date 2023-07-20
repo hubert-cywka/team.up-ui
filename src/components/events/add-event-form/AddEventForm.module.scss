@@ -1,0 +1,55 @@
+@import "src/styles/variables.module";
+
+.addEventForm {
+  display: grid;
+  width: 100%;
+  grid-gap: $spacing-l $spacing-xl;
+  padding: $spacing-m $spacing-l;
+  box-sizing: border-box;
+  background-color: $background-light-color;
+  color: $text-secondary;
+  border-radius: $radius-m;
+
+  .input {
+    background-color: rgba($primary-main-color, 0.1);
+    color: $text-secondary;
+  }
+
+  .inputIcon {
+    color: $text-secondary;
+  }
+
+  @media (min-width: $lg) {
+    grid-template-columns: repeat(2, 1fr);
+    padding: $spacing-xl;
+
+    .map {
+      flex-grow: 1;
+    }
+  }
+
+  .formSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-m;
+
+    .map {
+      border: thin solid $primary-dark-color;
+    }
+
+    .inputRow {
+      display: flex;
+      align-items: center;
+      gap: $spacing-m;
+
+      .numberInput {
+        padding-right: $spacing-m;
+      }
+    }
+
+    .submitButton {
+      margin-top: $spacing-m;
+    }
+  }
+}

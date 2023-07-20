@@ -1,4 +1,4 @@
-import MessageBox from 'components/primitives/message-box/MessageBox';
+import MessageBox from 'components/structure/message-box/MessageBox';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import CenteredLayout from '../layouts/error/CenteredLayout';
 

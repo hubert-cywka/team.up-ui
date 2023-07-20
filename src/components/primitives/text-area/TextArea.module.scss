@@ -1,0 +1,12 @@
+@import "src/styles/variables.module";
+
+.textArea {
+  width: 100%;
+  border: thin solid $primary-dark-color;
+  border-radius: $radius-s $radius-s 0;
+  padding: $spacing-l;
+  box-sizing: border-box;
+  resize: vertical;
+  min-height: 100px;
+  background-color: $primary-main-color;
+}
