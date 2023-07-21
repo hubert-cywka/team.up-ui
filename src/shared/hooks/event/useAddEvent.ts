@@ -1,5 +1,5 @@
 import { useMutation } from 'react-query';
-import { addEvent } from '../../../services/EventService';
+import { addEvent } from '@services/EventService';
 import { useRefreshEvents } from './useRefreshEvents';
 
 export const useAddEvent = () => {

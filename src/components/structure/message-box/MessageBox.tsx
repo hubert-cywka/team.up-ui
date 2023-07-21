@@ -1,7 +1,7 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import styles from './MessageBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Button from 'components/primitives/button/Button';
+import Button from '@components/primitives/button/Button';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
 
@@ -33,11 +33,17 @@ const MessageBox = ({
   };
 
   return (
-    <div className={classNames(styles.messageBox, styles[variant])}>
+    <div className={classNames(styles.messageBox, styles[variant])} data-testid="message-box">
       <FontAwesomeIcon className={styles.icon} icon={icon} />
-      <h2 className={styles.header}>{header}</h2>
-      <p>{message}</p>
-      <Button className={styles.button} onClick={handleButtonClick} variant="main">
+      <h2 className={styles.header} data-testid="header">
+        {header}
+      </h2>
+      <p data-testid="message">{message}</p>
+      <Button
+        className={styles.button}
+        onClick={handleButtonClick}
+        variant="main"
+        data-testid="button">
         {buttonText}
       </Button>
     </div>

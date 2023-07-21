@@ -1,4 +1,4 @@
-import Tile, { TileProps } from '../tile/Tile';
+import Tile, { TileProps } from '@components/structure/tile/Tile';
 import styles from './TilesContainer.module.scss';
 import { memo } from 'react';
 

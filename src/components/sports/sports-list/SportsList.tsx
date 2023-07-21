@@ -1,6 +1,6 @@
 import styles from './SportsList.module.scss';
-import SportTile from 'components/sports/sport-tile/SportTile';
-import { SportDiscipline } from 'shared/types/Sport';
+import SportTile from '@components/sports/sport-tile/SportTile';
+import { SportDiscipline } from '@shared/types/Sport';
 import { ComponentProps } from 'react';
 import classNames from 'classnames';
 
@@ -24,7 +24,7 @@ const SportsList = ({ onChange, availableSports, selectedSport, className }: Spo
   };
 
   return (
-    <section className={classNames(styles.sportsList, className)}>
+    <section className={classNames(styles.sportsList, className)} data-testid="sports-list">
       {!availableSports.length
         ? 'No sport disciplines to show.'
         : availableSports.map((sport) => (

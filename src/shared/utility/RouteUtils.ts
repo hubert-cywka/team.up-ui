@@ -1,4 +1,4 @@
-import { UserRole, UserType } from 'shared/types/User.d';
+import { UserRole, UserType } from '@shared/types/User.d';
 import { User } from 'next-auth';
 
 export const checkIfShouldRedirect = (prevent: UserType, user?: User) => {

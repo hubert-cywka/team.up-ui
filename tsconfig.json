@@ -2,7 +2,9 @@
   "compilerOptions": {
     "target": "esnext",
     "lib": ["dom", "dom.iterable", "esnext"],
+    "types": ["node", "jest", "@testing-library/jest-dom"],
     "baseUrl": "src",
+    "rootDir": "./",
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -16,7 +18,27 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@components/*": [
+        "components/*"
+      ],
+      "@shared/*": [
+        "shared/*"
+      ],
+      "@layouts/*": [
+        "layouts/*"
+      ],
+      "@pages/*": [
+        "pages/*"
+      ],
+      "@services/*": [
+        "services/*"
+      ],
+      "@styles/*": [
+        "styles/*"
+      ]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "types/**/*.ts", ".next/types/**/*.ts", "src"],

@@ -1,4 +1,4 @@
-import { TileProps } from '../../components/structure/tile/Tile';
+import { TileProps } from '@components/structure/tile/Tile';
 import {
   faBasketball,
   faCalendar,

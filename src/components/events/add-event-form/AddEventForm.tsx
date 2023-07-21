@@ -1,17 +1,17 @@
 import { Controller, useForm } from 'react-hook-form';
-import TimePicker from 'components/events/add-event-form/time-picker/TimePicker';
-import LocationPicker from 'components/events/add-event-form/location-picker/LocationPicker';
+import TimePicker from '@components/events/add-event-form/time-picker/TimePicker';
+import LocationPicker from '@components/events/add-event-form/location-picker/LocationPicker';
 import styles from './AddEventForm.module.scss';
-import Input from 'components/primitives/input/Input';
-import { GeoPosition } from 'shared/types/Other';
-import { useSportDisciplines } from 'shared/hooks/sport/useSportDisciplines';
-import Builder from 'shared/utility/Builder';
-import MessageBox from 'components/structure/message-box/MessageBox';
+import Input from '@components/primitives/input/Input';
+import { GeoPosition } from '@shared/types/Other';
+import { useSportDisciplines } from '@shared/hooks/sport/useSportDisciplines';
+import Builder from '@shared/utility/Builder';
+import MessageBox from '@components/structure/message-box/MessageBox';
 import { faGreaterThanEqual, faLessThanEqual, faXmark } from '@fortawesome/free-solid-svg-icons';
-import SportsList from 'components/sports/sports-list/SportsList';
-import TextArea from 'components/primitives/text-area/TextArea';
-import Button from 'components/primitives/button/Button';
-import InputLabel from 'components/primitives/input-label/InputLabel';
+import SportsList from '@components/sports/sports-list/SportsList';
+import TextArea from '@components/primitives/text-area/TextArea';
+import Button from '@components/primitives/button/Button';
+import InputLabel from '@components/primitives/input-label/InputLabel';
 import { CreateSportEventRequestWithDisciplineId } from 'shared/types/Events';
 import classNames from 'classnames';
 import {
@@ -20,10 +20,10 @@ import {
   SportEventDisciplineValidation,
   SportEventLocationValidation,
   SportEventPlayersNumberValidation
-} from 'shared/constants/SportEventConstants';
+} from '@shared/constants/SportEventConstants';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { addSportEventValidationSchema } from 'shared/constants/FormSchemas';
-import { SportDiscipline } from 'shared/types/Sport';
+import { addSportEventValidationSchema } from '@shared/constants/FormSchemas';
+import { SportDiscipline } from '@shared/types/Sport';
 
 interface AddEventFormProps {
   onSubmit: (requestWithDisciplineId: CreateSportEventRequestWithDisciplineId) => void; // eslint-disable-line no-unused-vars

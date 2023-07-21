@@ -1,4 +1,4 @@
-import { signUpUser } from '../../../services/AuthService';
+import { signUpUser } from '@services/AuthService';
 import { useMutation } from 'react-query';
 
 export const useSignUp = () => {

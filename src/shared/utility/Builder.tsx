@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import Spinner from 'components/primitives/spinner/Spinner';
+import Spinner from '@components/primitives/spinner/Spinner';
 
 export type BuilderStatus = 'success' | 'error' | 'loading' | 'idle';
 

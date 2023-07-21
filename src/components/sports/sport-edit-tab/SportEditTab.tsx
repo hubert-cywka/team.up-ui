@@ -1,20 +1,20 @@
-import { SportsEditTabMode } from '../SportShared';
-import Alert from 'components/primitives/alert/Alert';
-import Button from 'components/primitives/button/Button';
-import { useDeleteSportDiscipline } from 'shared/hooks/sport/useDeleteSportDiscipline';
+import { SportsEditTabMode } from '@components/sports/SportShared';
+import Alert from '@components/primitives/alert/Alert';
+import Button from '@components/primitives/button/Button';
+import { useDeleteSportDiscipline } from '@shared/hooks/sport/useDeleteSportDiscipline';
 import styles from './SportEditTab.module.scss';
-import Builder, { BuilderStatus } from 'shared/utility/Builder';
+import Builder, { BuilderStatus } from '@shared/utility/Builder';
 import { useEffect } from 'react';
-import Input from 'components/primitives/input/Input';
-import { useAddSportDiscipline } from 'shared/hooks/sport/useAddSportDiscipline';
-import { useEditSportDiscipline } from 'shared/hooks/sport/useEditSportDiscipline';
+import Input from '@components/primitives/input/Input';
+import { useAddSportDiscipline } from '@shared/hooks/sport/useAddSportDiscipline';
+import { useEditSportDiscipline } from '@shared/hooks/sport/useEditSportDiscipline';
 import { AxiosError } from 'axios';
 import { useForm } from 'react-hook-form';
 import classNames from 'classnames';
-import { SportDisciplineNameValidation } from 'shared/constants/SportDisciplineConstants';
+import { SportDisciplineNameValidation } from '@shared/constants/SportDisciplineConstants';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { addOrEditSportDisciplineValidationSchema } from 'shared/constants/FormSchemas';
-import { CreateSportDisciplineRequest, SportDiscipline } from 'shared/types/Sport';
+import { addOrEditSportDisciplineValidationSchema } from '@shared/constants/FormSchemas';
+import { CreateSportDisciplineRequest, SportDiscipline } from '@shared/types/Sport';
 
 interface SportEditPanelProps {
   mode: SportsEditTabMode;

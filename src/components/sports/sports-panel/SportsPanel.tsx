@@ -1,13 +1,13 @@
 import styles from './SportsPanel.module.scss';
 import { useState } from 'react';
-import Button from 'components/primitives/button/Button';
+import Button from '@components/primitives/button/Button';
 import classNames from 'classnames';
-import { SportsPanelMode } from '../SportShared';
-import SportEditTab from '../sport-edit-tab/SportEditTab';
+import { SportsPanelMode } from '@components/sports/SportShared';
+import SportEditTab from '@components/sports/sport-edit-tab/SportEditTab';
 import { useSession } from 'next-auth/react';
-import { SportDiscipline } from 'shared/types/Sport';
-import { UserRole } from 'shared/types/User.d';
-import SportsList from '../sports-list/SportsList';
+import { SportDiscipline } from '@shared/types/Sport';
+import { UserRole } from '@shared/types/User.d';
+import SportsList from '@components/sports/sports-list/SportsList';
 
 interface SportsListProps {
   availableSports: SportDiscipline[];

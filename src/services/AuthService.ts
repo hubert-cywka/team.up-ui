@@ -1,6 +1,6 @@
 import { apiClient } from './ApiClient';
-import { SignInRequest, SignUpRequest } from 'shared/types/Auth';
-import { UserDetails } from 'shared/types/User';
+import { SignInRequest, SignUpRequest } from '@shared/types/Auth';
+import { UserDetails } from '@shared/types/User';
 
 export const signInUser = async (userData: SignInRequest) => {
   const { data, headers } = await apiClient.post<UserDetails>(`/auth/login`, userData);

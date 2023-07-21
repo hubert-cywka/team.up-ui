@@ -4,8 +4,8 @@ import {
   EmailValidation,
   PasswordValidation,
   UsernameValidation
-} from 'shared/constants/UserConstants';
-import { MIN_AGE } from '../config/AppConfig';
+} from '@shared/constants/UserConstants';
+import { MIN_AGE } from '@shared/config/AppConfig';
 import { SportDisciplineNameValidation } from './SportDisciplineConstants';
 import {
   SportEventDateValidation,
@@ -13,7 +13,7 @@ import {
   SportEventDisciplineValidation,
   SportEventLocationValidation,
   SportEventPlayersNumberValidation
-} from './SportEventConstants';
+} from '@shared/constants/SportEventConstants';
 
 const getMinBirthdayDate = () => {
   const today = new Date();
@@ -41,7 +41,7 @@ export const signUpValidationSchema = yup.object({
 
   birthday: yup
     .date()
-    .max(getMinBirthdayDate(), BirthdayValidation.INFO)
+    .max(getMinBirthdayDate(), BirthdayValidation.TOO_YOUNG)
     .required(BirthdayValidation.IS_REQUIRED)
     .nullable()
     .typeError(BirthdayValidation.IS_REQUIRED)

@@ -8,11 +8,8 @@
   border-radius: $radius-xl;
   box-sizing: border-box;
 
-  .buttonsContainer {
-    width: 100% ;
-    display: flex;
-    margin-top: $spacing-m;
-    justify-content: space-around;
+  .submitButton {
+    margin: $spacing-m auto 0;
   }
 
   .authForm {
