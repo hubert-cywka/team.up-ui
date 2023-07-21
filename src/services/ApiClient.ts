@@ -17,17 +17,15 @@ apiClient.interceptors.response.use(null, (error) => {
   const status = error?.response?.status;
   const message = error?.response?.data.message;
   const shouldRefreshToken =
-    status === HttpStatusCode.Unauthorized && message?.includes('Refresh token');
+    status === HttpStatusCode.Unauthorized && message?.includes('Authorization token');
 
   if (shouldRefreshToken) {
     return refreshToken()
       .then(() => {
         return apiClient.request(error.config);
       })
-      .catch(async (error) => {
-        if (error?.response?.status === HttpStatusCode.Unauthorized) {
-          await signOut();
-        }
+      .catch(async () => {
+        await signOut();
       });
   }
 

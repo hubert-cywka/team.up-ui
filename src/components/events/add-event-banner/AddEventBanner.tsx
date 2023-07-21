@@ -2,11 +2,11 @@ import styles from './AddEventBanner.module.scss';
 import Button from '@components/primitives/button/Button';
 import Link from 'next/link';
 import { Route } from '@shared/constants/Route';
-import { useSession } from 'next-auth/react';
 import { routeWithReferer } from '@shared/utility/RouteUtils';
+import { useAuthSession } from '@shared/hooks/auth/useAuthSession';
 
 const AddEventBanner = () => {
-  const isAuthenticated = useSession().status === 'authenticated';
+  const isAuthenticated = useAuthSession().status === 'authenticated';
   const header = isAuthenticated
     ? 'Nothing interesting?'
     : 'Nothing interesting? Sign in and add your own event!';

@@ -1,36 +1,23 @@
 import SignInForm from 'components/auth/sign-in-form/SignInForm';
-import { signIn } from 'next-auth/react';
 import { SignInRequest } from '@shared/types/Auth';
-import Builder, { BuilderStatus } from '@shared/utility/Builder';
+import Builder from '@shared/utility/Builder';
 import Alert from '@components/primitives/alert/Alert';
-import { useState } from 'react';
-import { Route } from '@shared/constants/Route';
-import { useRouter } from 'next/router';
 import { GetServerSideProps } from 'next';
 import CenteredLayout from '@layouts/error/CenteredLayout';
 import withAuth from '@components/hoc/with-auth/WithAuth';
+import { useSignIn } from '@shared/hooks/auth/useSignIn';
 
 const SignIn = () => {
-  const router = useRouter();
-  const [status, setStatus] = useState<BuilderStatus>('idle');
+  const { signIn, status } = useSignIn();
 
   const handleSignIn = async (request: SignInRequest) => {
-    setStatus('loading');
     try {
-      const res = await signIn('credentials', {
-        redirect: false,
+      await signIn({
         email: request.email,
         password: request.password
       });
-
-      if (res?.status === 200) {
-        setStatus('success');
-        await router.push(router.query.referer?.toString() ?? Route.HOME);
-      } else {
-        setStatus('error');
-      }
     } catch (e) {
-      setStatus('error');
+      /* empty */
     }
   };
 

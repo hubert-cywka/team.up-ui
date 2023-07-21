@@ -1,9 +1,9 @@
 import { GetServerSidePropsContext, NextApiRequest, NextApiResponse } from 'next';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@pages/api/auth/[...nextauth]';
 import { checkIfShouldRedirect } from '@shared/utility/RouteUtils';
 import { Route } from '@shared/constants/Route';
 import { UserType } from '@shared/types/User';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@pages/api/auth/[...nextauth]';
 
 export const withAuth = async (
   context: GetServerSidePropsContext,
@@ -11,8 +11,8 @@ export const withAuth = async (
   redirectTo: string = Route.HOME
 ) => {
   const serverSession = await getServerSession(
-    context.req,
-    context.res,
+    context.req as NextApiRequest,
+    context.res as NextApiResponse,
     authOptions(context.req as NextApiRequest, context.res as NextApiResponse)
   );
 
