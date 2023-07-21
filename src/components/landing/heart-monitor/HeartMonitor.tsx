@@ -4,7 +4,7 @@ import styles from './HeartMonitor.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { ReactNode, useEffect, useRef, useState } from 'react';
-import { getRandomIntegerInRange } from 'shared/utility/NumberUtils';
+import { getRandomIntegerInRange } from '@shared/utility/NumberUtils';
 
 const HeartMonitor = () => {
   const MIN_RATE = 105;

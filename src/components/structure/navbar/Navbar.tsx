@@ -2,11 +2,11 @@
 
 import styles from './Navbar.module.scss';
 import Link from 'next/link';
-import { Route } from 'shared/constants/Route';
-import { useScrollDirection } from 'shared/hooks/misc/useScrollPosition';
+import { Route } from '@shared/constants/Route';
+import { useScrollDirection } from '@shared/hooks/misc/useScrollPosition';
 import classNames from 'classnames';
 import { ReactElement, useState } from 'react';
-import Button from '../../primitives/button/Button';
+import Button from '@components/primitives/button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faClose, faUser } from '@fortawesome/free-solid-svg-icons';
 import { useSession } from 'next-auth/react';

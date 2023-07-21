@@ -1,5 +1,5 @@
 import { apiClient } from './ApiClient';
-import { CreateSportDisciplineRequest, SportDiscipline } from 'shared/types/Sport';
+import { CreateSportDisciplineRequest, SportDiscipline } from '@shared/types/Sport';
 
 export const getSportDisciplines = async () => {
   const { data } = await apiClient.get<SportDiscipline[]>(`/sports`);

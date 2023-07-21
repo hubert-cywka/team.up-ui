@@ -1,5 +1,5 @@
 import { apiClient } from './ApiClient';
-import { CreateSportEventRequestWithDisciplineId, SportEvent } from '../shared/types/Events';
+import { CreateSportEventRequestWithDisciplineId, SportEvent } from '@shared/types/Events';
 
 export const addEvent = async (
   requestWithDisciplineId: CreateSportEventRequestWithDisciplineId

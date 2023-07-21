@@ -1,7 +1,7 @@
 import styles from './SportTile.module.scss';
 import classNames from 'classnames';
 import { ComponentProps } from 'react';
-import { SportDiscipline } from 'shared/types/Sport';
+import { SportDiscipline } from '@shared/types/Sport';
 
 interface SportTileProps extends ComponentProps<'div'> {
   sport: SportDiscipline;

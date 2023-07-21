@@ -11,13 +11,15 @@ const Button = ({
   children,
   variant,
   className,
-  type = 'button'
+  type = 'button',
+  ...props
 }: PropsWithChildren<ButtonProps>) => {
   return (
     <button
       type={type}
       className={classNames(styles.button, styles[variant], className)}
-      onClick={onClick}>
+      onClick={onClick}
+      {...props}>
       {children}
     </button>
   );

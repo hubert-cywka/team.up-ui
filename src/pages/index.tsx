@@ -1,8 +1,8 @@
-import LandingBanner from 'components/landing/landing-banner/LandingBanner';
-import SectionHeader from 'components/structure/section-header/SectionHeader';
-import MainLayout from 'layouts/main/MainLayout';
-import TilesContainer from 'components/structure/tiles-container/TilesContainer';
-import { HOW_TO_USE_STEPS } from 'shared/constants/ContentConstants';
+import LandingBanner from '@components/landing/landing-banner/LandingBanner';
+import SectionHeader from '@components/structure/section-header/SectionHeader';
+import MainLayout from '@layouts/main/MainLayout';
+import TilesContainer from '@components/structure/tiles-container/TilesContainer';
+import { HOW_TO_USE_STEPS } from '@shared/constants/ContentConstants';
 
 const Home = () => {
   return (

@@ -1,14 +1,14 @@
 import DatePicker, { ReactDatePickerProps } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import Input from 'components/primitives/input/Input';
+import Input from '@components/primitives/input/Input';
 import styles from './TimePicker.module.scss';
 import { faCalendar } from '@fortawesome/free-solid-svg-icons';
 
-interface DateSelectorProps extends ReactDatePickerProps {
+interface TimePickerProps extends ReactDatePickerProps {
   iconClassName?: string;
 }
 
-const TimePicker = ({ iconClassName, ...props }: DateSelectorProps) => {
+const TimePicker = ({ iconClassName, ...props }: TimePickerProps) => {
   return (
     <DatePicker
       customInput={

@@ -1,9 +1,9 @@
 import styles from './AddEventBanner.module.scss';
-import Button from 'components/primitives/button/Button';
+import Button from '@components/primitives/button/Button';
 import Link from 'next/link';
-import { Route } from 'shared/constants/Route';
+import { Route } from '@shared/constants/Route';
 import { useSession } from 'next-auth/react';
-import { routeWithReferer } from 'shared/utility/RouteUtils';
+import { routeWithReferer } from '@shared/utility/RouteUtils';
 
 const AddEventBanner = () => {
   const isAuthenticated = useSession().status === 'authenticated';

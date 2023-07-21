@@ -1,16 +1,16 @@
-import MainLayout from 'layouts/main/MainLayout';
+import MainLayout from '@layouts/main/MainLayout';
 import { GetServerSideProps } from 'next';
-import withAuth from 'components/hoc/with-auth/WithAuth';
-import { Route } from 'shared/constants/Route';
-import { routeWithReferer } from 'shared/utility/RouteUtils';
-import TilesContainer from 'components/structure/tiles-container/TilesContainer';
-import { ADD_EVENT_STEPS } from 'shared/constants/ContentConstants';
-import AddEventForm from 'components/events/add-event-form/AddEventForm';
-import SectionHeader from 'components/structure/section-header/SectionHeader';
-import Builder from 'shared/utility/Builder';
-import { useAddEvent } from 'shared/hooks/event/useAddEvent';
-import Alert from 'components/primitives/alert/Alert';
-import { CreateSportEventRequestWithDisciplineId } from '../../../shared/types/Events';
+import withAuth from '@components/hoc/with-auth/WithAuth';
+import { Route } from '@shared/constants/Route';
+import { routeWithReferer } from '@shared/utility/RouteUtils';
+import TilesContainer from '@components/structure/tiles-container/TilesContainer';
+import { ADD_EVENT_STEPS } from '@shared/constants/ContentConstants';
+import AddEventForm from '@components/events/add-event-form/AddEventForm';
+import SectionHeader from '@components/structure/section-header/SectionHeader';
+import Builder from '@shared/utility/Builder';
+import { useAddEvent } from '@shared/hooks/event/useAddEvent';
+import Alert from '@components/primitives/alert/Alert';
+import { CreateSportEventRequestWithDisciplineId } from '@shared/types/Events';
 import { AxiosError } from 'axios';
 
 const Activities = () => {

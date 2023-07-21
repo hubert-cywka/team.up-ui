@@ -3,22 +3,22 @@
 import styles from '../AuthForm.module.scss';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import Button from 'components/primitives/button/Button';
+import Button from '@components/primitives/button/Button';
 import { faLock, faAt, faUser, faCakeCandles, faKey } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
-import { Route } from 'shared/constants/Route';
-import SectionHeader from 'components/structure/section-header/SectionHeader';
-import { signUpValidationSchema } from 'shared/constants/FormSchemas';
-import Input from 'components/primitives/input/Input';
+import { Route } from '@shared/constants/Route';
+import SectionHeader from '@components/structure/section-header/SectionHeader';
+import { signUpValidationSchema } from '@shared/constants/FormSchemas';
+import Input from '@components/primitives/input/Input';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
   BirthdayValidation,
   EmailValidation,
   PasswordValidation,
   UsernameValidation
-} from 'shared/constants/UserConstants';
+} from '@shared/constants/UserConstants';
 import classNames from 'classnames';
-import { SignUpRequest } from 'shared/types/Auth';
+import { SignUpRequest } from '@shared/types/Auth';
 
 type SignUpInputs = {
   name: string;
@@ -61,8 +61,11 @@ const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
           iconClassName={styles.inputIcon}
           className={styles.input}
           {...register(field)}
+          data-testid={`${field}-input`}
         />
-        <p className={classNames(styles.inputMessage, { [styles.error]: !!error })}>
+        <p
+          className={classNames(styles.inputMessage, { [styles.error]: !!error })}
+          data-testid={`${field}-label`}>
           {error ? error : info}
         </p>
       </div>
@@ -131,15 +134,17 @@ const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
           errors.birthday?.message
         )}
 
-        <Link href={Route.SIGN_IN} className={styles.navigationLink}>
-          {`I already have an account.`}
+        <Link href={Route.SIGN_IN} className={styles.navigationLink} data-testid="sign-in-link">
+          I already have an account.
         </Link>
 
-        <section className={styles.buttonsContainer}>
-          <Button type="submit" variant="secondary">
-            Create account
-          </Button>
-        </section>
+        <Button
+          className={styles.submitButton}
+          type="submit"
+          variant="secondary"
+          data-testid="sign-up-button">
+          Create account
+        </Button>
       </form>
     </section>
   );

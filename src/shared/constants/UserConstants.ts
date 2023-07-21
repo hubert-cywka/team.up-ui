@@ -1,4 +1,4 @@
-import { MIN_AGE } from '../config/AppConfig';
+import { MIN_AGE } from '@shared/config/AppConfig';
 
 export class PasswordValidation {
   static MIN_LENGTH = 8;
@@ -30,4 +30,5 @@ export class EmailValidation {
 export class BirthdayValidation {
   static IS_REQUIRED = 'Birthday date is required.';
   static INFO = `You need to be at least ${MIN_AGE} years old.`;
+  static TOO_YOUNG = 'You are too young to use this application.';
 }

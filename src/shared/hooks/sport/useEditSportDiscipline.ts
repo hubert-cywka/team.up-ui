@@ -1,5 +1,5 @@
 import { useMutation } from 'react-query';
-import { updateSportDiscipline } from 'services/SportDisciplineService';
+import { updateSportDiscipline } from '@services/SportDisciplineService';
 import { useRefreshSportDisciplines } from './useRefreshSportDisciplines';
 
 export const useEditSportDiscipline = ({ onSuccess }: { onSuccess: () => void }) => {

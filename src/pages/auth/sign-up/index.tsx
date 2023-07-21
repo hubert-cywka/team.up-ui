@@ -1,35 +1,32 @@
-import SignUpForm from 'components/auth/sign-up-form/SignUpForm';
-import { SignUpRequest } from 'shared/types/Auth';
-import { useSignUp } from 'shared/hooks/auth/useSignUp';
+import SignUpForm from '@components/auth/sign-up-form/SignUpForm';
+import { SignUpRequest } from '@shared/types/Auth';
+import { useSignUp } from '@shared/hooks/auth/useSignUp';
 import { AxiosError } from 'axios';
-import { useState } from 'react';
-import Builder from 'shared/utility/Builder';
-import Alert from 'components/primitives/alert/Alert';
-import MessageBox from 'components/structure/message-box/MessageBox';
+import Builder from '@shared/utility/Builder';
+import Alert from '@components/primitives/alert/Alert';
+import MessageBox from '@components/structure/message-box/MessageBox';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from 'next/router';
-import { Route } from 'shared/constants/Route';
-import CenteredLayout from 'layouts/error/CenteredLayout';
+import { Route } from '@shared/constants/Route';
+import CenteredLayout from '@layouts/error/CenteredLayout';
 import { GetServerSideProps } from 'next';
-import withAuth from 'components/hoc/with-auth/WithAuth';
+import withAuth from '@components/hoc/with-auth/WithAuth';
 
 const SignUp = () => {
-  const { mutateAsync: signUp, status } = useSignUp();
-  const [statusCode, setStatusCode] = useState(0);
+  const { mutateAsync: signUp, status, error } = useSignUp();
   const router = useRouter();
 
   const handleSignUp = async (request: SignUpRequest) => {
     try {
       await signUp(request);
     } catch (error) {
-      const errorStatusCode =
-        error instanceof AxiosError && error.response?.status ? error.response.status : 500;
-      setStatusCode(errorStatusCode);
+      /* empty */
     }
   };
 
-  const buildErrorMessage = (errorStatusCode: number) => {
-    switch (errorStatusCode) {
+  const buildErrorMessage = (error: AxiosError) => {
+    const status = error?.response?.status;
+    switch (status) {
       case 409:
         return 'User with this email already exists.';
 
@@ -42,7 +39,7 @@ const SignUp = () => {
     <CenteredLayout>
       {status !== 'success' && <SignUpForm onSubmit={handleSignUp} />}
       {Builder.createResult(status)
-        .onError(<Alert message={buildErrorMessage(statusCode)} variant="error" />)
+        .onError(<Alert message={buildErrorMessage(error as AxiosError)} variant="error" />)
         .onSuccess(
           <MessageBox
             variant="success"

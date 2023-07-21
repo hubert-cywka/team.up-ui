@@ -1,12 +1,12 @@
 import { GoogleMap, MarkerF, useJsApiLoader } from '@react-google-maps/api';
 import { memo, useEffect, useState } from 'react';
-import { GOOGLE_API_KEY } from 'shared/config/AppConfig';
+import { GOOGLE_API_KEY } from '@shared/config/AppConfig';
 import MapMouseEvent = google.maps.MapMouseEvent;
 import { faLocationCrosshairs } from '@fortawesome/free-solid-svg-icons';
-import Spinner from 'components/primitives/spinner/Spinner';
-import IconButton from 'components/primitives/icon-button/IconButton';
+import Spinner from '@components/primitives/spinner/Spinner';
+import IconButton from '@components/primitives/icon-button/IconButton';
 import styles from './LocationPicker.module.scss';
-import { GeoPosition } from 'shared/types/Other';
+import { GeoPosition } from '@shared/types/Other';
 import classNames from 'classnames';
 
 interface LocationPickerProps {

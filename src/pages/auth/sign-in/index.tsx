@@ -1,14 +1,14 @@
 import SignInForm from 'components/auth/sign-in-form/SignInForm';
 import { signIn } from 'next-auth/react';
-import { SignInRequest } from 'shared/types/Auth';
-import Builder, { BuilderStatus } from 'shared/utility/Builder';
-import Alert from 'components/primitives/alert/Alert';
+import { SignInRequest } from '@shared/types/Auth';
+import Builder, { BuilderStatus } from '@shared/utility/Builder';
+import Alert from '@components/primitives/alert/Alert';
 import { useState } from 'react';
-import { Route } from 'shared/constants/Route';
+import { Route } from '@shared/constants/Route';
 import { useRouter } from 'next/router';
 import { GetServerSideProps } from 'next';
-import CenteredLayout from 'layouts/error/CenteredLayout';
-import withAuth from '../../../components/hoc/with-auth/WithAuth';
+import CenteredLayout from '@layouts/error/CenteredLayout';
+import withAuth from '@components/hoc/with-auth/WithAuth';
 
 const SignIn = () => {
   const router = useRouter();
