@@ -31,10 +31,10 @@ export const authOptions = (req: NextApiRequest, res: NextApiResponse): AuthOpti
       })
     ],
     session: {
-      maxAge: 60 * 60 * 24,
-      updateAge: 60 * 30,
+      maxAge: 60 * 60 * 12,
       strategy: 'jwt'
     },
+
     callbacks: {
       async jwt({ token, user }) {
         if (user) {
@@ -51,6 +51,7 @@ export const authOptions = (req: NextApiRequest, res: NextApiResponse): AuthOpti
         return session;
       }
     },
+
     pages: {
       signIn: Route.SIGN_IN,
       signOut: Route.SIGN_OUT

@@ -9,7 +9,7 @@ import { ReactElement, useState } from 'react';
 import Button from '@components/primitives/button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faClose, faUser } from '@fortawesome/free-solid-svg-icons';
-import { useSession } from 'next-auth/react';
+import { useAuthSession } from '@shared/hooks/auth/useAuthSession';
 
 const SCROLL_THRESHOLD = 25;
 
@@ -17,7 +17,7 @@ const Navbar = () => {
   const scrollDirection = useScrollDirection(SCROLL_THRESHOLD);
   const isHidden = scrollDirection === 'down';
   const [areNavigationTabsHidden, setAreNavigationTabsHidden] = useState(true);
-  const session = useSession();
+  const isAuthenticated = useAuthSession().status === 'authenticated';
 
   const buildNavbarTab = (tabContent: string | ReactElement, route: string) => {
     return (
@@ -43,7 +43,7 @@ const Navbar = () => {
         })}>
         {buildNavbarTab('Home', Route.HOME)}
         {buildNavbarTab('Events', Route.EVENTS)}
-        {session.status === 'authenticated' && session.data.user ? (
+        {isAuthenticated ? (
           <>
             {buildNavbarTab('Sign out', Route.SIGN_OUT)}
             {buildNavbarTab(

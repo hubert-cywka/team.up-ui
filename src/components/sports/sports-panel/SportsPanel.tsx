@@ -4,10 +4,10 @@ import Button from '@components/primitives/button/Button';
 import classNames from 'classnames';
 import { SportsPanelMode } from '@components/sports/SportShared';
 import SportEditTab from '@components/sports/sport-edit-tab/SportEditTab';
-import { useSession } from 'next-auth/react';
 import { SportDiscipline } from '@shared/types/Sport';
 import { UserRole } from '@shared/types/User.d';
 import SportsList from '@components/sports/sports-list/SportsList';
+import { useAuthSession } from '@shared/hooks/auth/useAuthSession';
 
 interface SportsListProps {
   availableSports: SportDiscipline[];
@@ -16,7 +16,7 @@ interface SportsListProps {
 const SportsPanel = ({ availableSports }: SportsListProps) => {
   const [selectedSport, setSelectedSport] = useState<SportDiscipline | null>(null);
   const [mode, setMode] = useState<SportsPanelMode>('browse');
-  const isAdmin = useSession().data?.user.role === UserRole.ADMIN;
+  const isAdmin = useAuthSession().user?.role === UserRole.ADMIN;
 
   const handleModeChange = (modeToSet: SportsPanelMode) => {
     if (modeToSet !== 'browse') {

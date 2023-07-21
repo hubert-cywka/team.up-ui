@@ -43,9 +43,19 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Config
+`NEXTAUTH_URL` - Next Auth URL, default: `http://localhost:3000/api/auth`
+
+`NEXTAUTH_SECRET` - Next Auth secret
+
+`NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` - Google Maps API Key, necessary to make maps works.
+
+
 ## Gallery
 
 ![home_page.png](media/home_page.png)
+
 ![add_event_form.png](media/add_event_form.png)
+
 ![sign_up_form.png](media/sign_up_form.png)
 

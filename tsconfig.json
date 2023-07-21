@@ -38,6 +38,9 @@
       ],
       "@styles/*": [
         "styles/*"
+      ],
+      "@session/*": [
+        "session/*"
       ]
     }
   },
