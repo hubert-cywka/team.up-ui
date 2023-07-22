@@ -8,7 +8,7 @@
 }
 
 @mixin dynamic-width {
-  width: 100%;
+  width: 95%;
 
   @media (min-width: $sm) {
     width: 80%;
