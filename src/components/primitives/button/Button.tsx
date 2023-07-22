@@ -3,13 +3,13 @@ import styles from './Button.module.scss';
 import classNames from 'classnames';
 
 export interface ButtonProps extends ComponentProps<'button'> {
-  variant: 'main' | 'success' | 'error' | 'secondary' | 'plain';
+  variant?: 'main' | 'success' | 'error' | 'secondary' | 'plain';
 }
 
 const Button = ({
   onClick,
   children,
-  variant,
+  variant = 'main',
   className,
   type = 'button',
   ...props

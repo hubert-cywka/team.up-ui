@@ -11,22 +11,21 @@
   align-items: center;
   gap: $spacing-m;
   padding: $spacing-xl $spacing-xxl;
-  margin: $spacing-m auto;
-  background: $primary-main-color;
+  margin: 0 auto $spacing-m;
+  background: $background-main-color;
+  border-bottom: 5px solid $background-light-color;
   box-shadow: $light-shadow;
-  border-radius: $radius-xxl;
   transition: transform 0.3s;
   box-sizing: border-box;
 
-  @include dynamic-width;
-  width: calc(100% - 2 * #{$spacing-m});
+  width: 100%;
 
   &.collapsed {
     transform: translateY(-500%);
   }
 
   .logo {
-    color: $text-primary;
+    color: $text-secondary;
     word-break: break-all;
     text-transform: uppercase;
     font-size: $logo-font;
@@ -51,14 +50,14 @@
     @media (max-width: $lg) {
       position: absolute;
       left: 0;
-      top: calc(100% + #{$spacing-m});
+      top: 100%;
       width: 100%;
       flex-direction: column;
-      background: $primary-main-color;
+      background: $background-main-color;
       padding: $spacing-m $spacing-l;
-      border-radius: $radius-m;
       box-shadow: $light-shadow;
       box-sizing: border-box;
+      border-bottom: 5px solid $background-light-color;
 
       &.hidden {
         transform: translateY(-500px);
@@ -66,7 +65,7 @@
     }
 
     .tab {
-      color: $text-primary;
+      color: $text-secondary;
       padding: $spacing-m;
       font-size: $s-font;
       font-weight: bold;

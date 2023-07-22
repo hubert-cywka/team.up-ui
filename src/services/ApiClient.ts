@@ -1,11 +1,10 @@
 import axios, { HttpStatusCode } from 'axios';
 import { refreshToken } from './AuthService';
 import { signOut } from 'next-auth/react';
-
-export const apiURL = process.env.REACT_APP_PROD_API_URL ?? 'http://localhost:8080/app';
+import { API_URL } from '@shared/config/AppConfig';
 
 export const apiClient = axios.create({
-  baseURL: apiURL,
+  baseURL: API_URL,
   headers: {
     'Content-Type': 'application/json',
     Accept: 'application/json'

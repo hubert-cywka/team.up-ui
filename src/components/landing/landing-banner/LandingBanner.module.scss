@@ -2,13 +2,13 @@
 @import "src/styles/mixins.module";
 
 .landingBanner {
-  max-width: 100%;
+  width: 100%;
   overflow: hidden;
   position: relative;
   margin: $spacing-m;
-  padding: $spacing-m $spacing-xxl $spacing-xl;
+  padding: $spacing-s $spacing-xl;
   background-color: $primary-main-color;
-  border-radius: $radius-xxl;
+  border-radius: $radius-s;
   box-sizing: border-box;
 
   .header {
@@ -18,33 +18,18 @@
     opacity: 0.5;
   }
 
-  &:hover {
-    .content {
-      .imageContainer {
-        filter: none;
-      }
-
-      .slogan {
-        b {
-          color: $secondary-main-color;
-        }
-      }
-    }
-  }
-
   .content {
+    margin: $spacing-xl 0 $spacing-xl 0;
+    box-sizing: border-box;
     display: grid;
     grid-template-columns: 7fr 5fr;
     grid-column-gap: $spacing-xl;
-    margin: $spacing-xxl 0 $spacing-xl 0;
-    box-sizing: border-box;
 
     .imageContainer {
       position: relative;
       overflow: hidden;
       border-radius: $radius-m;
       filter: saturate(0);
-      transition: filter 0.3s;
 
       img {
         object-fit: cover;
@@ -61,7 +46,7 @@
 
       b {
         font-weight: inherit;
-        transition: color 0.3s;
+        color: $secondary-main-color;
       }
     }
   }

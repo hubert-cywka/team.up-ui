@@ -44,6 +44,8 @@ pnpm dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Config
+`NEXT_PUBLIC_API_URL` - backend url
+
 `NEXTAUTH_URL` - Next Auth URL, default: `http://localhost:3000/api/auth`
 
 `NEXTAUTH_SECRET` - Next Auth secret

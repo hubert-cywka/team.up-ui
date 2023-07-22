@@ -10,7 +10,7 @@ const HeartMonitor = () => {
   const MIN_RATE = 105;
   const MAX_RATE = 160;
   const MAX_CHANGE = 10;
-  const INTERVAL = 750;
+  const INTERVAL = 550;
   const MIN_GRAPH_HEIGHT = 30;
   const GRAPH_HEIGHT_DIFF = 20;
   const DASHES_MULTIPLIER = 0.1;
