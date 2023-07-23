@@ -2,23 +2,7 @@
 
 .eventsList {
   width: 100%;
-  display: grid;
-  grid-gap: $spacing-m;
-  grid-template-columns: 1fr;
-
-  &.empty {
-    display: flex;
-  }
-
-  @media (min-width: $xs) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (min-width: $lg) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @media (min-width: $xlg) {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-m;
 }

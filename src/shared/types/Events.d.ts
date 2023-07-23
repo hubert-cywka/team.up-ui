@@ -7,6 +7,8 @@ export interface SportEvent {
   location: GeoPosition;
   startDate: string;
   description: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface CreateSportEventRequest extends Omit<SportEvent, '_id'> {}

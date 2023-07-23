@@ -1,6 +1,9 @@
 @import "src/styles/variables.module";
+@import "src/styles/mixins.module";
 
 .eventItem {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   background-color: $background-light-color;
   padding: $spacing-l;
@@ -8,27 +11,71 @@
   box-sizing: border-box;
   color: $text-secondary;
   transition: transform 0.2s;
+  font-size: $s-font;
 
   &:hover {
     cursor: pointer;
-    transform: scale(95%);
+    transform: scale(98%);
   }
 
   .description {
-    width: 90%;
-    margin: $spacing-xl auto 0;
+    opacity: 0.75;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin: $spacing-l 0;
   }
 
   .details {
-    justify-content: center;
-    gap: $spacing-xl;
     display: flex;
     flex-wrap: wrap;
     opacity: 0.75;
+    gap: $spacing-s $spacing-xl;
 
     .detailsRow {
       display: flex;
       gap: $spacing-xl;
+
+      .icon {
+        margin-right: $spacing-s;
+        color: $secondary-light-color;
+      }
+    }
+  }
+
+  .topLine {
+    display: flex;
+    justify-content: space-between;
+
+    .lastUpdated {
+      font-size: $xs-font;
+      opacity: 0.5;
+    }
+
+    .availability {
+      display: flex;
+      align-items: center;
+      gap: $spacing-s;
+
+      :not(.availabilityDot) {
+        opacity: 0.5;
+      }
+
+      .availabilityDot {
+        width: 10px;
+        height: 10px;
+        border-radius: $radius-xxl;
+
+        &.available {
+          background-color: $success-main-color;
+          @include glow($success-main-color, 50%);
+        }
+
+        &:not(.available) {
+          background-color: $error-main-color;
+          @include glow($error-main-color, 50%);
+        }
+      }
     }
   }
 }
