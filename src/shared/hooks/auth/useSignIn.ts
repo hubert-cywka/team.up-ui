@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import { BuilderStatus } from '@shared/utility/Builder';
 import { signIn } from 'next-auth/react';
 import { SignInRequest } from '@shared/types/Auth';
 import { Route } from '@shared/constants/Route';
 import { useRouter } from 'next/router';
+import { DataStatus } from '@shared/types/Other';
 
 export const useSignIn = () => {
   const router = useRouter();
-  const [status, setStatus] = useState<BuilderStatus>('idle');
+  const [status, setStatus] = useState<DataStatus>('idle');
 
   const handleSignIn = async (request: SignInRequest) => {
     setStatus('loading');

@@ -16,12 +16,8 @@ const SignUp = () => {
   const { mutateAsync: signUp, status, error } = useSignUp();
   const router = useRouter();
 
-  const handleSignUp = async (request: SignUpRequest) => {
-    try {
-      await signUp(request);
-    } catch (error) {
-      /* empty */
-    }
+  const handleSignUp = (request: SignUpRequest) => {
+    signUp(request);
   };
 
   const buildErrorMessage = (error: AxiosError) => {

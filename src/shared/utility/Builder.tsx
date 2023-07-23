@@ -1,21 +1,20 @@
 import { ReactElement } from 'react';
 import Spinner from '@components/primitives/spinner/Spinner';
-
-export type BuilderStatus = 'success' | 'error' | 'loading' | 'idle';
+import { DataStatus } from '@shared/types/Other';
 
 class Builder {
-  private readonly _status: BuilderStatus = 'loading';
+  private readonly _status: DataStatus = 'loading';
 
   success: ReactElement = (<></>);
   error: ReactElement = (<></>);
   idle: ReactElement = (<></>);
   loading: ReactElement = (<Spinner />);
 
-  constructor(status: BuilderStatus) {
+  constructor(status: DataStatus) {
     this._status = status;
   }
 
-  static createResult(status: BuilderStatus) {
+  static createResult(status: DataStatus) {
     if (!status || !status.length)
       throw new Error(
         "Status must be defined. Possible values: 'success', 'loading', 'idle', 'error'. Any other value will be treated as 'error'."

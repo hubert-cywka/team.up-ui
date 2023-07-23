@@ -19,9 +19,19 @@ const Navbar = () => {
   const [areNavigationTabsHidden, setAreNavigationTabsHidden] = useState(true);
   const isAuthenticated = useAuthSession().status === 'authenticated';
 
+  const isDisplayed = (route: string) => {
+    if (typeof window !== 'undefined') {
+      return window.location.pathname === route;
+    } else {
+      return false;
+    }
+  };
+
   const buildNavbarTab = (tabContent: string | ReactElement, route: string) => {
     return (
-      <Link href={route} className={styles.tab}>
+      <Link
+        href={route}
+        className={classNames(styles.tab, { [styles.highlighted]: isDisplayed(route) })}>
         {tabContent}
       </Link>
     );

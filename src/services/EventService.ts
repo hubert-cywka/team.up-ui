@@ -8,3 +8,8 @@ export const addEvent = async (
   const { data } = await apiClient.post<SportEvent>(`/sports/${sportDisciplineId}/events`, request);
   return data;
 };
+
+export const getEventsFromDiscipline = async (disciplineId: string) => {
+  const { data } = await apiClient.get<SportEvent[]>(`/sports/${disciplineId}/events`);
+  return data.slice();
+};

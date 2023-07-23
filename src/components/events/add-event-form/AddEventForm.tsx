@@ -171,6 +171,7 @@ const AddEventForm = ({ onSubmit, disabled }: AddEventFormProps) => {
           />
 
           <Button
+            name="Submit form button"
             disabled={disabled}
             variant="success"
             type="submit"

@@ -16,14 +16,8 @@ import { AxiosError } from 'axios';
 const Activities = () => {
   const { mutateAsync: createEvent, status, error } = useAddEvent();
 
-  const handleCreateEvent = async (
-    requestWithDisciplineId: CreateSportEventRequestWithDisciplineId
-  ) => {
-    try {
-      await createEvent(requestWithDisciplineId);
-    } catch (e) {
-      /* empty */
-    }
+  const handleCreateEvent = (requestWithDisciplineId: CreateSportEventRequestWithDisciplineId) => {
+    createEvent(requestWithDisciplineId);
   };
 
   const buildErrorMessage = (error: AxiosError) => {

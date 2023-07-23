@@ -13,12 +13,15 @@
   padding: $spacing-xl $spacing-xxl;
   margin: 0 auto $spacing-m;
   background: $background-main-color;
-  border-bottom: 5px solid $background-light-color;
+  overflow: hidden;
   box-shadow: $light-shadow;
   transition: transform 0.3s;
   box-sizing: border-box;
-
   width: 100%;
+
+  @media (max-width: $lg) {
+    flex-direction: column;
+  }
 
   &.collapsed {
     transform: translateY(-500%);
@@ -35,6 +38,9 @@
 
   .toggleNavigationVisibilityButton {
     display: none;
+    position: absolute;
+    right: $spacing-xl;
+    top: $spacing-xl;
 
     @media (max-width: $lg) {
       display: block;
@@ -44,23 +50,19 @@
   .tabsContainer {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     gap: $spacing-xl;
 
     @media (max-width: $lg) {
-      position: absolute;
-      left: 0;
-      top: 100%;
-      width: 100%;
       flex-direction: column;
       background: $background-main-color;
       padding: $spacing-m $spacing-l;
       box-shadow: $light-shadow;
       box-sizing: border-box;
-      border-bottom: 5px solid $background-light-color;
 
       &.hidden {
-        transform: translateY(-500px);
+        display: none;
       }
     }
 
@@ -71,12 +73,20 @@
       font-weight: bold;
       text-decoration: none;
       text-transform: uppercase;
-      border-bottom: 5px solid transparent;
       cursor: pointer;
-      transition: border-bottom-color 0.2s;
+      transition: color 0.2s;
+      width: fit-content;
+
+      @include glow-transition;
 
       &:hover {
-        border-bottom-color: $secondary-light-color;
+        @include glow($secondary-light-color, 10%);
+        color: $secondary-light-color;
+      }
+
+      &.highlighted {
+        @include glow($secondary-main-color, 10%);
+        color: $secondary-light-color;
       }
     }
   }

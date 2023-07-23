@@ -1,26 +1,29 @@
 @import "src/styles/variables.module";
+@import "src/styles/mixins.module";
 
 .alertContainer {
   width: fit-content;
   padding: $spacing-m $spacing-l;
   margin: $spacing-m auto;
   color: $text-secondary;
-  border-radius: $radius-s;
   font-size: $s-font;
+  border-radius: $radius-xs;
+  background-color: $background-main-color;
+  overflow: hidden;
 
   &.success {
-    background: $success-main-color;
+    @include bottom-border-glow($success-main-color, $spacing-l);
   }
 
   &.error {
-    background: $error-main-color;
+    @include bottom-border-glow($error-main-color, $spacing-l);
   }
 
   &.info {
-    background: $info-main-color;
+    @include bottom-border-glow($info-main-color, $spacing-l);
   }
 
   &.warning {
-    background: $warning-main-color;
+    @include bottom-border-glow($warning-main-color, $spacing-l);
   }
 }

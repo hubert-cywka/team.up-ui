@@ -10,15 +10,11 @@ import { useSignIn } from '@shared/hooks/auth/useSignIn';
 const SignIn = () => {
   const { signIn, status } = useSignIn();
 
-  const handleSignIn = async (request: SignInRequest) => {
-    try {
-      await signIn({
-        email: request.email,
-        password: request.password
-      });
-    } catch (e) {
-      /* empty */
-    }
+  const handleSignIn = (request: SignInRequest) => {
+    signIn({
+      email: request.email,
+      password: request.password
+    });
   };
 
   return (

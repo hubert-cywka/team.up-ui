@@ -8,11 +8,14 @@ import IconButton from '@components/primitives/icon-button/IconButton';
 import styles from './LocationPicker.module.scss';
 import { GeoPosition } from '@shared/types/Other';
 import classNames from 'classnames';
+import { observer } from 'mobx-react-lite';
+import { useUserDetailsStore } from '@stores/UserDetailsStore';
 
 interface LocationPickerProps {
   selected: GeoPosition | null;
   onChange: (newLocation: GeoPosition) => void; // eslint-disable-line no-unused-vars
   className?: string;
+  disabled?: boolean;
 }
 
 const DEFAULT_LOCATION: GeoPosition = {
@@ -20,61 +23,69 @@ const DEFAULT_LOCATION: GeoPosition = {
   lng: 21.004241
 };
 
-const LocationPicker = ({ selected, onChange, className }: LocationPickerProps) => {
-  const [centerPosition, setCenterPosition] = useState<GeoPosition>(DEFAULT_LOCATION);
-  const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: GOOGLE_API_KEY
-  });
+const LocationPicker = observer(
+  ({ selected, onChange, className, disabled }: LocationPickerProps) => {
+    const [centerPosition, setCenterPosition] = useState<GeoPosition>(DEFAULT_LOCATION);
+    const userDetailsStore = useUserDetailsStore();
 
-  useEffect(() => {
-    setPositionBasedOnGeolocation();
-  }, []);
-
-  const setPositionBasedOnGeolocation = () => {
-    navigator.permissions.query({ name: 'geolocation' }).then((permissionStatus) => {
-      if (permissionStatus.state === 'denied') {
-        alert('Please allow location access.');
-      } else {
-        window.navigator.geolocation.getCurrentPosition((position) => {
-          const { latitude, longitude } = position.coords;
-          onChange({ lat: latitude, lng: longitude });
-          setCenterPosition({ lat: latitude, lng: longitude });
-        });
-      }
+    const { isLoaded } = useJsApiLoader({
+      id: 'google-map-script',
+      googleMapsApiKey: GOOGLE_API_KEY
     });
-  };
 
-  const setMarkerPositionOnMapClick = (ev: MapMouseEvent) => {
-    if (ev.latLng) {
-      const lat = ev.latLng.lat();
-      const lng = ev.latLng.lng();
-      onChange({ lat, lng });
+    useEffect(() => {
+      const userLocation = userDetailsStore.userLocation;
+      if (userLocation && !disabled) {
+        onChange(userLocation);
+        setCenterPosition(userLocation);
+      }
+    }, [userDetailsStore.userLocation, disabled]);
+
+    const triggerLocationUpdate = () => {
+      navigator.permissions.query({ name: 'geolocation' }).then((permissionStatus) => {
+        if (permissionStatus.state === 'denied') {
+          alert('Please allow location access.');
+        } else {
+          userDetailsStore.locate();
+        }
+      });
+    };
+
+    const setMarkerPositionOnMapClick = (ev: MapMouseEvent) => {
+      if (!disabled && ev.latLng) {
+        const lat = ev.latLng.lat();
+        const lng = ev.latLng.lng();
+        onChange({ lat, lng });
+      }
+    };
+
+    if (!isLoaded) {
+      return <Spinner />;
     }
-  };
 
-  if (!isLoaded) {
-    return <Spinner />;
+    return (
+      <section className={classNames(styles.locationPicker, className)}>
+        <IconButton
+          icon={faLocationCrosshairs}
+          className={styles.locateButton}
+          onClick={triggerLocationUpdate}
+        />
+        <GoogleMap
+          mapContainerClassName={styles.map}
+          onClick={setMarkerPositionOnMapClick}
+          center={centerPosition}
+          zoom={10}>
+          {!!selected && (
+            <MarkerF
+              draggable={!disabled}
+              position={selected}
+              onDrag={setMarkerPositionOnMapClick}
+            />
+          )}
+        </GoogleMap>
+      </section>
+    );
   }
-
-  return (
-    <section className={classNames(styles.locationPicker, className)}>
-      <IconButton
-        icon={faLocationCrosshairs}
-        className={styles.locateButton}
-        onClick={setPositionBasedOnGeolocation}
-      />
-      <GoogleMap
-        mapContainerClassName={styles.map}
-        onClick={setMarkerPositionOnMapClick}
-        center={centerPosition}
-        zoom={10}>
-        {!!selected && (
-          <MarkerF draggable position={selected} onDrag={setMarkerPositionOnMapClick} />
-        )}
-      </GoogleMap>
-    </section>
-  );
-};
+);
 
 export default memo(LocationPicker);

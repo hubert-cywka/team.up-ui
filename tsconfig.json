@@ -39,8 +39,11 @@
       "@styles/*": [
         "styles/*"
       ],
-      "@session/*": [
-        "session/*"
+      "@stores/*": [
+        "stores/*"
+      ],
+      "@providers/*": [
+        "providers/*"
       ]
     }
   },

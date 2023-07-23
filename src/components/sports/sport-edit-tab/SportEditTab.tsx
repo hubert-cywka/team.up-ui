@@ -3,7 +3,7 @@ import Alert from '@components/primitives/alert/Alert';
 import Button from '@components/primitives/button/Button';
 import { useDeleteSportDiscipline } from '@shared/hooks/sport/useDeleteSportDiscipline';
 import styles from './SportEditTab.module.scss';
-import Builder, { BuilderStatus } from '@shared/utility/Builder';
+import Builder from '@shared/utility/Builder';
 import { useEffect } from 'react';
 import Input from '@components/primitives/input/Input';
 import { useAddSportDiscipline } from '@shared/hooks/sport/useAddSportDiscipline';
@@ -15,6 +15,7 @@ import { SportDisciplineNameValidation } from '@shared/constants/SportDiscipline
 import { yupResolver } from '@hookform/resolvers/yup';
 import { addOrEditSportDisciplineValidationSchema } from '@shared/constants/FormSchemas';
 import { CreateSportDisciplineRequest, SportDiscipline } from '@shared/types/Sport';
+import { DataStatus } from '@shared/types/Other';
 
 interface SportEditPanelProps {
   mode: SportsEditTabMode;
@@ -81,7 +82,7 @@ const SportEditTab = ({ mode, sportToEdit, onSuccess }: SportEditPanelProps) => 
     await updateSport({ ...sportToEdit, name: getValues('name') });
   };
 
-  const getCombinedStatus = (): BuilderStatus => {
+  const getCombinedStatus = (): DataStatus => {
     const statusArray = [updateStatus, addStatus, deleteStatus];
     if (statusArray.includes('loading')) return 'loading';
     if (statusArray.includes('error')) return 'error';

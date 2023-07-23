@@ -53,7 +53,11 @@ const SignInForm = ({ onSubmit }: SignInFormProps) => {
         <Link href={Route.SIGN_UP} className={styles.navigationLink} data-testid="sign-up-link">
           {`I don't have account yet.`}
         </Link>
-        <Button type="submit" variant="secondary" data-testid="sign-in-button">
+        <Button
+          type="submit"
+          variant="secondary"
+          name="sign in button"
+          data-testid="sign-in-button">
           Sign in
         </Button>
       </form>
