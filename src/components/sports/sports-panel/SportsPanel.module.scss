@@ -37,13 +37,13 @@
         @include glow-transition;
 
         &:hover {
-          color: $secondary-light-color;
-          @include glow($secondary-main-color, 15%);
+          color: $success-light-color;
+          @include glow($success-main-color, 15%);
         }
 
         &.highlighted {
-          color: $secondary-light-color;
-          @include glow($secondary-main-color, 15%);
+          color: $success-light-color;
+          @include glow($success-main-color, 15%);
         }
       }
     }

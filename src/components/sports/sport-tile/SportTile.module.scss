@@ -17,13 +17,13 @@
   &:hover {
     opacity: 1;
     background-color: $background-dark-color;
-    @include glow($info-light-color, -10%);
+    @include glow($success-main-color, -10px);
   }
 
   &.highlighted {
     background-color: $background-dark-color;
     opacity: 1;
 
-    @include glow($info-light-color, 0);
+    @include glow($success-main-color, -5px);
   }
 }
