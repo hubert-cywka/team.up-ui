@@ -6,9 +6,10 @@
   padding: $spacing-xxl $spacing-xl $spacing-xxl 20%;
   background-color: $background-light-color;
   color: $text-secondary;
-  border-radius: $radius-xxl;
+  border-radius: $radius-m;
   text-align: right;
   box-sizing: border-box;
+  @include bottom-border-glow($info-light-color, $spacing-s );
 
   .step {
     position: absolute;

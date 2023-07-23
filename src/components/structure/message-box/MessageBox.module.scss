@@ -15,8 +15,6 @@
   background-color: $background-light-color;
   color: $text-secondary;
   border-radius: $radius-s;
-  border-bottom-width: 5px;
-  border-bottom-style: solid;
   text-align: center;
   box-sizing: border-box;
 
@@ -25,19 +23,19 @@
   }
 
   &.success {
-    border-bottom-color: $success-dark-color;
+    @include bottom-border-glow($success-dark-color, $spacing-l);
   }
 
   &.error {
-    border-bottom-color: $error-dark-color;
+    @include bottom-border-glow($error-dark-color, $spacing-l);
   }
 
   &.info {
-    border-bottom-color: $info-dark-color;
+    @include bottom-border-glow($info-dark-color, $spacing-l);
   }
 
   &.warning {
-    border-bottom-color: $warning-dark-color;
+    @include bottom-border-glow($warning-dark-color, $spacing-l);
   }
 
   .icon {

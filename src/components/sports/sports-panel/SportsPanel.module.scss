@@ -33,8 +33,18 @@
         gap: $spacing-m;
       }
 
-      .highlighted {
-        border-bottom: 2px solid $secondary-light-color;
+      .tab {
+        @include glow-transition;
+
+        &:hover {
+          color: $secondary-light-color;
+          @include glow($secondary-main-color, 15%);
+        }
+
+        &.highlighted {
+          color: $secondary-light-color;
+          @include glow($secondary-main-color, 15%);
+        }
       }
     }
   }

@@ -1,0 +1,34 @@
+@import "src/styles/variables.module";
+
+.eventItem {
+  width: 100%;
+  background-color: $background-light-color;
+  padding: $spacing-l;
+  border-radius: $radius-s;
+  box-sizing: border-box;
+  color: $text-secondary;
+  transition: transform 0.2s;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(95%);
+  }
+
+  .description {
+    width: 90%;
+    margin: $spacing-xl auto 0;
+  }
+
+  .details {
+    justify-content: center;
+    gap: $spacing-xl;
+    display: flex;
+    flex-wrap: wrap;
+    opacity: 0.75;
+
+    .detailsRow {
+      display: flex;
+      gap: $spacing-xl;
+    }
+  }
+}

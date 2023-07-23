@@ -11,8 +11,9 @@
   background-color: $background-light-color;
   color: $text-secondary;
   border-radius: $radius-s;
-  border-bottom: 5px solid $secondary-light-color;
   box-sizing: border-box;
+  @include bottom-border-glow($background-main-color, $spacing-l);
+  overflow: hidden;
 
   .header {
     font-weight: 700;

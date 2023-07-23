@@ -13,6 +13,7 @@
   padding: 0 $spacing-xl;
   border-radius: $radius-m;
   box-sizing: border-box;
+  @include bottom-border-glow($secondary-main-color, $spacing-m);
 
   .heartbeatIcon {
     height: $l-font;

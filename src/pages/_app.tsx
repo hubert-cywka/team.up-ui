@@ -8,6 +8,8 @@ import { QueryClientProvider } from 'react-query';
 import { AppQueryClient } from 'services/QueryClient';
 import { SessionProvider } from 'next-auth/react';
 import GlobalLayout from '@layouts/GlobalLayout';
+import { RootStoreProvider } from '@providers/RootStoreProvider';
+
 config.autoAddCss = false;
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -19,9 +21,11 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <SessionProvider session={pageProps.session}>
         <QueryClientProvider client={AppQueryClient}>
-          <GlobalLayout>
-            <Component {...pageProps} />
-          </GlobalLayout>
+          <RootStoreProvider hydrationData={pageProps.hydrationData}>
+            <GlobalLayout>
+              <Component {...pageProps} />
+            </GlobalLayout>
+          </RootStoreProvider>
         </QueryClientProvider>
       </SessionProvider>
     </>

@@ -12,9 +12,7 @@ const SignOut = () => {
   const router = useRouter();
 
   useEffect(() => {
-    (async () => {
-      await signOut({ redirect: false });
-    })();
+    signOut({ redirect: false });
   }, []);
 
   return (

@@ -139,6 +139,7 @@ const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
         </Link>
 
         <Button
+          name="sign up button"
           className={styles.submitButton}
           type="submit"
           variant="secondary"

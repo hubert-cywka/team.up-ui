@@ -40,6 +40,7 @@ const MessageBox = ({
       </h2>
       <p data-testid="message">{message}</p>
       <Button
+        name={buttonText}
         className={styles.button}
         onClick={handleButtonClick}
         variant="main"

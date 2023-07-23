@@ -18,3 +18,51 @@
     width: 70%;
   }
 }
+
+@mixin glow-transition {
+  position: relative;
+
+  &::before {
+    transition: 0.3s;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+  }
+}
+
+@mixin glow($color, $offset) {
+  position: relative;
+
+  &::before {
+    content: '';
+    top: -$offset;
+    left: -$offset;
+    right: -$offset;
+    bottom: -$offset;
+    position: absolute;
+    background-color: rgba($color, 0.25);
+    border-radius: $radius-xxl;
+    filter: blur(10px);
+  }
+}
+
+@mixin bottom-border-glow($color, $offset) {
+  @include glow($color, $offset);
+  border-bottom: 5px solid lighten($color, 35%);
+
+  &::before {
+    top: revert;
+    height: calc(2 * #{$offset});
+  }
+}
+
+@mixin underglow($color, $offset) {
+  @include glow($color, $offset);
+
+  &::before {
+    z-index: -1;
+  }
+}

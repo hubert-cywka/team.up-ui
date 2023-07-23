@@ -8,19 +8,21 @@ import { SportDiscipline } from '@shared/types/Sport';
 import { UserRole } from '@shared/types/User.d';
 import SportsList from '@components/sports/sports-list/SportsList';
 import { useAuthSession } from '@shared/hooks/auth/useAuthSession';
+import { observer } from 'mobx-react-lite';
+import { useSportDisciplineStore } from '@stores/SportDisciplinesStore';
 
 interface SportsListProps {
   availableSports: SportDiscipline[];
 }
 
-const SportsPanel = ({ availableSports }: SportsListProps) => {
-  const [selectedSport, setSelectedSport] = useState<SportDiscipline | null>(null);
+const SportsPanel = observer(({ availableSports }: SportsListProps) => {
   const [mode, setMode] = useState<SportsPanelMode>('browse');
+  const store = useSportDisciplineStore();
   const isAdmin = useAuthSession().user?.role === UserRole.ADMIN;
 
   const handleModeChange = (modeToSet: SportsPanelMode) => {
     if (modeToSet !== 'browse') {
-      setSelectedSport(null);
+      store.select(null);
     }
     setMode(modeToSet);
   };
@@ -29,7 +31,7 @@ const SportsPanel = ({ availableSports }: SportsListProps) => {
     return (
       <Button
         variant="plain"
-        className={classNames({ [styles.highlighted]: modeToSet === mode })}
+        className={classNames(styles.tab, { [styles.highlighted]: modeToSet === mode })}
         onClick={() => handleModeChange(modeToSet)}>
         {modeToSet}
       </Button>
@@ -50,19 +52,16 @@ const SportsPanel = ({ availableSports }: SportsListProps) => {
         )}
       </div>
       <SportsList
-        onChange={(sport) => setSelectedSport(sport)}
-        selectedSport={selectedSport}
+        onChange={(sport) => store.select(sport)}
+        selectedSport={store.sport}
         availableSports={availableSports}
       />
+
       {isAdmin && mode !== 'browse' && (
-        <SportEditTab
-          mode={mode}
-          sportToEdit={selectedSport}
-          onSuccess={() => setSelectedSport(null)}
-        />
+        <SportEditTab mode={mode} sportToEdit={store.sport} onSuccess={() => store.select(null)} />
       )}
     </section>
   );
-};
+});
 
 export default SportsPanel;
