@@ -5,14 +5,20 @@ import styles from './TimePicker.module.scss';
 import { faCalendar } from '@fortawesome/free-solid-svg-icons';
 
 interface TimePickerProps extends ReactDatePickerProps {
+  variant?: 'main' | 'secondary';
   iconClassName?: string;
 }
 
-const TimePicker = ({ iconClassName, ...props }: TimePickerProps) => {
+const TimePicker = ({ variant, iconClassName, ...props }: TimePickerProps) => {
   return (
     <DatePicker
       customInput={
-        <Input icon={faCalendar} iconClassName={iconClassName} className={styles.timePicker} />
+        <Input
+          variant={variant}
+          icon={faCalendar}
+          iconClassName={iconClassName}
+          className={styles.timePicker}
+        />
       }
       {...props}
       minDate={new Date()}

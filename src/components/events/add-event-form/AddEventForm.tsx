@@ -121,7 +121,7 @@ const AddEventForm = ({ onSubmit, disabled }: AddEventFormProps) => {
             name="description"
             render={({ field }) => (
               <TextArea
-                className={styles.input}
+                variant="secondary"
                 value={field.value}
                 onChange={(e) => field.onChange(e)}
               />
@@ -135,6 +135,7 @@ const AddEventForm = ({ onSubmit, disabled }: AddEventFormProps) => {
           />
           <div className={styles.inputRow}>
             <Input
+              variant="secondary"
               type="number"
               icon={faGreaterThanEqual}
               iconClassName={styles.inputIcon}
@@ -143,6 +144,7 @@ const AddEventForm = ({ onSubmit, disabled }: AddEventFormProps) => {
               {...register('minPlayers', { valueAsNumber: true })}
             />
             <Input
+              variant="secondary"
               type="number"
               icon={faLessThanEqual}
               iconClassName={styles.inputIcon}
@@ -162,10 +164,10 @@ const AddEventForm = ({ onSubmit, disabled }: AddEventFormProps) => {
             control={control}
             render={({ field }) => (
               <TimePicker
+                variant="secondary"
                 onChange={(date) => field.onChange(date)}
                 selected={field.value}
                 iconClassName={styles.inputIcon}
-                className={styles.input}
               />
             )}
           />

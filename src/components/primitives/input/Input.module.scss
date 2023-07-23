@@ -13,16 +13,32 @@
     left: $spacing-l;
     top: 50%;
     transform: translateY(-50%);
-    color: $text-primary;
+
+    &.secondary {
+      color: $text-secondary;
+    }
+
+    &.main {
+      color: $text-primary;
+    }
   }
 
   .input {
     width: 100%;
     padding: $spacing-l;
-    background-color: $primary-main-color;
     border-radius: $radius-s;
     border: thin solid $primary-dark-color;
     box-sizing: border-box;
+
+    &.secondary {
+      background-color: rgba($primary-main-color, 0.1);
+      color: $text-secondary;
+    }
+
+    &.main {
+      background-color: $primary-main-color;
+      color: $text-primary;
+    }
 
     &:not(:only-child) {
       padding-left: calc(#{$spacing-l} * 2 + #{$spacing-m})

@@ -21,10 +21,9 @@ export class UserDetailsStore {
 
     makeObservable(this, {
       locate: action,
+      initialLocate: action,
       userLocation: observable
     });
-
-    this.locate();
   }
 
   locate() {
@@ -35,6 +34,12 @@ export class UserDetailsStore {
           this.userLocation = { lat: latitude, lng: longitude };
         });
       });
+  }
+
+  initialLocate() {
+    if (!this.userLocation) {
+      this.locate();
+    }
   }
 
   hydrate(data?: UserDetailsHydration) {
