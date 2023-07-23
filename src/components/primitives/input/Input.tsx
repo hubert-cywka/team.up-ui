@@ -5,19 +5,20 @@ import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface InputProps extends ComponentProps<'input'> {
+  variant?: 'main' | 'secondary';
   icon?: IconDefinition;
   iconClassName?: string;
   fullWidth?: boolean;
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, icon, iconClassName, fullWidth, ...props }, ref) => {
+  ({ variant = 'main', className, icon, iconClassName, fullWidth, ...props }, ref) => {
     return (
       <div
         ref={ref}
         className={classNames(styles.inputContainer, { [styles.fullWidth]: fullWidth })}>
         {icon && <FontAwesomeIcon className={classNames(styles.icon, iconClassName)} icon={icon} />}
-        <input className={classNames(styles.input, className)} {...props} />
+        <input className={classNames(styles.input, className, styles[variant])} {...props} />
       </div>
     );
   }

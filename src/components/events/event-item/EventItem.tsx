@@ -27,7 +27,7 @@ const EventItem = ({ event }: EventItemProps) => {
     const hours = Math.floor(minutes / 60);
     const days = Math.floor(hours / 24);
 
-    let result = 'Last updated: ';
+    const result = 'Last updated: ';
 
     if (days) {
       return result.concat(`${days} day${days === 1 ? '' : 's'} ago`);
