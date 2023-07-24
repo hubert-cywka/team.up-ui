@@ -10,28 +10,21 @@ import Button from '@components/primitives/button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faClose, faUser } from '@fortawesome/free-solid-svg-icons';
 import { useAuthSession } from '@shared/hooks/auth/useAuthSession';
-
-const SCROLL_THRESHOLD = 25;
+import { useRouter } from 'next/router';
 
 const Navbar = () => {
-  const scrollDirection = useScrollDirection(SCROLL_THRESHOLD);
-  const isHidden = scrollDirection === 'down';
+  const SCROLL_THRESHOLD = 25;
   const [areNavigationTabsHidden, setAreNavigationTabsHidden] = useState(true);
   const isAuthenticated = useAuthSession().status === 'authenticated';
-
-  const isDisplayed = (route: string) => {
-    if (typeof window !== 'undefined') {
-      return window.location.pathname === route;
-    } else {
-      return false;
-    }
-  };
+  const scrollDirection = useScrollDirection(SCROLL_THRESHOLD);
+  const router = useRouter();
+  const isHidden = scrollDirection === 'down';
 
   const buildNavbarTab = (tabContent: string | ReactElement, route: string) => {
     return (
       <Link
         href={route}
-        className={classNames(styles.tab, { [styles.highlighted]: isDisplayed(route) })}>
+        className={classNames(styles.tab, { [styles.highlighted]: router.pathname === route })}>
         {tabContent}
       </Link>
     );

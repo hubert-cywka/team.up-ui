@@ -1,20 +1,20 @@
 @import "src/styles/variables.module";
 
 .locationPicker {
-  position: relative;
   width: 100%;
   height: 400px;
+  position: relative;
   border-radius: $radius-s;
   overflow: hidden;
 
   .locateButton {
     position: absolute;
     left: 50%;
-    bottom: 10px;
+    bottom: $spacing-m;
     z-index: 100;
-    transform: translateX(-50%);
     background-color: rgba($background-main-color, 0.75);
     color: $text-secondary;
+    transform: translateX(-50%);
   }
 
   .map {

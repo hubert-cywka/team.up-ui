@@ -56,7 +56,7 @@ const HeartMonitor = () => {
         />
       );
     }
-    return dashes.map((dash) => dash);
+    return dashes;
   };
 
   return (

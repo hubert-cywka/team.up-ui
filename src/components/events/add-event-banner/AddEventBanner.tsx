@@ -19,7 +19,7 @@ const AddEventBanner = () => {
     <section className={styles.addEventBanner}>
       <h4 className={styles.header}>{header}</h4>
       <Link href={route}>
-        <Button variant="main" name={buttonText}>
+        <Button variant="secondary" name={buttonText}>
           {buttonText}
         </Button>
       </Link>

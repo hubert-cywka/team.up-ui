@@ -2,12 +2,12 @@
 
 .textArea {
   width: 100%;
+  min-height: 100px;
+  padding: $spacing-l;
   border: thin solid $primary-dark-color;
   border-radius: $radius-s $radius-s 0;
-  padding: $spacing-l;
   box-sizing: border-box;
   resize: vertical;
-  min-height: 100px;
 
   &.secondary {
     background-color: rgba($primary-main-color, 0.1);

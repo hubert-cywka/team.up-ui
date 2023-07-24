@@ -19,9 +19,9 @@
 
     .inputMessage {
       width: 80%;
-      text-align: center;
       margin: $spacing-s auto $spacing-l;
       font-size: $s-font;
+      text-align: center;
 
       &.error {
         color: $error-main-color;
