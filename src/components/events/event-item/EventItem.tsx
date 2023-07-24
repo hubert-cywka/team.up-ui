@@ -6,6 +6,7 @@ import { calculateDistanceInKilometers } from '@shared/utility/LocationUtils';
 import { useUserDetailsStore } from '@stores/UserDetailsStore';
 import { memo } from 'react';
 import classNames from 'classnames';
+import { getLastUpdatedLabelFromDate } from '@shared/utility/DateUtils';
 
 interface EventItemProps {
   event: SportEvent;
@@ -15,41 +16,22 @@ const EventItem = ({ event }: EventItemProps) => {
   const userDetailsStore = useUserDetailsStore();
   const startDate = new Date(event.startDate).toLocaleDateString();
   const startTime = new Date(event.startDate).toLocaleTimeString().slice(0, -3);
-  const leftSlots = Math.floor(Math.random() * 5); // TODO remove this mock;
-
-  const getLastUpdated = () => {
-    if (!event.updatedAt) return;
-
-    const timeDifferenceInSeconds =
-      (new Date().getTime() - new Date(event.updatedAt).getTime()) / 1000;
-
-    const minutes = Math.floor(timeDifferenceInSeconds / 60);
-    const hours = Math.floor(minutes / 60);
-    const days = Math.floor(hours / 24);
-
-    const result = 'Last updated: ';
-
-    if (days) {
-      return result.concat(`${days} day${days === 1 ? '' : 's'} ago`);
-    } else if (hours) {
-      return result.concat(`${hours} hour${hours === 1 ? '' : 's'} ago`);
-    } else if (minutes) {
-      return result.concat(`${minutes} minute${minutes === 1 ? '' : 's'} ago`);
-    }
-
-    return result.concat('just now');
-  };
+  const leftSlots = Math.floor(Math.random() * event.maxPlayers); // TODO remove this mock;
 
   return (
     <article className={styles.eventItem}>
       <p className={styles.topLine}>
         <span className={styles.availability}>
-          <div className={classNames(styles.availabilityDot, { [styles.available]: leftSlots })} />
+          <span className={classNames(styles.availabilityDot, { [styles.available]: leftSlots })} />
           <span>
             {leftSlots} slot{leftSlots === 1 ? '' : 's'} left
           </span>
         </span>
-        <span className={styles.lastUpdated}>{getLastUpdated()}</span>
+        {event.updatedAt && (
+          <span className={styles.lastUpdated}>
+            {getLastUpdatedLabelFromDate(new Date(event.updatedAt))}
+          </span>
+        )}
       </p>
 
       <p className={styles.description}>{event.description}</p>

@@ -1,14 +1,14 @@
 @import "src/styles/variables.module";
 
 .addEventForm {
-  display: grid;
   width: 100%;
+  display: grid;
   grid-gap: $spacing-l $spacing-xl;
   padding: $spacing-m $spacing-l;
-  box-sizing: border-box;
   background-color: $background-light-color;
   color: $text-secondary;
   border-radius: $radius-m;
+  box-sizing: border-box;
 
   .inputIcon {
     color: $text-secondary;

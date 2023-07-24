@@ -1,10 +1,52 @@
 @import "src/styles/variables.module";
+@import "src/styles/mixins.module";
 
 .sportsList {
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: $spacing-m;
-  box-sizing: border-box;
+  position: relative;
+
+  .slideIndicator {
+    display: none;
+  }
+
+  .sports {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $spacing-m;
+    box-sizing: border-box;
+  }
+
+  @media (max-width: $sm) {
+    padding: 0 $spacing-l;
+    box-sizing: border-box;
+
+    .sports {
+      min-width: 100%;
+      gap: $spacing-s;
+      justify-content: left;
+      flex-wrap: nowrap;
+      overflow: scroll;
+      scroll-snap-type: x mandatory;
+      @include no-scrollbar;
+    }
+
+    .slideIndicator {
+      display: block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.75;
+      color: $success-main-color;
+
+      &.right {
+        right: 0;
+      }
+
+      &.left {
+        left: 0;
+      }
+    }
+  }
 }

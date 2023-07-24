@@ -13,7 +13,7 @@ const EventsList = observer(({ events }: EventsListProps) => {
   return (
     <section className={classNames(styles.eventsList, { [styles.empty]: !events.length })}>
       {!events.length ? (
-        <Alert variant="warning" message="No events to show." />
+        <Alert variant="warning" message="No events to show." /> // TODO better message
       ) : (
         events.map((event) => <EventItem key={event._id} event={event} />)
       )}

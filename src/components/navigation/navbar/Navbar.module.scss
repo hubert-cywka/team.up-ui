@@ -2,6 +2,7 @@
 @import "../../../styles/mixins.module";
 
 .pageNavbar {
+  width: 100%;
   position: sticky;
   top: 0;
   z-index: $index-top;
@@ -13,11 +14,9 @@
   padding: $spacing-xl $spacing-xxl;
   margin: 0 auto $spacing-m;
   background: $background-main-color;
-  overflow: hidden;
   box-shadow: $light-shadow;
-  transition: transform 0.3s;
   box-sizing: border-box;
-  width: 100%;
+  transition: transform 0.3s;
 
   @media (max-width: $lg) {
     flex-direction: column;
@@ -37,13 +36,12 @@
   }
 
   .toggleNavigationVisibilityButton {
-    display: none;
     position: absolute;
     right: $spacing-xl;
     top: $spacing-xl;
 
-    @media (max-width: $lg) {
-      display: block;
+    @media (min-width: $lg) {
+      display: none;
     }
   }
 
@@ -53,30 +51,34 @@
     align-items: center;
     flex-wrap: wrap;
     gap: $spacing-xl;
+    background: $background-main-color;
+    box-sizing: border-box;
+    transition: transform 0.2s;
 
     @media (max-width: $lg) {
+      width: 100%;
+      position: absolute;
+      top: 100%;
+      left: 0;
       flex-direction: column;
-      background: $background-main-color;
       padding: $spacing-m $spacing-l;
       box-shadow: $light-shadow;
-      box-sizing: border-box;
 
       &.hidden {
-        display: none;
+        transform: translateY(-200%);
       }
     }
 
     .tab {
-      color: $text-secondary;
+      width: fit-content;
       padding: $spacing-m;
+      color: $text-secondary;
       font-size: $s-font;
       font-weight: bold;
       text-decoration: none;
       text-transform: uppercase;
       cursor: pointer;
       transition: color 0.2s;
-      width: fit-content;
-
       @include glow-transition;
 
       &:hover {

@@ -2,16 +2,16 @@
 @import "src/styles/mixins.module";
 
 .eventItem {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  background-color: $background-light-color;
   padding: $spacing-l;
+  background-color: $background-light-color;
+  color: $text-secondary;
+  font-size: $s-font;
   border-radius: $radius-s;
   box-sizing: border-box;
-  color: $text-secondary;
   transition: transform 0.2s;
-  font-size: $s-font;
 
   &:hover {
     cursor: pointer;
@@ -19,18 +19,18 @@
   }
 
   .description {
+    margin: $spacing-l 0;
     opacity: 0.75;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    margin: $spacing-l 0;
   }
 
   .details {
     display: flex;
     flex-wrap: wrap;
-    opacity: 0.75;
     gap: $spacing-s $spacing-xl;
+    opacity: 0.75;
 
     .detailsRow {
       display: flex;
