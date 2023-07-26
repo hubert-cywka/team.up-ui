@@ -1,3 +1,5 @@
+'use client';
+
 import { GoogleMap, MarkerF, useJsApiLoader } from '@react-google-maps/api';
 import { memo, useEffect, useState } from 'react';
 import { GOOGLE_API_KEY } from '@shared/config/AppConfig';
@@ -38,6 +40,8 @@ const LocationPicker = observer(
       if (userLocation && !disabled) {
         onChange(userLocation);
         setCenterPosition(userLocation);
+      } else {
+        userDetailsStore.initialLocate();
       }
     }, [userDetailsStore.userLocation, disabled]);
 

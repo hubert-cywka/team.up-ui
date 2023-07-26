@@ -1,3 +1,5 @@
+'use client';
+
 import { SportEvent } from '@shared/types/Events';
 import styles from './EventItem.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -16,7 +18,7 @@ const EventItem = ({ event }: EventItemProps) => {
   const userDetailsStore = useUserDetailsStore();
   const startDate = new Date(event.startDate).toLocaleDateString();
   const startTime = new Date(event.startDate).toLocaleTimeString().slice(0, -3);
-  const leftSlots = Math.floor(Math.random() * event.maxPlayers); // TODO remove this mock;
+  const leftSlots = event.maxPlayers - event.users.length;
 
   return (
     <article className={styles.eventItem}>
