@@ -1,3 +1,5 @@
+'use client';
+
 import { Controller, useForm } from 'react-hook-form';
 import TimePicker from '@components/events/add-event-form/time-picker/TimePicker';
 import LocationPicker from '@components/events/add-event-form/location-picker/LocationPicker';

@@ -1,3 +1,5 @@
+'use client';
+
 import styles from './SportsPanel.module.scss';
 import { useState } from 'react';
 import Button from '@components/primitives/button/Button';

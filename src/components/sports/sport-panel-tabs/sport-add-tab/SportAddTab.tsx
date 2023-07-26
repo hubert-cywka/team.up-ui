@@ -1,3 +1,5 @@
+'use client';
+
 import Alert from '@components/primitives/alert/Alert';
 import Button from '@components/primitives/button/Button';
 import styles from '../SportPanelTabsShared.module.scss';
