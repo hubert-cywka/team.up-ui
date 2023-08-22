@@ -14,7 +14,8 @@ export interface SportEvent {
   updatedAt?: string;
 }
 
-export interface CreateSportEventRequest extends Omit<SportEvent, '_id' | 'users'> {}
+export interface CreateSportEventRequest
+  extends Omit<SportEvent, '_id' | 'users' | 'disciplineId'> {}
 
 export interface CreateSportEventRequestWithDisciplineId extends CreateSportEventRequest {
   sportDisciplineId: string;
