@@ -23,14 +23,14 @@ At this moment only few of mentioned below features are implemented.
 - create account and sign in ✅
 - authenticate using JWT and refresh tokens ✅
 - browse sport disciplines and sport events ✅
-- enroll for the event ⌛
+- enroll for the event ✅
 - filter events by sports, popularity, location, time, etc. ⌛
-- add, modify or delete own events ⌛
+- add, modify or delete own events ✅/⌛
 - change username, password, profile picture ⌛
 
 ### What can admin do?
 - everything user can do ✅
-- add, modify or delete sport events ⌛
+- add, modify or delete sport events ✅/⌛
 - add, modify or delete available sport disciplines ✅
 - change users roles, suspend users accounts ⌛
 - filter users by username or email ⌛

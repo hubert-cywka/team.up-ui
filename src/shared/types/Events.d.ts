@@ -6,6 +6,7 @@ export interface SportEvent {
   minPlayers: number;
   maxPlayers: number;
   location: GeoPosition;
+  disciplineId: string;
   startDate: string;
   description: string;
   users: UserDetails[];
